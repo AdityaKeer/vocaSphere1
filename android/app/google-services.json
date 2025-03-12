@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "690154065123",
+    "project_id": "vvocasphere1",
+    "storage_bucket": "vvocasphere1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690154065123:android:b5245f82ee26fb8fd889d6",
+        "android_client_info": {
+          "package_name": "com.example.major_project1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPxLTCEpj-Ybq56HAJf599G33JrP-T5vE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
