@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/authentication/data/firebase_auth_repo.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_cubit.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_states.dart';
+import 'package:major_project1/features/home/presentation/cubits/home_cubit.dart';
 import 'package:major_project1/themes/light_mode.dart';
 import 'features/authentication/presentation/pages/auth_page.dart';
 import 'features/home/presentation/pages/home_page.dart';
+import 'features/languages/cubits/language_cubit.dart';
 
 class MyApp extends StatelessWidget {
   final authRepo = FirebaseAuthRepo();
@@ -13,8 +15,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthCubit(authRepo: authRepo)..checkAuth(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthCubit(authRepo: authRepo)..checkAuth(),
+        ),
+        BlocProvider(create: (context) => HomeCubit()),
+        // BlocProvider(create: (context) => HindiCubit()..initializeHnLevels()),
+        BlocProvider(
+          create:
+              (context) => LanguageCubit(language: 'Hindi')..initializeLevels(),
+        ),
+        // BlocProvider(
+        //   create:
+        //       (context) =>
+        //           LanguageCubit(language: 'Japanese')..initializeLevels(),
+        // ),
+        BlocProvider(
+          create:
+              (context) =>
+                  LanguageCubit(language: 'English')..initializeLevels(),
+        ),
+        // BlocProvider(
+        //   create:
+        //       (context) =>
+        //           LanguageCubit(language: 'Marathi')..initializeLevels(),
+        // ),
+        // BlocProvider(
+        //   create:
+        //       (context) =>
+        //           LanguageCubit(language: 'Sanskrit')..initializeLevels(),
+        // ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: lightMode,
@@ -25,9 +57,11 @@ class MyApp extends StatelessWidget {
             }
 
             if (authState is Authenticated) {
-              return HomePage();
+              return const HomePage();
             } else {
-              return Scaffold(body: Center(child: CircularProgressIndicator()));
+              return const Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              );
             }
           },
           listener: (context, authState) {

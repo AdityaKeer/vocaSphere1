@@ -10,6 +10,7 @@ class FirebaseAuthRepo implements AuthRepo {
   @override
   Future<AppUser?> getCurrentUser() async {
     final firebaseUser = firebaseAuth.currentUser;
+
     if (firebaseUser == null) {
       return null;
     }
@@ -66,7 +67,6 @@ class FirebaseAuthRepo implements AuthRepo {
 
       return user;
     } catch (e) {
-      print('Registration failed : $e');
       throw Exception('Registration failed : $e');
     }
   }

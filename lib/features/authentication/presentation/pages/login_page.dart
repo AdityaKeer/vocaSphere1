@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_cubit.dart';
-import 'package:major_project1/themes/light_mode.dart';
 import 'package:major_project1/features/authentication/presentation/components/common_text_field.dart';
 import 'package:major_project1/features/authentication/presentation/components/common_button.dart';
 
