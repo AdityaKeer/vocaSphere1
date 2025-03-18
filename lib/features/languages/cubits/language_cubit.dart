@@ -23,23 +23,23 @@ class LanguageCubit extends Cubit<LanguageState> {
   void initializeLevels() {
     if (_levelPages.isNotEmpty) return;
 
-    switch (language) {
-      case 'Hindi':
-        _levelPages = {'HnLvl1': const HnLvl1(), 'HnLvl2': const HnLvl2()};
-        break;
-      case 'English':
-        _levelPages = {'EnLvl1': const EnLvl1(), 'EnLvl2': const EnLvl2()};
-        break;
-      case 'Japanese':
-        _levelPages = {'JpLvl1': const JpLvl1(), 'JpLvl2': const JpLvl2()};
-        break;
-      case 'Sanskrit':
-        _levelPages = {'SaLvl1': const SaLvl1(), 'SaLvl2': const SaLvl2()};
-        break;
-      case 'Marathi':
-        _levelPages = {'MrLvl1': const MrLvl1(), 'MrLvl2': const MrLvl2()};
-        break;
-    }
+    // switch (language) {
+    //   case 'Hindi':
+    //     _levelPages = {'HnLvl1': const HnLvl1(), 'HnLvl2': const HnLvl2()};
+    //     break;
+    //   case 'English':
+    //     _levelPages = {'EnLvl1': const EnLvl1(), 'EnLvl2': const EnLvl2()};
+    //     break;
+    //   case 'Japanese':
+    //     _levelPages = {'JpLvl1': const JpLvl1(), 'JpLvl2': const JpLvl2()};
+    //     break;
+    //   case 'Sanskrit':
+    //     _levelPages = {'SaLvl1': const SaLvl1(), 'SaLvl2': const SaLvl2()};
+    //     break;
+    //   case 'Marathi':
+    //     _levelPages = {'MrLvl1': const MrLvl1(), 'MrLvl2': const MrLvl2()};
+    //     break;
+    // }
 
     emit(LevelListUpdated(levelPages: Map.from(_levelPages)));
   }
