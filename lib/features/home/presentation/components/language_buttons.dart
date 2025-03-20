@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/home/presentation/cubits/home_cubit.dart';
 import 'package:major_project1/features/home/presentation/cubits/home_state.dart';
 import 'package:major_project1/features/authentication/presentation/components/common_button.dart';
+import 'package:major_project1/features/languages/cubits/language_cubit.dart';
 
 class LanguageButtonsList extends StatefulWidget {
-  LanguageButtonsList({super.key});
+  const LanguageButtonsList({super.key});
 
   @override
   State<LanguageButtonsList> createState() => _LanguageButtonsListState();
@@ -26,6 +27,7 @@ class _LanguageButtonsListState extends State<LanguageButtonsList> {
                     child: MyButton(
                       text: entry.key,
                       onTap: () async {
+                        context.read<LanguageCubit>().language = entry.key;
                         await Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => entry.value),

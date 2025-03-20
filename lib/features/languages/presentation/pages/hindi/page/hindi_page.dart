@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../authentication/presentation/cubits/auth_cubit.dart';
+import '../../../../cubits/language_cubit.dart';
 import '../../../components/level_buttons.dart';
 import '../../../components/levels_list.dart';
 import '../cubits/hindi_cubit.dart';
@@ -14,6 +15,12 @@ class HindiPage extends StatefulWidget {
 }
 
 class _HindiPageState extends State<HindiPage> {
+  @override
+  void initState() {
+    context.read<LanguageCubit>().initializeLevels();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,7 @@ class _HindiPageState extends State<HindiPage> {
           ),
         ],
       ),
-      body: SafeArea(child: LevelList(language: 'Hindi')),
+      body: SafeArea(child: LevelList()),
     );
   }
 }

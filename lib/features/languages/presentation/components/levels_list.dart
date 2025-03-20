@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/languages/presentation/pages/hindi/cubits/hindi_cubit.dart';
+import '../../../levels/presentation/hindi_levels/hn_lvl4.dart';
 import '../../cubits/language_cubit.dart';
 import '../../cubits/language_state.dart';
 import '../components/level_buttons.dart';
 
 class LevelList extends StatelessWidget {
-  final String language;
-  const LevelList({super.key, required this.language});
+  const LevelList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +30,8 @@ class LevelList extends StatelessWidget {
               );
             },
           );
+        } else if (state is LevelSelected) {
+          return state.lvlPage;
         }
         return const Center(child: CircularProgressIndicator());
       },

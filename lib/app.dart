@@ -22,30 +22,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(create: (context) => HomeCubit()),
         // BlocProvider(create: (context) => HindiCubit()..initializeHnLevels()),
-        BlocProvider(
-          create:
-              (context) => LanguageCubit(language: 'Hindi')..initializeLevels(),
-        ),
-        // BlocProvider(
-        //   create:
-        //       (context) =>
-        //           LanguageCubit(language: 'Japanese')..initializeLevels(),
-        // ),
-        BlocProvider(
-          create:
-              (context) =>
-                  LanguageCubit(language: 'English')..initializeLevels(),
-        ),
-        // BlocProvider(
-        //   create:
-        //       (context) =>
-        //           LanguageCubit(language: 'Marathi')..initializeLevels(),
-        // ),
-        // BlocProvider(
-        //   create:
-        //       (context) =>
-        //           LanguageCubit(language: 'Sanskrit')..initializeLevels(),
-        // ),
+        BlocProvider(create: (context) => LanguageCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

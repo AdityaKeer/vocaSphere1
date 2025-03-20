@@ -4,6 +4,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 import '../../../../../authentication/presentation/components/common_button.dart';
 import '../../../../../authentication/presentation/cubits/auth_cubit.dart';
+import '../../../../cubits/language_cubit.dart';
 import '../../../components/levels_list.dart';
 
 class EnglishPage extends StatefulWidget {
@@ -14,6 +15,12 @@ class EnglishPage extends StatefulWidget {
 }
 
 class _EnglishPageState extends State<EnglishPage> {
+  @override
+  void initState() {
+    context.read<LanguageCubit>().initializeLevels();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +35,7 @@ class _EnglishPageState extends State<EnglishPage> {
           ),
         ],
       ),
-      body: SafeArea(child: LevelList(language: 'English')),
+      body: SafeArea(child: LevelList()),
     );
   }
 }
