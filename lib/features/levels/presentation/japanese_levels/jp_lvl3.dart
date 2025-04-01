@@ -6,14 +6,14 @@ import '../../../languages/cubits/language_cubit.dart';
 import '../../Models/item_model.dart';
 import '../../utilities/constants.dart';
 
-class HnLvl4 extends StatefulWidget {
-  const HnLvl4({super.key});
+class JpLvl3 extends StatefulWidget {
+  const JpLvl3({super.key});
 
   @override
-  State<HnLvl4> createState() => _HnLvl4State();
+  State<JpLvl3> createState() => _JpLvl3State();
 }
 
-class _HnLvl4State extends State<HnLvl4> with SingleTickerProviderStateMixin {
+class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
   late List<ItemModel> dataSource;
   late List<ItemModel> letters;
   late List<ItemModel> pronunciation;
@@ -42,7 +42,7 @@ class _HnLvl4State extends State<HnLvl4> with SingleTickerProviderStateMixin {
   void initGame() {
     score = 0;
     gameOver = false;
-    dataSource = kHnAlphabets;
+    dataSource = kJpAlphabets;
 
     letters = List.generate(
       6,

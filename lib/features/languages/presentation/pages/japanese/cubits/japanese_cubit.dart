@@ -23,7 +23,7 @@ class JapaneseCubit extends Cubit<JapaneseState> {
       'JpLvl3': const JpLvl1(),
       'JpLvl4': const JpLvl2(),
       'JpLvl5': const MrLvl1(),
-      'JpLvl6': const MrLvl2(),
+      'JpLvl6': const MrLvl1(),
       'JpLvl7': const HnLvl1(),
       'JpLvl8': const HnLvl1(),
       'JpLvl9': const HnLvl1(),

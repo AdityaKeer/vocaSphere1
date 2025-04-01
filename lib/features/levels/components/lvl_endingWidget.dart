@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+
 import 'package:simple_shadow/simple_shadow.dart';
 
-import '../../languages/cubits/language_cubit.dart';
+class LevelEndingWidget extends StatefulWidget {
+  final double initialPercent;
+  final VoidCallback? onLevelsList;
+  final VoidCallback? onRetry;
+  final VoidCallback? onNextLevel;
 
-class LvlEndingPage extends StatefulWidget {
-  const LvlEndingPage({super.key});
+  const LevelEndingWidget({
+    super.key,
+    this.initialPercent = 0.10,
+    this.onLevelsList,
+    this.onRetry,
+    this.onNextLevel,
+  });
 
   @override
-  State<LvlEndingPage> createState() => _LvlEndingPageState();
+  State<LevelEndingWidget> createState() => _LevelEndingWidgetState();
 }
 
-class _LvlEndingPageState extends State<LvlEndingPage>
+class _LevelEndingWidgetState extends State<LevelEndingWidget>
     with SingleTickerProviderStateMixin {
-  double percent = 0.10; // Starting percentage
+  late double percent;
   late Color progressColor;
   late double progress;
   late AnimationController _animationController;
@@ -23,18 +32,19 @@ class _LvlEndingPageState extends State<LvlEndingPage>
   @override
   void initState() {
     super.initState();
+    percent = widget.initialPercent;
+
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1200), // Smoother duration
+      duration: const Duration(milliseconds: 1200),
     );
+
     _percentAnimation = Tween<double>(begin: 0.0, end: percent).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeInOut, // Smooth easing for approachability
-      ),
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     )..addListener(() {
       setState(() {}); // Update UI during animation
     });
+
     _animationController.forward(); // Start animation
   }
 
@@ -58,6 +68,7 @@ class _LvlEndingPageState extends State<LvlEndingPage>
     progressColor = _getProgressColor(progress);
 
     return Scaffold(
+      appBar: AppBar(centerTitle: true, title: Text('Level Completed')),
       body: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -69,8 +80,8 @@ class _LvlEndingPageState extends State<LvlEndingPage>
         child: SafeArea(
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 50),
                 SimpleShadow(
                   opacity: 0.5,
                   offset: const Offset(5, 5),
@@ -85,11 +96,11 @@ class _LvlEndingPageState extends State<LvlEndingPage>
                   child: CircularPercentIndicator(
                     radius: 170,
                     lineWidth: 30,
-                    percent: _percentAnimation.value, // Animated value
+                    percent: _percentAnimation.value,
                     backgroundColor: Colors.black12,
                     progressColor: progressColor,
                     circularStrokeCap: CircularStrokeCap.round,
-                    animation: false, // Controlled by our AnimationController
+                    animation: false,
                     center: Stack(
                       alignment: Alignment.center,
                       children: [
@@ -103,9 +114,7 @@ class _LvlEndingPageState extends State<LvlEndingPage>
                                 Paint()
                                   ..style = PaintingStyle.stroke
                                   ..strokeWidth = 2
-                                  ..color =
-                                      Colors
-                                          .black, // Changed to black for contrast
+                                  ..color = Colors.black,
                           ),
                         ),
                         Text(
@@ -121,47 +130,48 @@ class _LvlEndingPageState extends State<LvlEndingPage>
                     ),
                   ),
                 ),
-                const SizedBox(height: 50), // Replaced Padding with SizedBox
+                const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    GestureDetector(
-                      onTap:
-                          () =>
-                              context.read<LanguageCubit>().initializeLevels(),
-                      child: SimpleShadow(
-                        opacity: 0.5,
-                        offset: const Offset(5, 5),
-                        sigma: 7,
-                        child: Image.asset(
-                          'assets/images/progLevelsListIcon.png',
+                    if (widget.onLevelsList != null)
+                      GestureDetector(
+                        onTap: widget.onLevelsList,
+                        child: SimpleShadow(
+                          opacity: 0.5,
+                          offset: const Offset(5, 5),
+                          sigma: 7,
+                          child: Image.asset(
+                            'assets/images/progLevelsListIcon.png',
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    GestureDetector(
-                      onTap: () => context.read<LanguageCubit>().retryLvl(),
-                      child: SimpleShadow(
-                        opacity: 0.5,
-                        offset: const Offset(5, 5),
-                        sigma: 7,
-                        child: Image.asset(
-                          'assets/images/progLevelRetryIcon.png',
+                    if (widget.onLevelsList != null) const SizedBox(width: 20),
+                    if (widget.onRetry != null)
+                      GestureDetector(
+                        onTap: widget.onRetry,
+                        child: SimpleShadow(
+                          opacity: 0.5,
+                          offset: const Offset(5, 5),
+                          sigma: 7,
+                          child: Image.asset(
+                            'assets/images/progLevelRetryIcon.png',
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    GestureDetector(
-                      onTap: () => context.read<LanguageCubit>().nextlvl(),
-                      child: SimpleShadow(
-                        opacity: 0.5,
-                        offset: const Offset(5, 5),
-                        sigma: 7,
-                        child: Image.asset(
-                          'assets/images/progLevelNextIcon.png',
+                    if (widget.onRetry != null) const SizedBox(width: 20),
+                    if (widget.onNextLevel != null)
+                      GestureDetector(
+                        onTap: widget.onNextLevel,
+                        child: SimpleShadow(
+                          opacity: 0.5,
+                          offset: const Offset(5, 5),
+                          sigma: 7,
+                          child: Image.asset(
+                            'assets/images/progLevelNextIcon.png',
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ],

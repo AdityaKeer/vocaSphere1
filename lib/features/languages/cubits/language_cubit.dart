@@ -4,12 +4,15 @@ import 'package:major_project1/features/levels/components/lvl_endingPage.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/en_lvl2.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl4.dart';
-import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl4.dart';
+import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl3.dart';
+import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl6.dart';
 import '../../levels/presentation/english_levels/en_lvl1.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl1.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl2.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl1.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl2.dart';
+import '../../levels/presentation/japanese_levels/jp_lvl4.dart';
+import '../../levels/presentation/japanese_levels/jp_lvl5.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl1.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl2.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl1.dart';
@@ -22,13 +25,15 @@ class LanguageCubit extends Cubit<LanguageState> {
 
   Map<String, Widget> _levelPages = {};
 
+  String? currentLevel;
+
   void initializeLevels() {
     switch (language) {
       case 'Hindi':
         _levelPages = {
           'HnLvl1': const HnLvl1(),
           'HnLvl2': const HnLvl2(),
-          'HnLvl3': const LvlEndingPage(),
+          'HnLvl3': const HnLvl3(),
           'HnLvl4': const HnLvl4(),
         };
         break;
@@ -39,7 +44,10 @@ class LanguageCubit extends Cubit<LanguageState> {
         _levelPages = {
           'JpLvl1': const JpLvl1(),
           'JpLvl2': const JpLvl2(),
+          'JpLvl3': const JpLvl3(),
           'JpLvl4': const JpLvl4(),
+          'JpLvl5': const JpLvl5(),
+          'JpLvl6': const JpLvl6(),
         };
         break;
       case 'Sanskrit':
@@ -53,8 +61,25 @@ class LanguageCubit extends Cubit<LanguageState> {
     emit(LevelListUpdated(levelPages: Map.from(_levelPages)));
   }
 
-  void selectLevel(String name, BuildContext context) {
+  void nextlvl() {
+    int nextLvlIndex = _levelPages.keys.toList().indexOf(currentLevel!);
+    selectLevel(_levelPages.keys.elementAt(nextLvlIndex + 1));
+  }
+
+  void retryLvl() {
+    int currentLvlIndex = _levelPages.keys.toList().indexOf(currentLevel!);
+    selectLevel(_levelPages.keys.elementAt(currentLvlIndex));
+    emit(
+      LevelSelected(
+        selectedLevel: currentLevel!,
+        lvlPage: _levelPages[currentLevel]!,
+      ),
+    );
+  }
+
+  void selectLevel(String name) {
     if (_levelPages.containsKey(name)) {
+      currentLevel = name;
       emit(LevelSelected(selectedLevel: name, lvlPage: _levelPages[name]!));
       // Navigator.push(
       //   context,

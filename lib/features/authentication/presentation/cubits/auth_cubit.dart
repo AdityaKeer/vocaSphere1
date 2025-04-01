@@ -11,12 +11,15 @@ class AuthCubit extends Cubit<AuthState> {
 
   //check if user is already authenticated
   void checkAuth() async {
+    print("🔍 Running checkAuth()...");
     final AppUser? user = await authRepo.getCurrentUser();
 
     if (user != null) {
+      print("✅ User found: ${user.email}");
       _currentUser = user;
       emit(Authenticated(user));
     } else {
+      print("❌ No user found, emitting UnAuthenticated");
       emit(UnAuthenticated());
     }
   }
@@ -28,17 +31,19 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> login(String email, String pass) async {
     try {
       emit(AuthLoading());
+      print("Login started...");
       final user = await authRepo.loginWithEmailPass(email, pass);
 
       if (user != null) {
+        print("Login successful: ${user.email}");
         _currentUser = user;
         emit(Authenticated(user));
       } else {
+        print("Login failed, emitting UnAuthenticated");
         emit(UnAuthenticated());
       }
     } catch (e) {
-      emit(AuthError(e.toString()));
-      emit(UnAuthenticated());
+      emit(AuthError('Login failed: $e'));
     }
   }
 
@@ -62,7 +67,15 @@ class AuthCubit extends Cubit<AuthState> {
 
   //logout
   Future<void> logOut() async {
-    authRepo.logout();
-    emit(UnAuthenticated());
+    try {
+      print("🔄 Attempting logout...");
+      await authRepo.logout();
+      print("✅ Logout successful, emitting UnAuthenticated...");
+      _currentUser = null;
+      emit(UnAuthenticated());
+    } catch (e) {
+      print("❌ Logout failed: $e");
+      emit(AuthError('Logout failed: $e'));
+    }
   }
 }

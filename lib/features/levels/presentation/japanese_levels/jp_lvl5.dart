@@ -6,14 +6,15 @@ import 'package:major_project1/features/levels/components/number_card.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
+import '../../components/word_card.dart';
 
-class JpLvl4 extends StatefulWidget {
-  const JpLvl4({super.key});
+class JpLvl5 extends StatefulWidget {
+  const JpLvl5({super.key});
   @override
-  State<JpLvl4> createState() => _JpLvl4State();
+  State<JpLvl5> createState() => _JpLvl5State();
 }
 
-class _JpLvl4State extends State<JpLvl4> {
+class _JpLvl5State extends State<JpLvl5> {
   final FlutterTts flutterTts = FlutterTts();
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -37,12 +38,12 @@ class _JpLvl4State extends State<JpLvl4> {
               child: Row(
                 children: [
                   Text(
-                    'Japanese Numbers(langNumWord)',
+                    'Common Words(Hiragana)',
                     style: theme.textTheme.titleLarge,
                   ),
                   Spacer(),
                   Text(
-                    '${_currentPage + 1}/10',
+                    '${_currentPage + 1}/11',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.primary,
                     ),
@@ -64,75 +65,93 @@ class _JpLvl4State extends State<JpLvl4> {
                     });
                   },
                   children: [
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 1,
-                      langNumWord: "いち",
-                      pronun: "ee-chee",
+
+                      pronun: "Konnichiwa",
+                      engWord: '"Hello"',
+                      langWord: 'こんにちは',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 2,
-                      langNumWord: "に",
-                      pronun: "nee",
+
+                      pronun: "Arigatou",
+                      engWord: '"Thank you"',
+                      langWord: 'ありがとう',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 3,
-                      langNumWord: "さん",
-                      pronun: "sahn",
+
+                      pronun: "Sayounara",
+                      engWord: '"Goodbye"',
+                      langWord: 'さようなら',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 4,
-                      langNumWord: "し / よん",
-                      pronun: "shee / yon",
+
+                      pronun: "Hai",
+                      engWord: '"Yes"',
+                      langWord: 'はい',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 5,
-                      langNumWord: "ご",
-                      pronun: "goh",
+
+                      pronun: "Iie",
+                      engWord: '"No"',
+                      langWord: 'いいえ',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 6,
-                      langNumWord: "ろく",
-                      pronun: "roh-koo",
+
+                      pronun: "Onegaishimasu",
+                      engWord: '"Please"',
+                      langWord: 'おねがいします',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 7,
-                      langNumWord: "しち / なな",
-                      pronun: "shee-chee / nah-nah",
+
+                      pronun: "Sumimasen",
+                      engWord: '"Excuse me / Sorry"',
+                      langWord: 'すみません',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 8,
-                      langNumWord: "はち",
-                      pronun: "hah-chee",
+
+                      pronun: "Gomen nasai",
+                      engWord: '"I\'m sorry"',
+                      langWord: 'ごめんなさい',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 9,
-                      langNumWord: "きゅう / く",
-                      pronun: "kyoo / koo",
+
+                      pronun: "Ohayou gozaimasu",
+                      engWord: '"Good morning"',
+                      langWord: 'おはようございます',
                     ),
-                    NumberCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
-                      number: 10,
-                      langNumWord: "じゅう",
-                      pronun: "joo",
+
+                      pronun: "Konbanwa",
+                      engWord: '"Good evening"',
+                      langWord: 'こんばんは',
+                    ),
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "ja-JP",
+
+                      pronun: "Oyasuminasai",
+                      engWord: '"Good Night"',
+                      langWord: 'おやすみなさい',
                     ),
                     Card(
                       elevation: 50,
@@ -259,10 +278,19 @@ class _JpLvl4State extends State<JpLvl4> {
                                                 Navigator.of(context).pop();
                                               },
                                               onRetry: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .retryLvl();
+                                                // context
+                                                //     .read<LanguageCubit>()
+                                                //     .retryLvl();
                                                 Navigator.of(context).pop();
+                                                _currentPage = 0;
+                                                _pageController.animateToPage(
+                                                  _currentPage,
+                                                  duration: Duration(
+                                                    milliseconds: 500,
+                                                  ),
+                                                  curve: Curves.linear,
+                                                );
+                                                setState(() {});
                                               },
                                             ),
                                       ),
@@ -307,7 +335,7 @@ class _JpLvl4State extends State<JpLvl4> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
-                    10,
+                    11,
                     (index) => Container(
                       margin: EdgeInsets.symmetric(horizontal: 4),
                       height: 10,
@@ -358,7 +386,7 @@ class _JpLvl4State extends State<JpLvl4> {
                   ),
                   ElevatedButton(
                     onPressed:
-                        _currentPage < 11
+                        _currentPage < 12
                             ? () {
                               _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),

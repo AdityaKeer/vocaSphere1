@@ -10,36 +10,67 @@ class FirebaseAuthRepo implements AuthRepo {
   @override
   Future<AppUser?> getCurrentUser() async {
     final firebaseUser = firebaseAuth.currentUser;
+    print("🔍 Checking FirebaseAuth.currentUser...");
 
     if (firebaseUser == null) {
+      print("❌ No user found in FirebaseAuth.");
       return null;
     }
-
+    print("✅ User found: ${firebaseUser.email}");
     return AppUser(name: '', email: firebaseUser.email!, uid: firebaseUser.uid);
   }
 
   @override
+  // Future<AppUser?> loginWithEmailPass(String email, String password) async {
+  //   try {
+  //     UserCredential userCredential = await firebaseAuth
+  //         .signInWithEmailAndPassword(email: email, password: password);
+  //
+  //     print("User logged in: ${userCredential.user?.email}");
+  //
+  //     //create user
+  //     AppUser user = AppUser(
+  //       name: '',
+  //       email: email,
+  //       uid: userCredential.user!.uid,
+  //     );
+  //     return user;
+  //   } catch (e) {
+  //     throw Exception('Login failed : $e');
+  //   }
+  // }
   Future<AppUser?> loginWithEmailPass(String email, String password) async {
     try {
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
 
-      //create user
-      AppUser user = AppUser(
-        name: '',
+      // Debugging print
+      print("User logged in: ${userCredential.user?.email}");
+
+      return AppUser(
+        name: '', // Fetch name from Firestore if needed
         email: email,
         uid: userCredential.user!.uid,
       );
-      return user;
+    } on FirebaseAuthException catch (e) {
+      print("FirebaseAuthException: ${e.message}"); // Debugging
+      throw Exception('Login failed: ${e.message}');
     } catch (e) {
-      throw Exception('Login failed : $e');
+      print("Unexpected error: $e"); // Debugging
+      throw Exception('Unexpected error: $e');
     }
   }
 
   @override
   Future<void> logout() async {
-    await firebaseAuth.signOut();
-    throw UnimplementedError();
+    try {
+      print("🚪 Logging out...");
+      await firebaseAuth.signOut();
+      print("✅ Logout successful!");
+    } catch (e) {
+      print("❌ Logout error: $e");
+      throw Exception("Logout failed: $e");
+    }
   }
 
   @override

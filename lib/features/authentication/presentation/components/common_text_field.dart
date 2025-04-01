@@ -9,6 +9,7 @@ class MyTextField extends StatelessWidget {
     required this.controller,
     required this.hintText,
     required this.obscureText,
+    required Icon prefixIcon,
   });
 
   @override
@@ -27,7 +28,7 @@ class MyTextField extends StatelessWidget {
         ),
         hintText: hintText,
         hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
-        fillColor: Theme.of(context).colorScheme.secondary,
+        fillColor: Theme.of(context).colorScheme.onPrimary,
         filled: true,
       ),
     );

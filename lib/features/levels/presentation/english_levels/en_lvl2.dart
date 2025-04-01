@@ -16,10 +16,10 @@ class _EnLvl2State extends State<EnLvl2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.logout))],
-      ),
+      // appBar: AppBar(
+      //   title: Text('Home'),
+      //   actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.logout))],
+      // ),
       body: SafeArea(
         child: Center(
           child: Container(

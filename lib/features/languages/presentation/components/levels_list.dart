@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/languages/presentation/pages/hindi/cubits/hindi_cubit.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 import '../../../levels/presentation/hindi_levels/hn_lvl4.dart';
 import '../../cubits/language_cubit.dart';
 import '../../cubits/language_state.dart';
@@ -11,30 +12,68 @@ class LevelList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LanguageCubit, LanguageState>(
-      builder: (context, state) {
-        if (state is LevelListUpdated) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: state.levelPages.length,
-            itemBuilder: (context, index) {
-              String levelName = state.levelPages.keys.elementAt(index);
+    return Container(
+      // Make the container fill the entire available space
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          opacity: 0.63,
+          image: AssetImage('assets/images/lvlListBg3.jpeg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: BlocBuilder<LanguageCubit, LanguageState>(
+        builder: (context, state) {
+          if (state is LevelListUpdated) {
+            return ListView.builder(
+              // Remove shrinkWrap to allow the ListView to fill the container
+              // shrinkWrap: true,
+              itemCount: state.levelPages.length,
+              itemBuilder: (context, index) {
+                String levelName = state.levelPages.keys.elementAt(index);
 
-              return LevelButton(
-                n: index + 1,
-                left: index.isEven ? 0 : 140.0,
-                right: index.isEven ? 140.0 : 0,
-                onTap: () {
-                  context.read<LanguageCubit>().selectLevel(levelName, context);
-                },
-              );
-            },
+                return Center(
+                  child: SimpleShadow(
+                    opacity: 0.5,
+                    offset: const Offset(5, 5),
+                    sigma: 7,
+                    child: LevelButton(
+                      n: index + 1,
+                      left: index.isEven ? 0 : 140.0,
+                      right: index.isEven ? 140.0 : 0,
+                      onTap: () {
+                        context.read<LanguageCubit>().selectLevel(levelName);
+                      },
+                    ),
+                  ),
+                );
+              },
+            );
+          } else if (state is LevelSelected) {
+            return Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  opacity: 0.63,
+                  image: AssetImage('assets/images/lvlListBg3.jpeg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: state.lvlPage,
+            );
+          }
+          return Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                opacity: 0.63,
+                image: AssetImage('assets/images/lvlListBg3.jpeg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: const Center(child: CircularProgressIndicator()),
           );
-        } else if (state is LevelSelected) {
-          return state.lvlPage;
-        }
-        return const Center(child: CircularProgressIndicator());
-      },
+        },
+      ),
     );
   }
 }
