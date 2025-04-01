@@ -21,24 +21,6 @@ class FirebaseAuthRepo implements AuthRepo {
   }
 
   @override
-  // Future<AppUser?> loginWithEmailPass(String email, String password) async {
-  //   try {
-  //     UserCredential userCredential = await firebaseAuth
-  //         .signInWithEmailAndPassword(email: email, password: password);
-  //
-  //     print("User logged in: ${userCredential.user?.email}");
-  //
-  //     //create user
-  //     AppUser user = AppUser(
-  //       name: '',
-  //       email: email,
-  //       uid: userCredential.user!.uid,
-  //     );
-  //     return user;
-  //   } catch (e) {
-  //     throw Exception('Login failed : $e');
-  //   }
-  // }
   Future<AppUser?> loginWithEmailPass(String email, String password) async {
     try {
       UserCredential userCredential = await firebaseAuth
@@ -47,11 +29,7 @@ class FirebaseAuthRepo implements AuthRepo {
       // Debugging print
       print("User logged in: ${userCredential.user?.email}");
 
-      return AppUser(
-        name: '', // Fetch name from Firestore if needed
-        email: email,
-        uid: userCredential.user!.uid,
-      );
+      return AppUser(name: '', email: email, uid: userCredential.user!.uid);
     } on FirebaseAuthException catch (e) {
       print("FirebaseAuthException: ${e.message}"); // Debugging
       throw Exception('Login failed: ${e.message}');

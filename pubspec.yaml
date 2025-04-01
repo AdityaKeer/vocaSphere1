@@ -47,6 +47,7 @@ dependencies:
   speech_to_text: ^7.0.0
   fuzzywuzzy: ^1.2.0
   flutter_screenutil: ^5.9.3
+  flutter_flip_card: ^0.0.6
 
 dev_dependencies:
   flutter_test:

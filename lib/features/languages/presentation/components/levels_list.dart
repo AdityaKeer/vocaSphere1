@@ -27,8 +27,6 @@ class LevelList extends StatelessWidget {
         builder: (context, state) {
           if (state is LevelListUpdated) {
             return ListView.builder(
-              // Remove shrinkWrap to allow the ListView to fill the container
-              // shrinkWrap: true,
               itemCount: state.levelPages.length,
               itemBuilder: (context, index) {
                 String levelName = state.levelPages.keys.elementAt(index);

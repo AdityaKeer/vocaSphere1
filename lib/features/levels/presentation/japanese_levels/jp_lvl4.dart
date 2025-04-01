@@ -30,17 +30,20 @@ class _JpLvl4State extends State<JpLvl4> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Progress indicator
             Container(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Row(
                 children: [
-                  Text(
-                    'Japanese Numbers(langNumWord)',
-                    style: theme.textTheme.titleLarge,
+                  Expanded(
+                    child: Text(
+                      ' Numbers(Hiragana)',
+                      style: theme.textTheme.titleLarge,
+                    ),
                   ),
-                  Spacer(),
+
                   Text(
                     '${_currentPage + 1}/10',
                     style: theme.textTheme.bodyLarge?.copyWith(
@@ -137,9 +140,7 @@ class _JpLvl4State extends State<JpLvl4> {
                     Card(
                       elevation: 50,
                       shadowColor: Colors.black.withOpacity(0.2),
-                      color:
-                          Colors
-                              .transparent, // Made transparent to show container decoration
+                      color: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -169,7 +170,6 @@ class _JpLvl4State extends State<JpLvl4> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // Decorative element with animation potential
                               Container(
                                 width: 150,
                                 height: 150,
@@ -194,7 +194,7 @@ class _JpLvl4State extends State<JpLvl4> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 30),
+                              SizedBox(height: 10),
                               Text(
                                 'Well Done',
                                 style: TextStyle(
@@ -220,7 +220,7 @@ class _JpLvl4State extends State<JpLvl4> {
                                   fontStyle: FontStyle.italic,
                                 ),
                               ),
-                              SizedBox(height: 50),
+                              SizedBox(height: 10),
                               Center(
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -259,10 +259,16 @@ class _JpLvl4State extends State<JpLvl4> {
                                                 Navigator.of(context).pop();
                                               },
                                               onRetry: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .retryLvl();
                                                 Navigator.of(context).pop();
+                                                _currentPage = 0;
+                                                _pageController.animateToPage(
+                                                  _currentPage,
+                                                  duration: Duration(
+                                                    milliseconds: 500,
+                                                  ),
+                                                  curve: Curves.linear,
+                                                );
+                                                setState(() {});
                                               },
                                             ),
                                       ),
@@ -300,24 +306,26 @@ class _JpLvl4State extends State<JpLvl4> {
             ),
 
             // Navigation dots
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 24),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    10,
-                    (index) => Container(
-                      margin: EdgeInsets.symmetric(horizontal: 4),
-                      height: 10,
-                      width: _currentPage == index ? 20 : 10,
-                      decoration: BoxDecoration(
-                        color:
-                            _currentPage == index
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.primaryContainer,
-                        borderRadius: BorderRadius.circular(5),
+            Center(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 24),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      10,
+                      (index) => Container(
+                        margin: EdgeInsets.symmetric(horizontal: 4),
+                        height: 10,
+                        width: _currentPage == index ? 20 : 10,
+                        decoration: BoxDecoration(
+                          color:
+                              _currentPage == index
+                                  ? theme.colorScheme.primary
+                                  : theme.colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                       ),
                     ),
                   ),

@@ -30,18 +30,52 @@ class LetterCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                onPressed: () async {
-                  await flutterTts.setLanguage(lang);
-                  await flutterTts.setSpeechRate(0.20);
-                  await flutterTts.speak(letter);
-                },
-                icon: Icon(
-                  CupertinoIcons.speaker_3_fill,
-                  color: Colors.blueAccent,
-                  size: 40,
+            GestureDetector(
+              onTap: () async {
+                await flutterTts.setLanguage(lang);
+                await flutterTts.setSpeechRate(0.20);
+                await flutterTts.speak(letter);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 4,
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.blueAccent.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text(
+                        'Pronunciation: $pronun',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.blueGrey.shade900,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 6,
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.blueAccent.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Icon(
+                        CupertinoIcons.speaker_3_fill,
+                        color: Colors.blueAccent,
+                        size: 24,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -49,33 +83,11 @@ class LetterCard extends StatelessWidget {
               child: Center(
                 child: Text(
                   letter,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 200,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(color: Colors.black, fontSize: 198),
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              decoration: BoxDecoration(
-                color: Colors.blueAccent.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Text(
-                'Pronunciation: $pronun',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.blueGrey.shade900,
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
           ],
         ),
       ),

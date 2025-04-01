@@ -49,28 +49,34 @@ class WordCard extends StatelessWidget {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 100.0),
-                child: Text(
-                  engWord,
-                  style: TextStyle(
-                    fontSize: 47,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrangeAccent,
+                padding: const EdgeInsets.only(top: 80.0),
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    engWord,
+                    style: TextStyle(
+                      fontSize: 47,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepOrangeAccent,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),
             Align(
               alignment: Alignment.center,
-              child: Text(
-                langWord,
-                style: TextStyle(
-                  fontSize: 60,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  langWord,
+                  style: TextStyle(
+                    fontSize: 100,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
             Positioned(
@@ -78,19 +84,22 @@ class WordCard extends StatelessWidget {
               left: 0,
               right: 0,
               child: Center(
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.blueAccent.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text(
-                    'Pronun : $pronun',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.blueGrey.shade900,
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.blueAccent.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text(
+                      'Pronun : $pronun',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.blueGrey.shade900,
+                      ),
                     ),
                   ),
                 ),

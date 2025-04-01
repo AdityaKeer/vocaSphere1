@@ -84,7 +84,6 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                // Score card with constrained height
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -92,7 +91,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      vertical: 12.0,
+                      vertical: 6.0,
                       horizontal: 20.0,
                     ),
                     child: Row(
@@ -125,7 +124,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                   ),
                 ),
 
-                const SizedBox(height: 16),
+                const SizedBox(height: 5),
 
                 // Game content with scrollable columns
                 Expanded(
@@ -458,7 +457,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(
-                                        32.0,
+                                        22.0,
                                       ), // Increased padding for luxury feel
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -509,28 +508,31 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                           // Center Content
                                           Column(
                                             children: [
-                                              Text(
-                                                'Well Done!',
-                                                style: TextStyle(
-                                                  color:
-                                                      Theme.of(
-                                                        context,
-                                                      ).colorScheme.onSurface,
-                                                  fontWeight: FontWeight.w900,
-                                                  fontSize: 40,
-                                                  letterSpacing: 2.0,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Theme.of(context)
-                                                          .colorScheme
-                                                          .primary
-                                                          .withOpacity(0.4),
-                                                      blurRadius: 10,
-                                                      offset: Offset(0, 3),
-                                                    ),
-                                                  ],
+                                              FittedBox(
+                                                fit: BoxFit.contain,
+                                                child: Text(
+                                                  'Well Done!',
+                                                  style: TextStyle(
+                                                    color:
+                                                        Theme.of(
+                                                          context,
+                                                        ).colorScheme.onSurface,
+                                                    fontWeight: FontWeight.w900,
+                                                    fontSize: 40,
+                                                    letterSpacing: 2.0,
+                                                    shadows: [
+                                                      Shadow(
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .primary
+                                                            .withOpacity(0.4),
+                                                        blurRadius: 10,
+                                                        offset: Offset(0, 3),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  textAlign: TextAlign.center,
                                                 ),
-                                                textAlign: TextAlign.center,
                                               ),
                                               SizedBox(height: 20),
                                               Container(
@@ -562,111 +564,109 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                                     width: 2,
                                                   ),
                                                 ),
-                                                child: Text(
-                                                  'Final Score: $score',
-                                                  style: TextStyle(
-                                                    // color:
-                                                    //     Theme.of(
-                                                    //       context,
-                                                    //     ).colorScheme.secondary,
-                                                    fontWeight: FontWeight.w800,
-                                                    fontSize: 30,
-                                                    letterSpacing: 1.2,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(height: 20),
-                                            ],
-                                          ),
-                                          // Bottom Button
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              bottom: 20,
-                                            ),
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                    Theme.of(
-                                                      context,
-                                                    ).colorScheme.primary,
-                                                foregroundColor:
-                                                    Theme.of(
-                                                      context,
-                                                    ).colorScheme.onPrimary,
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                      horizontal: 48,
-                                                      vertical: 18,
-                                                    ),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                ),
-                                                elevation: 12,
-                                                shadowColor: Theme.of(context)
-                                                    .colorScheme
-                                                    .primary
-                                                    .withOpacity(0.5),
-                                              ),
-                                              onPressed: () {
-                                                Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                    builder:
-                                                        (
-                                                          context,
-                                                        ) => LevelEndingWidget(
-                                                          initialPercent: 0.75,
-                                                          onLevelsList: () {
-                                                            context
-                                                                .read<
-                                                                  LanguageCubit
-                                                                >()
-                                                                .initializeLevels();
-                                                            Navigator.of(
-                                                              context,
-                                                            ).pop();
-                                                          },
-                                                          onNextLevel: () {
-                                                            context
-                                                                .read<
-                                                                  LanguageCubit
-                                                                >()
-                                                                .nextlvl();
-                                                            Navigator.of(
-                                                              context,
-                                                            ).pop();
-                                                          },
-                                                          onRetry: () {
-                                                            initGame();
-                                                            setState(() {});
-                                                            Navigator.of(
-                                                              context,
-                                                            ).pop();
-                                                          },
-                                                        ),
-                                                  ),
-                                                );
-                                              },
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  Text(
-                                                    'Satisfied?',
+                                                child: FittedBox(
+                                                  fit: BoxFit.contain,
+                                                  child: Text(
+                                                    'Final Score: $score',
                                                     style: TextStyle(
-                                                      fontSize: 22,
+                                                      // color:
+                                                      //     Theme.of(
+                                                      //       context,
+                                                      //     ).colorScheme.secondary,
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                          FontWeight.w800,
+                                                      fontSize: 30,
                                                       letterSpacing: 1.2,
                                                     ),
                                                   ),
-                                                  SizedBox(width: 12),
-                                                  Icon(
-                                                    Icons.arrow_forward_rounded,
-                                                    size: 24,
-                                                    color: Colors.white,
-                                                  ),
-                                                ],
+                                                ),
                                               ),
+                                              SizedBox(height: 10),
+                                            ],
+                                          ),
+                                          // Bottom Button
+                                          ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  Theme.of(
+                                                    context,
+                                                  ).colorScheme.primary,
+                                              foregroundColor:
+                                                  Theme.of(
+                                                    context,
+                                                  ).colorScheme.onPrimary,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 48,
+                                                    vertical: 18,
+                                                  ),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              elevation: 12,
+                                              shadowColor: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary
+                                                  .withOpacity(0.5),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                  builder:
+                                                      (
+                                                        context,
+                                                      ) => LevelEndingWidget(
+                                                        initialPercent: 0.75,
+                                                        onLevelsList: () {
+                                                          context
+                                                              .read<
+                                                                LanguageCubit
+                                                              >()
+                                                              .initializeLevels();
+                                                          Navigator.of(
+                                                            context,
+                                                          ).pop();
+                                                        },
+                                                        onNextLevel: () {
+                                                          context
+                                                              .read<
+                                                                LanguageCubit
+                                                              >()
+                                                              .nextlvl();
+                                                          Navigator.of(
+                                                            context,
+                                                          ).pop();
+                                                        },
+                                                        onRetry: () {
+                                                          initGame();
+                                                          setState(() {});
+                                                          Navigator.of(
+                                                            context,
+                                                          ).pop();
+                                                        },
+                                                      ),
+                                                ),
+                                              );
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  'Satisfied?',
+                                                  style: TextStyle(
+                                                    fontSize: 22,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1.2,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 12),
+                                                Icon(
+                                                  Icons.arrow_forward_rounded,
+                                                  size: 24,
+                                                  color: Colors.white,
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ],

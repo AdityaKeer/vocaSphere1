@@ -88,14 +88,14 @@ class _LevelEndingWidgetState extends State<LevelEndingWidget>
                   sigma: 7,
                   child: Image.asset('assets/images/levelUp.png'),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 SimpleShadow(
                   opacity: 0.5,
                   offset: const Offset(5, 5),
                   sigma: 7,
                   child: CircularPercentIndicator(
-                    radius: 170,
-                    lineWidth: 30,
+                    radius: 140,
+                    lineWidth: 25,
                     percent: _percentAnimation.value,
                     backgroundColor: Colors.black12,
                     progressColor: progressColor,
@@ -130,7 +130,7 @@ class _LevelEndingWidgetState extends State<LevelEndingWidget>
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

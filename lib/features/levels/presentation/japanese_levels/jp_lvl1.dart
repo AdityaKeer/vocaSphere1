@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../../../languages/cubits/language_cubit.dart';
+import '../../components/japanese_card.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
 
@@ -65,224 +66,224 @@ class _JpLvl1State extends State<JpLvl1> {
                     });
                   },
                   children: [
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'あ',
                       pronun: 'a',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'い',
                       pronun: 'i',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'う',
                       pronun: 'u',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'え',
                       pronun: 'e',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'お',
                       pronun: 'o',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'か',
                       pronun: 'ka',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'き',
                       pronun: 'ki',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'く',
                       pronun: 'ku',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'け',
                       pronun: 'ke',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'こ',
                       pronun: 'ko',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'さ',
                       pronun: 'sa',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'し',
                       pronun: 'shi',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'す',
                       pronun: 'su',
                     ),
 
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'せ',
                       pronun: 'se',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'そ',
                       pronun: 'so',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'た',
                       pronun: 'ta',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ち',
                       pronun: 'chi',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'つ',
                       pronun: 'tsu',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'て',
                       pronun: 'te',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'と',
                       pronun: 'to',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'な',
                       pronun: 'na',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'に',
                       pronun: 'ni',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ぬ',
                       pronun: 'nu',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ね',
                       pronun: 'ne',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'の',
                       pronun: 'no',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'は',
                       pronun: 'ha',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ひ',
                       pronun: 'hi',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ふ',
                       pronun: 'fu',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'へ',
                       pronun: 'he',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ほ',
                       pronun: 'ho',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'ま',
                       pronun: 'ma',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'み',
                       pronun: 'mi',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'む',
                       pronun: 'mu',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'め',
                       pronun: 'me',
                     ),
-                    LetterCard(
+                    JapaneseCard(
                       flutterTts: flutterTts,
                       lang: "ja-JP",
                       letter: 'も',
@@ -291,9 +292,7 @@ class _JpLvl1State extends State<JpLvl1> {
                     Card(
                       elevation: 50,
                       shadowColor: Colors.black.withOpacity(0.2),
-                      color:
-                          Colors
-                              .transparent, // Made transparent to show container decoration
+                      color: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -323,7 +322,6 @@ class _JpLvl1State extends State<JpLvl1> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // Decorative element with animation potential
                               Container(
                                 width: 150,
                                 height: 150,
@@ -348,7 +346,7 @@ class _JpLvl1State extends State<JpLvl1> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 30),
+                              SizedBox(height: 10),
                               Text(
                                 'Well Done',
                                 style: TextStyle(
@@ -374,7 +372,7 @@ class _JpLvl1State extends State<JpLvl1> {
                                   fontStyle: FontStyle.italic,
                                 ),
                               ),
-                              SizedBox(height: 50),
+                              SizedBox(height: 10),
                               Center(
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -413,10 +411,16 @@ class _JpLvl1State extends State<JpLvl1> {
                                                 Navigator.of(context).pop();
                                               },
                                               onRetry: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .retryLvl();
                                                 Navigator.of(context).pop();
+                                                _currentPage = 0;
+                                                _pageController.animateToPage(
+                                                  _currentPage,
+                                                  duration: Duration(
+                                                    milliseconds: 500,
+                                                  ),
+                                                  curve: Curves.linear,
+                                                );
+                                                setState(() {});
                                               },
                                             ),
                                       ),
