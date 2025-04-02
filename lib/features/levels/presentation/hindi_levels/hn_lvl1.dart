@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:major_project1/features/authentication/presentation/cubits/auth_cubit.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
@@ -279,6 +280,13 @@ class _HnLvl1State extends State<HnLvl1> {
                                                     .read<LanguageCubit>()
                                                     .nextlvl();
                                                 Navigator.of(context).pop();
+                                                context
+                                                    .read<AuthCubit>()
+                                                    .saveUserProgress(
+                                                      "Hindi",
+                                                      "HnLvl1",
+                                                      ["HnLvl1"],
+                                                    );
                                               },
                                               onRetry: () {
                                                 context

@@ -10,13 +10,12 @@ class FirebaseAuthRepo implements AuthRepo {
   @override
   Future<AppUser?> getCurrentUser() async {
     final firebaseUser = firebaseAuth.currentUser;
-    print("🔍 Checking FirebaseAuth.currentUser...");
 
     if (firebaseUser == null) {
-      print("❌ No user found in FirebaseAuth.");
+      print(" No user found in FirebaseAuth.");
       return null;
     }
-    print("✅ User found: ${firebaseUser.email}");
+    print(" User found: ${firebaseUser.email}");
     return AppUser(name: '', email: firebaseUser.email!, uid: firebaseUser.uid);
   }
 
@@ -26,12 +25,10 @@ class FirebaseAuthRepo implements AuthRepo {
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
 
-      // Debugging print
       print("User logged in: ${userCredential.user?.email}");
 
       return AppUser(name: '', email: email, uid: userCredential.user!.uid);
     } on FirebaseAuthException catch (e) {
-      print("FirebaseAuthException: ${e.message}"); // Debugging
       throw Exception('Login failed: ${e.message}');
     } catch (e) {
       print("Unexpected error: $e"); // Debugging
@@ -42,11 +39,9 @@ class FirebaseAuthRepo implements AuthRepo {
   @override
   Future<void> logout() async {
     try {
-      print("🚪 Logging out...");
       await firebaseAuth.signOut();
-      print("✅ Logout successful!");
+      print(" Logout successful!");
     } catch (e) {
-      print("❌ Logout error: $e");
       throw Exception("Logout failed: $e");
     }
   }
@@ -73,6 +68,33 @@ class FirebaseAuthRepo implements AuthRepo {
           .collection("users")
           .doc(user.uid)
           .set(user.toJson());
+
+      // await firebaseFirestore.collection("users").doc(user.uid).set({
+      //   "name": name,
+      //   "email": email,
+      //   "Progress": {
+      //     "Japanese": {
+      //       "lastVisitedLevel": "JpLvl1",
+      //       "completedLevels": ["JpLvl1"],
+      //     },
+      //     "Hindi": {
+      //       "lastVisitedLevel": "HnLvl1",
+      //       "completedLevels": ["HnLvl1"],
+      //     },
+      //     "Marathi": {
+      //       "lastVisitedLevel": "MrLvl1",
+      //       "completedLevels": ["MrLvl1"],
+      //     },
+      //     "Sanskrit": {
+      //       "lastVisitedLevel": "SaLvl1",
+      //       "completedLevels": ["SaLvl1"],
+      //     },
+      //     "English": {
+      //       "lastVisitedLevel": "EnLvl1",
+      //       "completedLevels": ["EnLvl1"],
+      //     },
+      //   },
+      // });
 
       return user;
     } catch (e) {

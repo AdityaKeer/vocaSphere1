@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import '../../../authentication/presentation/cubits/auth_cubit.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../components/japanese_card.dart';
 import '../../components/letter_card.dart';
@@ -409,6 +410,13 @@ class _JpLvl1State extends State<JpLvl1> {
                                                     .read<LanguageCubit>()
                                                     .nextlvl();
                                                 Navigator.of(context).pop();
+                                                context
+                                                    .read<AuthCubit>()
+                                                    .saveUserProgress(
+                                                      "Japanese",
+                                                      "JpLvl1",
+                                                      ["JpLvl1"],
+                                                    );
                                               },
                                               onRetry: () {
                                                 Navigator.of(context).pop();

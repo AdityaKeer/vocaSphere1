@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/authentication/domain/entities/app_user.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_states.dart';
@@ -11,15 +13,14 @@ class AuthCubit extends Cubit<AuthState> {
 
   //check if user is already authenticated
   void checkAuth() async {
-    print("🔍 Running checkAuth()...");
     final AppUser? user = await authRepo.getCurrentUser();
 
     if (user != null) {
-      print("✅ User found: ${user.email}");
+      print(" User found: ${user.email}");
       _currentUser = user;
       emit(Authenticated(user));
     } else {
-      print("❌ No user found, emitting UnAuthenticated");
+      print(" No user found, emitting UnAuthenticated");
       emit(UnAuthenticated());
     }
   }
@@ -68,14 +69,47 @@ class AuthCubit extends Cubit<AuthState> {
   //logout
   Future<void> logOut() async {
     try {
-      print("🔄 Attempting logout...");
       await authRepo.logout();
-      print("✅ Logout successful, emitting UnAuthenticated...");
+      print(" Logout successful, emitting UnAuthenticated...");
       _currentUser = null;
       emit(UnAuthenticated());
     } catch (e) {
-      print("❌ Logout failed: $e");
+      print(" Logout failed: $e");
       emit(AuthError('Logout failed: $e'));
     }
+  }
+
+  //save Users Progress
+  Future<void> saveUserProgress(
+    String language,
+    String lastVisitedLevel,
+    List<String> completedLevels,
+  ) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      return;
+    }
+
+    await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
+      "progress": {
+        language: {
+          "LastVisitedLevel": lastVisitedLevel,
+          "CompletedLevels": completedLevels,
+        },
+      },
+    }, SetOptions(merge: true));
+  }
+
+  //get User Progress
+  Future<void> getUserProgress(String language) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      return;
+    }
+    var snap =
+        await FirebaseFirestore.instance
+            .collection("users")
+            .doc(user.uid)
+            .get();
   }
 }
