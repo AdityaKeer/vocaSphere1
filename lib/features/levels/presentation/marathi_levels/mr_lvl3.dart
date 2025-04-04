@@ -1,23 +1,21 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:major_project1/features/languages/presentation/pages/marathi/page/marathi_page.dart';
 import 'package:major_project1/features/levels/components/lvl_endingWidget.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/components/levels_list.dart';
-import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
-import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
 import '../../Models/item_model.dart';
 import '../../utilities/constants.dart';
 
-class JpLvl3 extends StatefulWidget {
-  const JpLvl3({super.key});
+class MrLvl3 extends StatefulWidget {
+  const MrLvl3({super.key});
 
   @override
-  State<JpLvl3> createState() => _JpLvl3State();
+  State<MrLvl3> createState() => _MrLvl3State();
 }
 
-class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
+class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
   late List<ItemModel> dataSource;
   late List<ItemModel> letters;
   late List<ItemModel> pronunciation;
@@ -46,7 +44,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
   void initGame() {
     score = 0;
     gameOver = false;
-    dataSource = kJpAlphabets;
+    dataSource = kHnAlphabets;
 
     letters = List.generate(
       6,
@@ -88,6 +86,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
+                // Score card with constrained height
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -95,7 +94,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      vertical: 6.0,
+                      vertical: 12.0,
                       horizontal: 20.0,
                     ),
                     child: Row(
@@ -128,7 +127,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                   ),
                 ),
 
-                const SizedBox(height: 5),
+                const SizedBox(height: 16),
 
                 // Game content with scrollable columns
                 Expanded(
@@ -461,7 +460,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(
-                                        22.0,
+                                        32.0,
                                       ), // Increased padding for luxury feel
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -512,31 +511,28 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                           // Center Content
                                           Column(
                                             children: [
-                                              FittedBox(
-                                                fit: BoxFit.contain,
-                                                child: Text(
-                                                  'Well Done!',
-                                                  style: TextStyle(
-                                                    color:
-                                                        Theme.of(
-                                                          context,
-                                                        ).colorScheme.onSurface,
-                                                    fontWeight: FontWeight.w900,
-                                                    fontSize: 40,
-                                                    letterSpacing: 2.0,
-                                                    shadows: [
-                                                      Shadow(
-                                                        color: Theme.of(context)
-                                                            .colorScheme
-                                                            .primary
-                                                            .withOpacity(0.4),
-                                                        blurRadius: 10,
-                                                        offset: Offset(0, 3),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  textAlign: TextAlign.center,
+                                              Text(
+                                                'Well Done!',
+                                                style: TextStyle(
+                                                  color:
+                                                      Theme.of(
+                                                        context,
+                                                      ).colorScheme.onSurface,
+                                                  fontWeight: FontWeight.w900,
+                                                  fontSize: 40,
+                                                  letterSpacing: 2.0,
+                                                  shadows: [
+                                                    Shadow(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .primary
+                                                          .withOpacity(0.4),
+                                                      blurRadius: 10,
+                                                      offset: Offset(0, 3),
+                                                    ),
+                                                  ],
                                                 ),
+                                                textAlign: TextAlign.center,
                                               ),
                                               SizedBox(height: 20),
                                               Container(
@@ -568,153 +564,157 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                                     width: 2,
                                                   ),
                                                 ),
-                                                child: FittedBox(
-                                                  fit: BoxFit.contain,
-                                                  child: Text(
-                                                    'Final Score: $score',
-                                                    style: TextStyle(
-                                                      // color:
-                                                      //     Theme.of(
-                                                      //       context,
-                                                      //     ).colorScheme.secondary,
-                                                      fontWeight:
-                                                          FontWeight.w800,
-                                                      fontSize: 30,
-                                                      letterSpacing: 1.2,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(height: 10),
-                                            ],
-                                          ),
-                                          // Bottom Button
-                                          ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor:
-                                                  Theme.of(
-                                                    context,
-                                                  ).colorScheme.primary,
-                                              foregroundColor:
-                                                  Theme.of(
-                                                    context,
-                                                  ).colorScheme.onPrimary,
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                    horizontal: 48,
-                                                    vertical: 18,
-                                                  ),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                              ),
-                                              elevation: 12,
-                                              shadowColor: Theme.of(context)
-                                                  .colorScheme
-                                                  .primary
-                                                  .withOpacity(0.5),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.of(context).push(
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (
-                                                        context,
-                                                      ) => LevelEndingWidget(
-                                                        initialPercent: 0.25,
-                                                        onLevelsList: () {
-                                                          final languageCubit =
-                                                              context
-                                                                  .read<
-                                                                    LanguageCubit
-                                                                  >();
-                                                          languageCubit.emit(
-                                                            LevelListUpdated(
-                                                              levelPages:
-                                                                  languageCubit
-                                                                      .levelPages,
-                                                            ),
-                                                          );
-
-                                                          Navigator.of(
-                                                            context,
-                                                          ).pushAndRemoveUntil(
-                                                            MaterialPageRoute(
-                                                              builder:
-                                                                  (context) =>
-                                                                      const JapanesePage(),
-                                                            ),
-                                                            (route) =>
-                                                                route
-                                                                    .isFirst, // Keep only the home page in the stack
-                                                          );
-                                                        },
-                                                        onNextLevel: () {
-                                                          final languageCubit =
-                                                              context
-                                                                  .read<
-                                                                    LanguageCubit
-                                                                  >();
-
-                                                          languageCubit
-                                                              .nextlvl(); // Save progress & move to next level
-
-                                                          String? nextLevel =
-                                                              languageCubit
-                                                                  .currentLevel;
-
-                                                          if (nextLevel !=
-                                                                  null &&
-                                                              languageCubit
-                                                                  .levelPages
-                                                                  .containsKey(
-                                                                    nextLevel,
-                                                                  )) {
-                                                            Navigator.of(
-                                                              context,
-                                                            ).pushReplacement(
-                                                              MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        languageCubit
-                                                                            .levelPages[nextLevel]!,
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            Navigator.of(
-                                                              context,
-                                                            ).pop();
-                                                          }
-                                                        },
-                                                        onRetry: () {
-                                                          initGame();
-                                                          setState(() {});
-                                                          Navigator.of(
-                                                            context,
-                                                          ).pop();
-                                                        },
-                                                      ),
-                                                ),
-                                              );
-                                            },
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Text(
-                                                  'Satisfied?',
+                                                child: Text(
+                                                  'Final Score: $score',
                                                   style: TextStyle(
-                                                    fontSize: 22,
-                                                    fontWeight: FontWeight.bold,
+                                                    // color:
+                                                    //     Theme.of(
+                                                    //       context,
+                                                    //     ).colorScheme.secondary,
+                                                    fontWeight: FontWeight.w800,
+                                                    fontSize: 30,
                                                     letterSpacing: 1.2,
                                                   ),
                                                 ),
-                                                SizedBox(width: 12),
-                                                Icon(
-                                                  Icons.arrow_forward_rounded,
-                                                  size: 24,
-                                                  color: Colors.white,
+                                              ),
+                                              SizedBox(height: 20),
+                                            ],
+                                          ),
+                                          // Bottom Button
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              bottom: 20,
+                                            ),
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    Theme.of(
+                                                      context,
+                                                    ).colorScheme.primary,
+                                                foregroundColor:
+                                                    Theme.of(
+                                                      context,
+                                                    ).colorScheme.onPrimary,
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                      horizontal: 48,
+                                                      vertical: 18,
+                                                    ),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
                                                 ),
-                                              ],
+                                                elevation: 12,
+                                                shadowColor: Theme.of(context)
+                                                    .colorScheme
+                                                    .primary
+                                                    .withOpacity(0.5),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder:
+                                                        (
+                                                          context,
+                                                        ) => LevelEndingWidget(
+                                                          initialPercent: 0.25,
+                                                          onLevelsList: () {
+                                                            final languageCubit =
+                                                                context
+                                                                    .read<
+                                                                      LanguageCubit
+                                                                    >();
+                                                            languageCubit.emit(
+                                                              LevelListUpdated(
+                                                                levelPages:
+                                                                    languageCubit
+                                                                        .levelPages,
+                                                              ),
+                                                            );
+
+                                                            Navigator.of(
+                                                              context,
+                                                            ).pushAndRemoveUntil(
+                                                              MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        const MarathiPage(),
+                                                              ),
+                                                              (route) =>
+                                                                  route
+                                                                      .isFirst, // Keep only the home page in the stack
+                                                            );
+                                                          },
+                                                          onNextLevel: () {
+                                                            final languageCubit =
+                                                                context
+                                                                    .read<
+                                                                      LanguageCubit
+                                                                    >();
+
+                                                            languageCubit
+                                                                .nextlvl(); // Save progress & move to next level
+
+                                                            String? nextLevel =
+                                                                languageCubit
+                                                                    .currentLevel;
+
+                                                            if (nextLevel !=
+                                                                    null &&
+                                                                languageCubit
+                                                                    .levelPages
+                                                                    .containsKey(
+                                                                      nextLevel,
+                                                                    )) {
+                                                              Navigator.of(
+                                                                context,
+                                                              ).pushReplacement(
+                                                                MaterialPageRoute(
+                                                                  builder:
+                                                                      (
+                                                                        context,
+                                                                      ) =>
+                                                                          languageCubit
+                                                                              .levelPages[nextLevel]!,
+                                                                ),
+                                                              );
+                                                            } else {
+                                                              Navigator.of(
+                                                                context,
+                                                              ).pop();
+                                                            }
+                                                          },
+                                                          onRetry: () {
+                                                            initGame();
+                                                            setState(() {});
+                                                            Navigator.of(
+                                                              context,
+                                                            ).pop();
+                                                          },
+                                                        ),
+                                                  ),
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    'Satisfied?',
+                                                    style: TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      letterSpacing: 1.2,
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 12),
+                                                  Icon(
+                                                    Icons.arrow_forward_rounded,
+                                                    size: 24,
+                                                    color: Colors.white,
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ],

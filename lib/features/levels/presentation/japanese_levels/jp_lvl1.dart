@@ -4,6 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../../../authentication/presentation/cubits/auth_cubit.dart';
 import '../../../languages/cubits/language_cubit.dart';
+import '../../../languages/cubits/language_state.dart';
+import '../../../languages/presentation/components/levels_list.dart';
+import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
 import '../../components/japanese_card.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
@@ -400,23 +403,59 @@ class _JpLvl1State extends State<JpLvl1> {
                                             (context) => LevelEndingWidget(
                                               initialPercent: 0.25,
                                               onLevelsList: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .initializeLevels();
-                                                Navigator.of(context).pop();
+                                                final languageCubit =
+                                                    context
+                                                        .read<LanguageCubit>();
+                                                languageCubit.emit(
+                                                  LevelListUpdated(
+                                                    levelPages:
+                                                        languageCubit
+                                                            .levelPages,
+                                                  ),
+                                                );
+
+                                                Navigator.of(
+                                                  context,
+                                                ).pushAndRemoveUntil(
+                                                  MaterialPageRoute(
+                                                    builder:
+                                                        (context) =>
+                                                            const JapanesePage(),
+                                                  ),
+                                                  (route) =>
+                                                      route
+                                                          .isFirst, // Keep only the home page in the stack
+                                                );
                                               },
                                               onNextLevel: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .nextlvl();
-                                                Navigator.of(context).pop();
-                                                context
-                                                    .read<AuthCubit>()
-                                                    .saveUserProgress(
-                                                      "Japanese",
-                                                      "JpLvl1",
-                                                      ["JpLvl1"],
-                                                    );
+                                                final languageCubit =
+                                                    context
+                                                        .read<LanguageCubit>();
+
+                                                languageCubit
+                                                    .nextlvl(); // Save progress & move to next level
+
+                                                String? nextLevel =
+                                                    languageCubit.currentLevel;
+
+                                                if (nextLevel != null &&
+                                                    languageCubit.levelPages
+                                                        .containsKey(
+                                                          nextLevel,
+                                                        )) {
+                                                  Navigator.of(
+                                                    context,
+                                                  ).pushReplacement(
+                                                    MaterialPageRoute(
+                                                      builder:
+                                                          (context) =>
+                                                              languageCubit
+                                                                  .levelPages[nextLevel]!,
+                                                    ),
+                                                  );
+                                                } else {
+                                                  Navigator.of(context).pop();
+                                                }
                                               },
                                               onRetry: () {
                                                 Navigator.of(context).pop();

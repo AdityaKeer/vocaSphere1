@@ -16,7 +16,6 @@ class MarathiPage extends StatefulWidget {
 class _MarathiPageState extends State<MarathiPage> {
   @override
   void initState() {
-    context.read<LanguageCubit>().initializeLevels();
     super.initState();
   }
 

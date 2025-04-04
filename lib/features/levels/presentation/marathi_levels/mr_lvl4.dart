@@ -1,19 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:major_project1/features/languages/presentation/pages/marathi/page/marathi_page.dart';
+import 'package:major_project1/features/levels/components/number_card.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/pages/marathi/page/marathi_page.dart';
+import '../../../languages/presentation/components/levels_list.dart';
+import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
 
-class MrLvl1 extends StatefulWidget {
-  const MrLvl1({super.key});
+class MrLvl4 extends StatefulWidget {
+  const MrLvl4({super.key});
   @override
-  State<MrLvl1> createState() => _MrLvl1State();
+  State<MrLvl4> createState() => _MrLvl4State();
 }
 
-class _MrLvl1State extends State<MrLvl1> {
+class _MrLvl4State extends State<MrLvl4> {
   final FlutterTts flutterTts = FlutterTts();
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -30,16 +34,22 @@ class _MrLvl1State extends State<MrLvl1> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Progress indicator
             Container(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Row(
                 children: [
-                  Text('Marathi Vowels', style: theme.textTheme.titleLarge),
-                  Spacer(),
+                  Expanded(
+                    child: Text(
+                      ' Numbers in Marathi',
+                      style: theme.textTheme.titleLarge,
+                    ),
+                  ),
+
                   Text(
-                    '${_currentPage + 1}/14',
+                    '${_currentPage + 1}/10',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.primary,
                     ),
@@ -61,89 +71,75 @@ class _MrLvl1State extends State<MrLvl1> {
                     });
                   },
                   children: [
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'अ',
-                      pronun: 'A',
+                      number: 1,
+                      langNumWord: "एक",
+                      pronun: "Ek",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'आ',
-                      pronun: 'AA',
+                      number: 2,
+                      langNumWord: "दोनो",
+                      pronun: "Don",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'इ',
-                      pronun: 'E',
+                      number: 3,
+                      langNumWord: "तीन",
+                      pronun: "Teen",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ई',
-                      pronun: 'I',
+                      number: 4,
+                      langNumWord: "चार",
+                      pronun: "Chaar",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'उ',
-                      pronun: 'U',
+                      number: 5,
+                      langNumWord: "पाच",
+                      pronun: "paach",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ऊ',
-                      pronun: 'OO',
+                      number: 6,
+                      langNumWord: "सहा",
+                      pronun: "sahaa",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ए',
-                      pronun: 'AE',
+                      number: 7,
+                      langNumWord: "सात",
+                      pronun: "saat",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ऐ',
-                      pronun: 'AYE',
+                      number: 8,
+                      langNumWord: "आठ",
+                      pronun: "aatha",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ओ',
-                      pronun: 'O',
+                      number: 9,
+                      langNumWord: "नऊ",
+                      pronun: "nau",
                     ),
-                    LetterCard(
+                    NumberCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'औ',
-                      pronun: 'AO',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'अं',
-                      pronun: 'UM',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'अः',
-                      pronun: 'AHA',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'ऋ',
-                      pronun: 'RI',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'ॠ',
-                      pronun: 'RRI',
+                      number: 10,
+                      langNumWord: "दहा",
+                      pronun: "Daha",
                     ),
                     Card(
                       elevation: 50,
@@ -357,22 +353,27 @@ class _MrLvl1State extends State<MrLvl1> {
             ),
 
             // Navigation dots
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  14,
-                  (index) => Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    height: 10,
-                    width: _currentPage == index ? 24 : 10,
-                    decoration: BoxDecoration(
-                      color:
-                          _currentPage == index
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(5),
+            Center(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 24),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      10,
+                      (index) => Container(
+                        margin: EdgeInsets.symmetric(horizontal: 4),
+                        height: 10,
+                        width: _currentPage == index ? 20 : 10,
+                        decoration: BoxDecoration(
+                          color:
+                              _currentPage == index
+                                  ? theme.colorScheme.primary
+                                  : theme.colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -412,7 +413,7 @@ class _MrLvl1State extends State<MrLvl1> {
                   ),
                   ElevatedButton(
                     onPressed:
-                        _currentPage < 13
+                        _currentPage < 11
                             ? () {
                               _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),

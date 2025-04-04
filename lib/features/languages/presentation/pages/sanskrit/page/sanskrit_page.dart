@@ -15,7 +15,6 @@ class SanskritPage extends StatefulWidget {
 class _SanskritPageState extends State<SanskritPage> {
   @override
   void initState() {
-    context.read<LanguageCubit>().initializeLevels();
     super.initState();
   }
 

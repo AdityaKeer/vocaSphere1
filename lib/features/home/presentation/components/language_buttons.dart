@@ -16,7 +16,6 @@ class _LanguageButtonsListState extends State<LanguageButtonsList> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
-      bloc: BlocProvider.of<HomeCubit>(context),
       builder: (context, state) {
         if (state is LanguageListUpdated) {
           return Column(
@@ -26,12 +25,24 @@ class _LanguageButtonsListState extends State<LanguageButtonsList> {
                     padding: const EdgeInsets.only(bottom: 15),
                     child: MyButton(
                       text: entry.key,
-                      onTap: () async {
-                        context.read<LanguageCubit>().language = entry.key;
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => entry.value),
-                        );
+                      onTap: () {
+                        final languageCubit = context.read<LanguageCubit>();
+                        final homeCubit = context.read<HomeCubit>();
+                        languageCubit
+                            .setLanguageAndLoadProgress(entry.key)
+                            .then((_) {
+                              languageCubit.resetLevel();
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => entry.value,
+                                ),
+                              ).then((_) {
+                                // ✅ Reset the language list when returning
+                                homeCubit.resetLanguages();
+                              });
+                            });
                       },
                     ),
                   );

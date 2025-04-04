@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:major_project1/features/languages/presentation/pages/sanskrit/page/sanskrit_page.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/pages/marathi/page/marathi_page.dart';
-import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
+import '../../components/word_card.dart';
 
-class MrLvl1 extends StatefulWidget {
-  const MrLvl1({super.key});
+class SaLvl5 extends StatefulWidget {
+  const SaLvl5({super.key});
   @override
-  State<MrLvl1> createState() => _MrLvl1State();
+  State<SaLvl5> createState() => _SaLvl5State();
 }
 
-class _MrLvl1State extends State<MrLvl1> {
+class _SaLvl5State extends State<SaLvl5> {
   final FlutterTts flutterTts = FlutterTts();
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -30,16 +30,21 @@ class _MrLvl1State extends State<MrLvl1> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Progress indicator
             Container(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Row(
                 children: [
-                  Text('Marathi Vowels', style: theme.textTheme.titleLarge),
-                  Spacer(),
+                  Expanded(
+                    child: Text(
+                      'Common Marathi Words',
+                      style: theme.textTheme.titleLarge,
+                    ),
+                  ),
                   Text(
-                    '${_currentPage + 1}/14',
+                    '${_currentPage + 1}/11',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.primary,
                     ),
@@ -61,89 +66,93 @@ class _MrLvl1State extends State<MrLvl1> {
                     });
                   },
                   children: [
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'अ',
-                      pronun: 'A',
+
+                      pronun: "Namaste",
+                      engWord: '"Hello"',
+                      langWord: 'नमस्ते',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'आ',
-                      pronun: 'AA',
+
+                      pronun: "Dhanyavāda",
+                      engWord: '"Thank you"',
+                      langWord: 'धन्यवाद',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'इ',
-                      pronun: 'E',
+
+                      pronun: "Punardarshanay",
+                      engWord: '"Goodbye"',
+                      langWord: 'पुनर्दर्शनाय',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ई',
-                      pronun: 'I',
+
+                      pronun: "Aam",
+                      engWord: '"Yes"',
+                      langWord: 'आम्‌',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'उ',
-                      pronun: 'U',
+
+                      pronun: "Nāhī",
+                      engWord: '"No"',
+                      langWord: 'नहि',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ऊ',
-                      pronun: 'OO',
+
+                      pronun: "Kruupaya",
+                      engWord: '"Please"',
+                      langWord: 'कृपया',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ए',
-                      pronun: 'AE',
+
+                      pronun: "Kshamyatam",
+                      engWord: '"Excuse me / Sorry"',
+                      langWord: 'क्षम्यतां',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ऐ',
-                      pronun: 'AYE',
+
+                      pronun: "Kshamyatam maa",
+                      engWord: '"I\'m sorry"',
+                      langWord: 'क्षम्यताम्‌ मा',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'ओ',
-                      pronun: 'O',
+
+                      pronun: "Suprabhatam",
+                      engWord: '"Good morning"',
+                      langWord: 'सुप्रभातम्‌',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'औ',
-                      pronun: 'AO',
+
+                      pronun: "Śhubhasandhya",
+                      engWord: '"Good evening"',
+                      langWord: 'शुभसन्ध्या',
                     ),
-                    LetterCard(
+                    WordCard(
                       flutterTts: flutterTts,
                       lang: "mr-IN",
-                      letter: 'अं',
-                      pronun: 'UM',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'अः',
-                      pronun: 'AHA',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'ऋ',
-                      pronun: 'RI',
-                    ),
-                    LetterCard(
-                      flutterTts: flutterTts,
-                      lang: "mr-IN",
-                      letter: 'ॠ',
-                      pronun: 'RRI',
+
+                      pronun: "Shubha ratri",
+                      engWord: '"Good Night"',
+                      langWord: 'शुभरात्रि',
                     ),
                     Card(
                       elevation: 50,
@@ -272,7 +281,7 @@ class _MrLvl1State extends State<MrLvl1> {
                                                   MaterialPageRoute(
                                                     builder:
                                                         (context) =>
-                                                            const MarathiPage(),
+                                                            const SanskritPage(),
                                                   ),
                                                   (route) =>
                                                       route
@@ -357,22 +366,27 @@ class _MrLvl1State extends State<MrLvl1> {
             ),
 
             // Navigation dots
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  14,
-                  (index) => Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    height: 10,
-                    width: _currentPage == index ? 24 : 10,
-                    decoration: BoxDecoration(
-                      color:
-                          _currentPage == index
-                              ? theme.colorScheme.primary
-                              : theme.colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(5),
+            Center(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 24),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      11,
+                      (index) => Container(
+                        margin: EdgeInsets.symmetric(horizontal: 4),
+                        height: 10,
+                        width: _currentPage == index ? 20 : 10,
+                        decoration: BoxDecoration(
+                          color:
+                              _currentPage == index
+                                  ? theme.colorScheme.primary
+                                  : theme.colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -412,7 +426,7 @@ class _MrLvl1State extends State<MrLvl1> {
                   ),
                   ElevatedButton(
                     onPressed:
-                        _currentPage < 13
+                        _currentPage < 12
                             ? () {
                               _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),

@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_cubit.dart';
 import '../../../languages/cubits/language_cubit.dart';
+import '../../../languages/cubits/language_state.dart';
+import '../../../languages/presentation/components/levels_list.dart';
+import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
 
@@ -160,9 +163,7 @@ class _HnLvl1State extends State<HnLvl1> {
                     Card(
                       elevation: 50,
                       shadowColor: Colors.black.withOpacity(0.2),
-                      color:
-                          Colors
-                              .transparent, // Made transparent to show container decoration
+                      color: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -192,7 +193,6 @@ class _HnLvl1State extends State<HnLvl1> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // Decorative element with animation potential
                               Container(
                                 width: 150,
                                 height: 150,
@@ -217,7 +217,7 @@ class _HnLvl1State extends State<HnLvl1> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 30),
+                              SizedBox(height: 10),
                               Text(
                                 'Well Done',
                                 style: TextStyle(
@@ -243,7 +243,7 @@ class _HnLvl1State extends State<HnLvl1> {
                                   fontStyle: FontStyle.italic,
                                 ),
                               ),
-                              SizedBox(height: 50),
+                              SizedBox(height: 10),
                               Center(
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -270,29 +270,71 @@ class _HnLvl1State extends State<HnLvl1> {
                                             (context) => LevelEndingWidget(
                                               initialPercent: 0.25,
                                               onLevelsList: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .initializeLevels();
-                                                Navigator.of(context).pop();
+                                                final languageCubit =
+                                                    context
+                                                        .read<LanguageCubit>();
+                                                languageCubit.emit(
+                                                  LevelListUpdated(
+                                                    levelPages:
+                                                        languageCubit
+                                                            .levelPages,
+                                                  ),
+                                                );
+
+                                                Navigator.of(
+                                                  context,
+                                                ).pushAndRemoveUntil(
+                                                  MaterialPageRoute(
+                                                    builder:
+                                                        (context) =>
+                                                            const HindiPage(),
+                                                  ),
+                                                  (route) =>
+                                                      route
+                                                          .isFirst, // Keep only the home page in the stack
+                                                );
                                               },
                                               onNextLevel: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .nextlvl();
-                                                Navigator.of(context).pop();
-                                                context
-                                                    .read<AuthCubit>()
-                                                    .saveUserProgress(
-                                                      "Hindi",
-                                                      "HnLvl1",
-                                                      ["HnLvl1"],
-                                                    );
+                                                final languageCubit =
+                                                    context
+                                                        .read<LanguageCubit>();
+
+                                                languageCubit
+                                                    .nextlvl(); // Save progress & move to next level
+
+                                                String? nextLevel =
+                                                    languageCubit.currentLevel;
+
+                                                if (nextLevel != null &&
+                                                    languageCubit.levelPages
+                                                        .containsKey(
+                                                          nextLevel,
+                                                        )) {
+                                                  Navigator.of(
+                                                    context,
+                                                  ).pushReplacement(
+                                                    MaterialPageRoute(
+                                                      builder:
+                                                          (context) =>
+                                                              languageCubit
+                                                                  .levelPages[nextLevel]!,
+                                                    ),
+                                                  );
+                                                } else {
+                                                  Navigator.of(context).pop();
+                                                }
                                               },
                                               onRetry: () {
-                                                context
-                                                    .read<LanguageCubit>()
-                                                    .retryLvl();
                                                 Navigator.of(context).pop();
+                                                _currentPage = 0;
+                                                _pageController.animateToPage(
+                                                  _currentPage,
+                                                  duration: Duration(
+                                                    milliseconds: 500,
+                                                  ),
+                                                  curve: Curves.linear,
+                                                );
+                                                setState(() {});
                                               },
                                             ),
                                       ),

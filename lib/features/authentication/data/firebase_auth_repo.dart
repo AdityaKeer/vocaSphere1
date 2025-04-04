@@ -12,10 +12,10 @@ class FirebaseAuthRepo implements AuthRepo {
     final firebaseUser = firebaseAuth.currentUser;
 
     if (firebaseUser == null) {
-      print(" No user found in FirebaseAuth.");
+      print("No user found in FirebaseAuth.");
       return null;
     }
-    print(" User found: ${firebaseUser.email}");
+    print("User found: ${firebaseUser.email}");
     return AppUser(name: '', email: firebaseUser.email!, uid: firebaseUser.uid);
   }
 
@@ -40,7 +40,7 @@ class FirebaseAuthRepo implements AuthRepo {
   Future<void> logout() async {
     try {
       await firebaseAuth.signOut();
-      print(" Logout successful!");
+      print("Logout successful!");
     } catch (e) {
       throw Exception("Logout failed: $e");
     }
@@ -56,49 +56,76 @@ class FirebaseAuthRepo implements AuthRepo {
       UserCredential userCredential = await firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      //create user
       AppUser user = AppUser(
         name: name,
         email: email,
         uid: userCredential.user!.uid,
       );
 
-      //save user data in fireStore
-      await firebaseFirestore
-          .collection("users")
-          .doc(user.uid)
-          .set(user.toJson());
+      Map<String, dynamic> initialProgress = {
+        "Hindi": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Japanese": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Marathi": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "English": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Sanskrit": {"LastVisitedLevel": "", "CompletedLevels": []},
+      };
 
-      // await firebaseFirestore.collection("users").doc(user.uid).set({
-      //   "name": name,
-      //   "email": email,
-      //   "Progress": {
-      //     "Japanese": {
-      //       "lastVisitedLevel": "JpLvl1",
-      //       "completedLevels": ["JpLvl1"],
-      //     },
-      //     "Hindi": {
-      //       "lastVisitedLevel": "HnLvl1",
-      //       "completedLevels": ["HnLvl1"],
-      //     },
-      //     "Marathi": {
-      //       "lastVisitedLevel": "MrLvl1",
-      //       "completedLevels": ["MrLvl1"],
-      //     },
-      //     "Sanskrit": {
-      //       "lastVisitedLevel": "SaLvl1",
-      //       "completedLevels": ["SaLvl1"],
-      //     },
-      //     "English": {
-      //       "lastVisitedLevel": "EnLvl1",
-      //       "completedLevels": ["EnLvl1"],
-      //     },
-      //   },
-      // });
+      await firebaseFirestore.collection("users").doc(user.uid).set({
+        ...user.toJson(),
+        "progress": initialProgress,
+      });
 
+      print(" User registered and progress initialized!");
       return user;
     } catch (e) {
-      throw Exception('Registration failed : $e');
+      throw Exception('Registration failed: $e');
     }
   }
+
+  Future<void> saveUserProgress(
+    String language,
+    String lastVisitedLevel,
+    List<String> completedLevels,
+  ) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    if (language.isEmpty || lastVisitedLevel.isEmpty) {
+      return;
+    }
+
+    print(" Saving Progress for $language:");
+    print("Last Visited Level: $lastVisitedLevel");
+    print("Completed Levels: $completedLevels");
+
+    await firebaseFirestore.collection("users").doc(user.uid).set({
+      "progress": {
+        language: {
+          "LastVisitedLevel": lastVisitedLevel,
+          "CompletedLevels": completedLevels,
+        },
+      },
+    }, SetOptions(merge: true));
+  }
+
+  Future<Map<String, dynamic>> getUserProgress(String language) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return {};
+
+    final doc = await firebaseFirestore.collection("users").doc(user.uid).get();
+
+    if (doc.exists) {
+      final data = doc.data();
+
+      return (data?["progress"]?[language] as Map<String, dynamic>?) ??
+          {"LastVisitedLevel": "", "CompletedLevels": []};
+    }
+    return {};
+  }
+
+  // Future<Map<String, dynamic>> getQuizList(String language) async {
+  //   final doc =
+  //       await firebaseFirestore.collection("quizes").doc(language).get();
+  //   if (doc) {}
+  // }
 }

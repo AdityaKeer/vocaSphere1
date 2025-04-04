@@ -13,5 +13,6 @@ class LevelSelected extends LanguageState {
 
 class LevelListUpdated extends LanguageState {
   final Map<String, Widget> levelPages;
-  LevelListUpdated({required this.levelPages});
+  final String? lastVisitedLevel;
+  LevelListUpdated({this.lastVisitedLevel, required this.levelPages});
 }

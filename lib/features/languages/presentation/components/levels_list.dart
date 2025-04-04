@@ -26,6 +26,8 @@ class LevelList extends StatelessWidget {
       child: BlocBuilder<LanguageCubit, LanguageState>(
         builder: (context, state) {
           if (state is LevelListUpdated) {
+            print("Current state: $state");
+
             return ListView.builder(
               itemCount: state.levelPages.length,
               itemBuilder: (context, index) {
@@ -43,12 +45,15 @@ class LevelList extends StatelessWidget {
                       onTap: () {
                         context.read<LanguageCubit>().selectLevel(levelName);
                       },
+                      levelName: levelName,
                     ),
                   ),
                 );
               },
             );
           } else if (state is LevelSelected) {
+            print("Current state: $state");
+
             return Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(

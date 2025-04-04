@@ -17,7 +17,6 @@ class HindiPage extends StatefulWidget {
 class _HindiPageState extends State<HindiPage> {
   @override
   void initState() {
-    context.read<LanguageCubit>().initializeLevels();
     super.initState();
   }
 

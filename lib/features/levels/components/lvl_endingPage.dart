@@ -126,9 +126,7 @@ class _LvlEndingPageState extends State<LvlEndingPage>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap:
-                          () =>
-                              context.read<LanguageCubit>().initializeLevels(),
+                      onTap: () => context.read<LanguageCubit>(),
                       child: SimpleShadow(
                         opacity: 0.5,
                         offset: const Offset(5, 5),
@@ -140,7 +138,7 @@ class _LvlEndingPageState extends State<LvlEndingPage>
                     ),
                     const SizedBox(width: 20),
                     GestureDetector(
-                      onTap: () => context.read<LanguageCubit>().retryLvl(),
+                      onTap: () => context.read<LanguageCubit>(),
                       child: SimpleShadow(
                         opacity: 0.5,
                         offset: const Offset(5, 5),

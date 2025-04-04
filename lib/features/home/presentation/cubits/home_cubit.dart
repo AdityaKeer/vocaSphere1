@@ -31,4 +31,8 @@ class HomeCubit extends Cubit<HomeState> {
   void setSelectedLan(String name) {
     selectedLngCode = name;
   }
+
+  void resetLanguages() {
+    initializeLanguages();
+  }
 }

@@ -78,38 +78,4 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthError('Logout failed: $e'));
     }
   }
-
-  //save Users Progress
-  Future<void> saveUserProgress(
-    String language,
-    String lastVisitedLevel,
-    List<String> completedLevels,
-  ) async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      return;
-    }
-
-    await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
-      "progress": {
-        language: {
-          "LastVisitedLevel": lastVisitedLevel,
-          "CompletedLevels": completedLevels,
-        },
-      },
-    }, SetOptions(merge: true));
-  }
-
-  //get User Progress
-  Future<void> getUserProgress(String language) async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      return;
-    }
-    var snap =
-        await FirebaseFirestore.instance
-            .collection("users")
-            .doc(user.uid)
-            .get();
-  }
 }
