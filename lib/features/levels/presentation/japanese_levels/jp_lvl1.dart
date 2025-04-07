@@ -32,6 +32,7 @@ class _JpLvl1State extends State<JpLvl1> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBar(title: Text('Level 1'), centerTitle: true),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -397,7 +398,7 @@ class _JpLvl1State extends State<JpLvl1> {
                                     ).colorScheme.primary.withOpacity(0.3),
                                   ),
                                   onPressed: () {
-                                    Navigator.of(context).push(
+                                    Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(

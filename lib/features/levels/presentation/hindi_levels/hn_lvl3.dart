@@ -70,6 +70,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
     }
 
     return Scaffold(
+      appBar: AppBar(title: Text('Level 3'), centerTitle: true),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -128,7 +129,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                   ),
                 ),
 
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
 
                 // Game content with scrollable columns
                 Expanded(
@@ -461,7 +462,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(
-                                        32.0,
+                                        12.0,
                                       ), // Increased padding for luxury feel
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -535,7 +536,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                 ),
                                                 textAlign: TextAlign.center,
                                               ),
-                                              SizedBox(height: 20),
+                                              SizedBox(height: 10),
                                               Container(
                                                 padding:
                                                     const EdgeInsets.symmetric(
@@ -584,7 +585,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                           // Bottom Button
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                              bottom: 20,
+                                              bottom: 10,
                                             ),
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
@@ -612,7 +613,9 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                     .withOpacity(0.5),
                                               ),
                                               onPressed: () {
-                                                Navigator.of(context).push(
+                                                Navigator.of(
+                                                  context,
+                                                ).pushReplacement(
                                                   MaterialPageRoute(
                                                     builder:
                                                         (

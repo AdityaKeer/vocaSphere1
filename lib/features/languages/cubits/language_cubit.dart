@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/en_lvl2.dart';
+import 'package:major_project1/features/levels/presentation/english_levels/quiz_screen.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl4.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl6.dart';
+import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl7.dart';
 import '../../authentication/data/firebase_auth_repo.dart';
 import '../../levels/presentation/english_levels/en_lvl1.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl1.dart';
@@ -37,7 +39,7 @@ class LanguageCubit extends Cubit<LanguageState> {
 
   Map<String, Widget> get levelPages => _levelPages;
 
-  // Initialize levels only if they are not already set
+  // Initialize levels
   void initializeLevels(String newLanguage) {
     if (language == newLanguage && _levelPages.isNotEmpty) return;
 
@@ -56,7 +58,7 @@ class LanguageCubit extends Cubit<LanguageState> {
         };
         break;
       case 'English':
-        _levelPages = {'EnLvl1': const EnLvl1(), 'EnLvl2': const EnLvl2()};
+        _levelPages = {'EnLvl1': const QuizScreen(), 'EnLvl2': const EnLvl2()};
         break;
       case 'Japanese':
         _levelPages = {
@@ -65,7 +67,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           'JpLvl3': const JpLvl3(),
           'JpLvl4': const JpLvl4(),
           'JpLvl5': const JpLvl5(),
-          'JpLvl6': const JpLvl6(),
+          'JpLvl6': const JpLvl7(),
         };
         break;
       case 'Sanskrit':
@@ -131,12 +133,14 @@ class LanguageCubit extends Cubit<LanguageState> {
     authRepo.saveUserProgress(language, currentLevel!, completedLevels);
   }
 
-  void selectLevel(String name) {
+  Widget? selectLevel(String name) {
     if (_levelPages.containsKey(name)) {
       currentLevel = name;
       authRepo.saveUserProgress(language, currentLevel!, completedLevels);
+      return _levelPages[name]!;
       emit(LevelSelected(selectedLevel: name, lvlPage: _levelPages[name]!));
     }
+    return null;
   }
 
   // Set language and load progress (combines both functionalities safely)

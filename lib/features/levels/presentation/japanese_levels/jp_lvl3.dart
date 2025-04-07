@@ -71,6 +71,7 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
     }
 
     return Scaffold(
+      appBar: AppBar(title: Text('Level 3'), centerTitle: true),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -615,7 +616,9 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                                   .withOpacity(0.5),
                                             ),
                                             onPressed: () {
-                                              Navigator.of(context).push(
+                                              Navigator.of(
+                                                context,
+                                              ).pushReplacement(
                                                 MaterialPageRoute(
                                                   builder:
                                                       (

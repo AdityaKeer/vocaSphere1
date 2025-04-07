@@ -29,7 +29,7 @@ class _HnLvl2State extends State<HnLvl2> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text('Level 2')),
+      appBar: AppBar(title: Text('Level 2'), centerTitle: true),
       body: SafeArea(
         child: Column(
           children: [
@@ -399,7 +399,7 @@ class _HnLvl2State extends State<HnLvl2> {
                                     ).colorScheme.primary.withOpacity(0.3),
                                   ),
                                   onPressed: () {
-                                    Navigator.of(context).push(
+                                    Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
@@ -408,6 +408,7 @@ class _HnLvl2State extends State<HnLvl2> {
                                                 final languageCubit =
                                                     context
                                                         .read<LanguageCubit>();
+
                                                 languageCubit.emit(
                                                   LevelListUpdated(
                                                     levelPages:
@@ -430,6 +431,7 @@ class _HnLvl2State extends State<HnLvl2> {
                                                 );
                                               },
                                               onNextLevel: () {
+                                                Navigator.of(context).pop();
                                                 final languageCubit =
                                                     context
                                                         .read<LanguageCubit>();

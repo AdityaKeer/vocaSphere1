@@ -55,7 +55,7 @@ class WordCard extends StatelessWidget {
                   child: Text(
                     engWord,
                     style: TextStyle(
-                      fontSize: 47,
+                      fontSize: 37,
                       fontWeight: FontWeight.bold,
                       color: Colors.deepOrangeAccent,
                     ),
@@ -71,7 +71,7 @@ class WordCard extends StatelessWidget {
                 child: Text(
                   langWord,
                   style: TextStyle(
-                    fontSize: 100,
+                    fontSize: 70,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),

@@ -30,6 +30,7 @@ class _HnLvl1State extends State<HnLvl1> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBar(title: Text('Level 1'), centerTitle: true),
       body: SafeArea(
         child: Column(
           children: [
@@ -264,7 +265,7 @@ class _HnLvl1State extends State<HnLvl1> {
                                     ).colorScheme.primary.withOpacity(0.3),
                                   ),
                                   onPressed: () {
-                                    Navigator.of(context).push(
+                                    Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(

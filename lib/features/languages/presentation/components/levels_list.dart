@@ -8,7 +8,9 @@ import '../../cubits/language_state.dart';
 import '../components/level_buttons.dart';
 
 class LevelList extends StatelessWidget {
-  const LevelList({super.key});
+  // Function(bool)? onLevelLoaded;
+
+  LevelList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,6 @@ class LevelList extends StatelessWidget {
         builder: (context, state) {
           if (state is LevelListUpdated) {
             print("Current state: $state");
-
             return ListView.builder(
               itemCount: state.levelPages.length,
               itemBuilder: (context, index) {
@@ -43,7 +44,15 @@ class LevelList extends StatelessWidget {
                       left: index.isEven ? 0 : 140.0,
                       right: index.isEven ? 140.0 : 0,
                       onTap: () {
-                        context.read<LanguageCubit>().selectLevel(levelName);
+                        Widget? wi = context.read<LanguageCubit>().selectLevel(
+                          levelName,
+                        );
+                        if (wi == null) {
+                          return;
+                        }
+                        Navigator.of(
+                          context,
+                        ).push(MaterialPageRoute(builder: (context) => wi));
                       },
                       levelName: levelName,
                     ),
@@ -51,20 +60,22 @@ class LevelList extends StatelessWidget {
                 );
               },
             );
-          } else if (state is LevelSelected) {
-            print("Current state: $state");
-
-            return Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  opacity: 0.63,
-                  image: AssetImage('assets/images/lvlListBg3.jpeg'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: state.lvlPage,
-            );
           }
+
+          // else if (state is LevelSelected) {
+          //   print("Current state: $state");
+          //   return Container(
+          //     decoration: const BoxDecoration(
+          //       image: DecorationImage(
+          //         opacity: 0.63,
+          //         image: AssetImage('assets/images/lvlListBg3.jpeg'),
+          //         fit: BoxFit.cover,
+          //       ),
+          //     ),
+          //     child: state.lvlPage,
+          //   );
+          // }
+
           return Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
