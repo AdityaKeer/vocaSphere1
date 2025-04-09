@@ -24,7 +24,8 @@ class _HindiPageState extends State<HindiPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        centerTitle: true,
+        title: Text('Levels'),
         actions: [
           IconButton(
             onPressed: () {

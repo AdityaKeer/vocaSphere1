@@ -461,9 +461,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                       ],
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(
-                                        12.0,
-                                      ), // Increased padding for luxury feel
+                                      padding: const EdgeInsets.all(12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:

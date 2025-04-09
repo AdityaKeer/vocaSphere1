@@ -4,9 +4,12 @@ import 'package:major_project1/features/levels/presentation/english_levels/en_lv
 import 'package:major_project1/features/levels/presentation/english_levels/quiz_screen.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl4.dart';
+import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl7.dart';
+import 'package:major_project1/features/levels/presentation/marathi_levels/mr_lvl6.dart';
+import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl6.dart';
 import '../../authentication/data/firebase_auth_repo.dart';
 import '../../levels/presentation/english_levels/en_lvl1.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl1.dart';
@@ -42,8 +45,6 @@ class LanguageCubit extends Cubit<LanguageState> {
   // Initialize levels
   void initializeLevels(String newLanguage) {
     if (language == newLanguage && _levelPages.isNotEmpty) return;
-
-    print("Initializing Levels for: $newLanguage");
     language = newLanguage;
     _levelPages.clear();
 
@@ -55,6 +56,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           'HnLvl3': const HnLvl3(),
           'HnLvl4': const HnLvl4(),
           'HnLvl5': const HnLvl5(),
+          'HnLvl6': const HnLvl6(),
         };
         break;
       case 'English':
@@ -77,6 +79,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           'SaLvl3': const SaLvl3(),
           'SaLvl4': const SaLvl4(),
           'SaLvl5': const SaLvl5(),
+          'SaLvl6': const SaLvl6(),
         };
         break;
       case 'Marathi':
@@ -86,6 +89,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           'MrLvl3': const MrLvl3(),
           'MrLvl4': const MrLvl4(),
           'MrLvl5': const MrLvl5(),
+          'MrLvl6': const MrLvl6(),
         };
         break;
     }
@@ -147,7 +151,6 @@ class LanguageCubit extends Cubit<LanguageState> {
   Future<void> setLanguageAndLoadProgress(String newLanguage) async {
     print("Switching to language: $newLanguage");
     if (language == newLanguage) {
-      print("Already in $newLanguage, skipping re-initialization.");
       return;
     }
     //  Reset all values before switching
@@ -164,7 +167,6 @@ class LanguageCubit extends Cubit<LanguageState> {
       completedLevels = List<String>.from(progress["CompletedLevels"] ?? []);
       currentLevel = progress["LastVisitedLevel"];
     } else {
-      print("No existing progress found for $language. Initializing...");
       completedLevels = [];
       currentLevel = _levelPages.isNotEmpty ? _levelPages.keys.first : null;
     }
@@ -194,5 +196,13 @@ class LanguageCubit extends Cubit<LanguageState> {
     emit(
       LevelListUpdated(levelPages: Map.from(_levelPages)),
     ); // Reset levels list to show all levels
+  }
+
+  Future<double> completionPercentage(String language) async {
+    final lvlProgress = await authRepo.getUserProgress(language);
+    completedLevels = List<String>.from(lvlProgress["CompletedLevels"] ?? []);
+    double percentage = (completedLevels.length / 6);
+    print(percentage * 100);
+    return percentage;
   }
 }

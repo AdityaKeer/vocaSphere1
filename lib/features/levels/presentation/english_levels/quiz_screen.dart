@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
-import '../../components/quizNavBtn.dart';
-import '../../components/quizOptionBtn.dart';
-
-class JpLvl7 extends StatefulWidget {
-  const JpLvl7({super.key});
+class QuizScreen extends StatefulWidget {
+  const QuizScreen({super.key});
 
   @override
-  State<JpLvl7> createState() => _JpLvl7State();
+  State<QuizScreen> createState() => _QuizScreenState();
 }
 
-class _JpLvl7State extends State<JpLvl7> {
-  final FlutterTts flutterTts = FlutterTts();
+class _QuizScreenState extends State<QuizScreen> {
   int currentIndex = 0;
   List<DocumentSnapshot> questions = [];
 
@@ -25,7 +20,7 @@ class _JpLvl7State extends State<JpLvl7> {
 
   Future<void> fetchQuestions() async {
     final snapshot =
-        await FirebaseFirestore.instance.collection('japaneseQuiz').get();
+        await FirebaseFirestore.instance.collection('questions').get();
     setState(() {
       questions = snapshot.docs;
     });
@@ -48,9 +43,11 @@ class _JpLvl7State extends State<JpLvl7> {
   Widget build(BuildContext context) {
     if (questions.isEmpty) {
       return Scaffold(
-        appBar: AppBar(centerTitle: true, title: Text('level 7')),
+        appBar: AppBar(centerTitle: true, title: Text('level 1')),
         backgroundColor: Colors.black,
-        body: Center(child: CircularProgressIndicator(color: Colors.green)),
+        body: const Center(
+          child: CircularProgressIndicator(color: Colors.green),
+        ),
       );
     }
     final currentQuestion = questions[currentIndex];
@@ -59,7 +56,6 @@ class _JpLvl7State extends State<JpLvl7> {
     var correctOption = currentQuestion['answer'];
 
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text('level 7')),
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
@@ -74,7 +70,7 @@ class _JpLvl7State extends State<JpLvl7> {
                 gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xFFEFF45F), Colors.amber],
+                  colors: [Color(0xFFCCF45F), Colors.green],
                 ),
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -116,10 +112,7 @@ class _JpLvl7State extends State<JpLvl7> {
                                             ? Colors.red
                                             : Colors.white),
                                 text: option,
-                                onTap: () async {
-                                  await flutterTts.setLanguage("ja-JP");
-                                  await flutterTts.setSpeechRate(0.20);
-                                  await flutterTts.speak(option.toString());
+                                onTap: () {
                                   _selectedAnswer = option;
                                   setState(() {});
                                   if (option.toString() == correctOption) {
@@ -152,6 +145,66 @@ class _JpLvl7State extends State<JpLvl7> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class OptionButton extends StatefulWidget {
+  final String text;
+  final Function() onTap;
+  Color? bgColor;
+
+  OptionButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    required this.bgColor,
+  });
+
+  @override
+  State<OptionButton> createState() => _OptionButtonState();
+}
+
+class _OptionButtonState extends State<OptionButton> {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: widget.onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: widget.bgColor,
+        foregroundColor: Colors.black,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      child: Text(widget.text),
+    );
+  }
+}
+
+class NavigationButton extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+
+  const NavigationButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 100,
+      height: 50,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.green,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        child: Text(label),
       ),
     );
   }

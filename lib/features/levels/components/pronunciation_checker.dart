@@ -22,11 +22,8 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
     );
 
     if (available) {
-      print("Speech recognition initialized!");
       speechToText.listen(
-        onSoundLevelChange: (level) {
-          print("Mic Level: $level");
-        },
+        onSoundLevelChange: (level) {},
         onResult: (result) {
           print("Recognized: ${result.recognizedWords}");
           setState(() {
@@ -38,15 +35,12 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
         pauseFor: Duration(seconds: 10),
         cancelOnError: false,
       );
-    } else {
-      print("Speech recognition not available.");
-    }
+    } else {}
   }
 
   // Stop Listening
   Future<void> stopListening() async {
     await speechToText.stop();
-    print("Stopped listening");
   }
 
   dynamic checkSimilarity(String userWord, String actualWord) {
@@ -83,7 +77,6 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
         ElevatedButton(
           onPressed: () {
             checkSimilarity(userSpeech, widget.correctWord);
-            print(accuracy);
             setState(() {});
           },
           child: Text(

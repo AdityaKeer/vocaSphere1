@@ -23,7 +23,8 @@ class _MarathiPageState extends State<MarathiPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        centerTitle: true,
+        title: Text('Levels'),
         actions: [
           IconButton(
             onPressed: () {

@@ -17,3 +17,8 @@ class AuthError extends AuthState {
   final String message;
   AuthError(this.message);
 }
+
+class UserDataState extends AuthState {
+  final String name;
+  UserDataState(this.name);
+}

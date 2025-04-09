@@ -19,6 +19,14 @@ class LanguageListUpdated extends HomeState {
   LanguageListUpdated({required this.languagePages});
 }
 
-abstract class HomeEvent {}
+class HomeLoading extends HomeState {}
 
-class FetchData extends HomeEvent {}
+class UserNameFetched extends HomeState {
+  final String userName;
+  UserNameFetched({required this.userName});
+}
+
+class HomeError extends HomeState {
+  final String message;
+  HomeError(this.message);
+}

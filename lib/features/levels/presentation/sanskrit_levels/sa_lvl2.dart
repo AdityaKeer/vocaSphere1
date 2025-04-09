@@ -29,6 +29,7 @@ class _SaLvl2State extends State<SaLvl2> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBar(title: Text('Level 2'), centerTitle: true),
       body: SafeArea(
         child: Column(
           children: [
@@ -385,7 +386,7 @@ class _SaLvl2State extends State<SaLvl2> {
                                     ).colorScheme.primary.withOpacity(0.3),
                                   ),
                                   onPressed: () {
-                                    Navigator.of(context).push(
+                                    Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(

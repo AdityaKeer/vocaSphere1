@@ -1,4 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import '../../../languages/presentation/pages/english/page/english_page.dart';
 import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
@@ -18,6 +21,8 @@ class HomeCubit extends Cubit<HomeState> {
       'Sanskrit': const SanskritPage(),
       'Japanese': const JapanesePage(),
     };
+    print(" Languages Initialized: ${_languagePages.keys.toList()}");
+
     emit(LanguageListUpdated(languagePages: Map.from(_languagePages)));
   }
 
@@ -34,5 +39,24 @@ class HomeCubit extends Cubit<HomeState> {
 
   void resetLanguages() {
     initializeLanguages();
+  }
+
+  Future<void> getUserName() async {
+    try {
+      // emit(HomeLoading());
+      final uid = FirebaseAuth.instance.currentUser?.uid;
+      if (uid != null) {
+        final doc =
+            await FirebaseFirestore.instance.collection('users').doc(uid).get();
+        final name = doc["name"];
+        emit(UserNameFetched(userName: name));
+        await Future.delayed(const Duration(milliseconds: 200));
+        emit(LanguageListUpdated(languagePages: Map.from(_languagePages)));
+      } else {
+        emit(HomeError("User not logged in"));
+      }
+    } catch (e) {
+      emit(HomeError("Failed to fetch username: $e"));
+    }
   }
 }

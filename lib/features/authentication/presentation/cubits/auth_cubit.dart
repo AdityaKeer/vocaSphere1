@@ -16,7 +16,6 @@ class AuthCubit extends Cubit<AuthState> {
     final AppUser? user = await authRepo.getCurrentUser();
 
     if (user != null) {
-      print(" User found: ${user.email}");
       _currentUser = user;
       emit(Authenticated(user));
     } else {
@@ -32,11 +31,9 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> login(String email, String pass) async {
     try {
       emit(AuthLoading());
-      print("Login started...");
       final user = await authRepo.loginWithEmailPass(email, pass);
 
       if (user != null) {
-        print("Login successful: ${user.email}");
         _currentUser = user;
         emit(Authenticated(user));
       } else {
@@ -70,11 +67,9 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> logOut() async {
     try {
       await authRepo.logout();
-      print(" Logout successful, emitting UnAuthenticated...");
       _currentUser = null;
       emit(UnAuthenticated());
     } catch (e) {
-      print(" Logout failed: $e");
       emit(AuthError('Logout failed: $e'));
     }
   }

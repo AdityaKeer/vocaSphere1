@@ -28,7 +28,6 @@ class LevelList extends StatelessWidget {
       child: BlocBuilder<LanguageCubit, LanguageState>(
         builder: (context, state) {
           if (state is LevelListUpdated) {
-            print("Current state: $state");
             return ListView.builder(
               itemCount: state.levelPages.length,
               itemBuilder: (context, index) {
@@ -61,20 +60,6 @@ class LevelList extends StatelessWidget {
               },
             );
           }
-
-          // else if (state is LevelSelected) {
-          //   print("Current state: $state");
-          //   return Container(
-          //     decoration: const BoxDecoration(
-          //       image: DecorationImage(
-          //         opacity: 0.63,
-          //         image: AssetImage('assets/images/lvlListBg3.jpeg'),
-          //         fit: BoxFit.cover,
-          //       ),
-          //     ),
-          //     child: state.lvlPage,
-          //   );
-          // }
 
           return Container(
             decoration: const BoxDecoration(

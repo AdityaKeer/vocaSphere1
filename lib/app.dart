@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           create: (context) => AuthCubit(authRepo: authRepo)..checkAuth(),
         ),
         BlocProvider(create: (context) => HomeCubit()),
-        // BlocProvider(create: (context) => HindiCubit()..initializeHnLevels()),
+
         BlocProvider(create: (context) => LanguageCubit(authRepo)),
       ],
       child: MaterialApp(

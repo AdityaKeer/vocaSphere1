@@ -66,14 +66,14 @@ class _HnLvl1State extends State<HnLvl1> {
                   children: [
                     LetterCard(
                       flutterTts: flutterTts,
-                      lang: "mr-IN",
+                      lang: "hi-IN",
                       letter: 'अ',
                       pronun: 'A',
                     ),
 
                     LetterCard(
                       flutterTts: flutterTts,
-                      lang: "mr-IN",
+                      lang: "hi-IN",
                       letter: 'आ',
                       pronun: 'AA',
                     ),

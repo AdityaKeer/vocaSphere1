@@ -69,6 +69,7 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
     }
 
     return Scaffold(
+      appBar: AppBar(title: Text('Level 3'), centerTitle: true),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -459,9 +460,7 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                       ],
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(
-                                        32.0,
-                                      ), // Increased padding for luxury feel
+                                      padding: const EdgeInsets.all(12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -534,7 +533,7 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                                 ),
                                                 textAlign: TextAlign.center,
                                               ),
-                                              SizedBox(height: 20),
+                                              SizedBox(height: 10),
                                               Container(
                                                 padding:
                                                     const EdgeInsets.symmetric(
@@ -583,7 +582,7 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                           // Bottom Button
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                              bottom: 20,
+                                              bottom: 10,
                                             ),
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
@@ -611,7 +610,9 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                                     .withOpacity(0.5),
                                               ),
                                               onPressed: () {
-                                                Navigator.of(context).push(
+                                                Navigator.of(
+                                                  context,
+                                                ).pushReplacement(
                                                   MaterialPageRoute(
                                                     builder:
                                                         (

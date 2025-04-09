@@ -24,7 +24,8 @@ class _EnglishPageState extends State<EnglishPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        centerTitle: true,
+        title: Text('Levels'),
         actions: [
           IconButton(
             onPressed: () {

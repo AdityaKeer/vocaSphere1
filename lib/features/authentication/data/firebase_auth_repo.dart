@@ -25,8 +25,6 @@ class FirebaseAuthRepo implements AuthRepo {
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
 
-      print("User logged in: ${userCredential.user?.email}");
-
       return AppUser(name: '', email: email, uid: userCredential.user!.uid);
     } on FirebaseAuthException catch (e) {
       throw Exception('Login failed: ${e.message}');
@@ -40,7 +38,6 @@ class FirebaseAuthRepo implements AuthRepo {
   Future<void> logout() async {
     try {
       await firebaseAuth.signOut();
-      print("Logout successful!");
     } catch (e) {
       throw Exception("Logout failed: $e");
     }
@@ -94,10 +91,6 @@ class FirebaseAuthRepo implements AuthRepo {
       return;
     }
 
-    print(" Saving Progress for $language:");
-    print("Last Visited Level: $lastVisitedLevel");
-    print("Completed Levels: $completedLevels");
-
     await firebaseFirestore.collection("users").doc(user.uid).set({
       "progress": {
         language: {
@@ -122,10 +115,4 @@ class FirebaseAuthRepo implements AuthRepo {
     }
     return {};
   }
-
-  // Future<Map<String, dynamic>> getQuizList(String language) async {
-  //   final doc =
-  //       await firebaseFirestore.collection("quizes").doc(language).get();
-  //   if (doc) {}
-  // }
 }

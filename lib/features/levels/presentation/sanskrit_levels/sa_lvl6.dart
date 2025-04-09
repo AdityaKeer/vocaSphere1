@@ -5,14 +5,14 @@ import 'package:flutter_tts/flutter_tts.dart';
 import '../../components/quizNavBtn.dart';
 import '../../components/quizOptionBtn.dart';
 
-class JpLvl7 extends StatefulWidget {
-  const JpLvl7({super.key});
+class SaLvl6 extends StatefulWidget {
+  const SaLvl6({super.key});
 
   @override
-  State<JpLvl7> createState() => _JpLvl7State();
+  State<SaLvl6> createState() => _SaLvl6State();
 }
 
-class _JpLvl7State extends State<JpLvl7> {
+class _SaLvl6State extends State<SaLvl6> {
   final FlutterTts flutterTts = FlutterTts();
   int currentIndex = 0;
   List<DocumentSnapshot> questions = [];
@@ -25,7 +25,7 @@ class _JpLvl7State extends State<JpLvl7> {
 
   Future<void> fetchQuestions() async {
     final snapshot =
-        await FirebaseFirestore.instance.collection('japaneseQuiz').get();
+        await FirebaseFirestore.instance.collection('hindiQuiz').get();
     setState(() {
       questions = snapshot.docs;
     });
@@ -44,6 +44,7 @@ class _JpLvl7State extends State<JpLvl7> {
   }
 
   String? _selectedAnswer;
+
   @override
   Widget build(BuildContext context) {
     if (questions.isEmpty) {
@@ -67,7 +68,7 @@ class _JpLvl7State extends State<JpLvl7> {
           children: [
             // Main Card
             Container(
-              height: 400,
+              height: 420,
               width: 550,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -117,7 +118,7 @@ class _JpLvl7State extends State<JpLvl7> {
                                             : Colors.white),
                                 text: option,
                                 onTap: () async {
-                                  await flutterTts.setLanguage("ja-JP");
+                                  await flutterTts.setLanguage("mr-IN");
                                   await flutterTts.setSpeechRate(0.20);
                                   await flutterTts.speak(option.toString());
                                   _selectedAnswer = option;

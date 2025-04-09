@@ -37,7 +37,7 @@ class LevelButton extends StatelessWidget {
               child: Image.asset('assets/images/level$n.png', height: 150),
             ),
           ),
-          if (isLastVisited) // ✅ Show marker for last visited level
+          if (isLastVisited)
             Positioned(
               right: 125,
               top: 45,

@@ -22,7 +22,8 @@ class _SanskritPageState extends State<SanskritPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        centerTitle: true,
+        title: Text('Levels'),
         actions: [
           IconButton(
             onPressed: () {
