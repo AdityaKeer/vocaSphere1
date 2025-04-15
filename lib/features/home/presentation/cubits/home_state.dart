@@ -23,7 +23,9 @@ class HomeLoading extends HomeState {}
 
 class UserNameFetched extends HomeState {
   final String userName;
-  UserNameFetched({required this.userName});
+  // final List<double> langPercentage;
+  final List<LangProgress> listOfLaves;
+  UserNameFetched({required this.listOfLaves, required this.userName});
 }
 
 class HomeError extends HomeState {

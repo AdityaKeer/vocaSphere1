@@ -71,6 +71,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(centerTitle: true, title: Text('Voca-Sphere')),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(

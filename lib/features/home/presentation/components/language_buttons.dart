@@ -39,7 +39,7 @@ class _LanguageButtonsListState extends State<LanguageButtonsList> {
                                   builder: (context) => entry.value,
                                 ),
                               ).then((_) {
-                                // ✅ Reset the language list when returning
+                                //  Reset the language list when returning
                                 homeCubit.resetLanguages();
                               });
                             });

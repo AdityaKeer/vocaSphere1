@@ -6,14 +6,14 @@ import 'package:http/http.dart' as http;
 import 'package:icons_plus/icons_plus.dart';
 import 'package:major_project1/features/levels/components/pronunciation_checker.dart';
 
-class JpLvl6 extends StatefulWidget {
-  const JpLvl6({super.key});
+class TrialApi extends StatefulWidget {
+  const TrialApi({super.key});
 
   @override
-  State<JpLvl6> createState() => _JpLvl6State();
+  State<TrialApi> createState() => _TrialApiState();
 }
 
-class _JpLvl6State extends State<JpLvl6> {
+class _TrialApiState extends State<TrialApi> {
   @override
   void initState() {
     super.initState();
@@ -21,17 +21,6 @@ class _JpLvl6State extends State<JpLvl6> {
   }
 
   List<dynamic?>? data;
-
-  fetchData() async {
-    const url = 'https://random-words-api.vercel.app/word/japanese';
-    final uri = Uri.parse(url);
-    final response = await http.get(uri);
-    final body = response.body;
-
-    data = jsonDecode(body);
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,5 +64,15 @@ class _JpLvl6State extends State<JpLvl6> {
         ],
       ),
     );
+  }
+
+  fetchData() async {
+    const url = 'https://random-words-api.vercel.app/word/japanese';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri);
+    final body = response.body;
+
+    data = jsonDecode(body);
+    setState(() {});
   }
 }

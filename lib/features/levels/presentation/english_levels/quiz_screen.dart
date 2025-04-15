@@ -10,6 +10,10 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> {
   int currentIndex = 0;
+  int score = 0;
+  bool isAnswered = false;
+  String? _selectedAnswer;
+
   List<DocumentSnapshot> questions = [];
 
   @override
@@ -28,32 +32,63 @@ class _QuizScreenState extends State<QuizScreen> {
 
   void nextQuestion() {
     if (currentIndex < questions.length - 1) {
-      setState(() => currentIndex++);
+      setState(() {
+        currentIndex++;
+        _selectedAnswer = null;
+        isAnswered = false;
+      });
+    } else {
+      showDialog(
+        context: context,
+        builder:
+            (context) => AlertDialog(
+              title: const Text('Quiz Completed!'),
+              content: Text('Your Score: $score / ${questions.length}'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    setState(() {
+                      currentIndex = 0;
+                      score = 0;
+                      _selectedAnswer = null;
+                      isAnswered = false;
+                    });
+                  },
+                  child: const Text('Restart'),
+                ),
+              ],
+            ),
+      );
     }
   }
 
   void previousQuestion() {
     if (currentIndex > 0) {
-      setState(() => currentIndex--);
+      setState(() {
+        currentIndex--;
+        _selectedAnswer = null;
+        isAnswered = false;
+      });
     }
   }
 
-  String? _selectedAnswer;
   @override
   Widget build(BuildContext context) {
     if (questions.isEmpty) {
       return Scaffold(
-        appBar: AppBar(centerTitle: true, title: Text('level 1')),
+        appBar: AppBar(centerTitle: true, title: const Text('Level 1')),
         backgroundColor: Colors.black,
         body: const Center(
           child: CircularProgressIndicator(color: Colors.green),
         ),
       );
     }
+
     final currentQuestion = questions[currentIndex];
     final questionText = currentQuestion['question'];
     final options = List<String>.from(currentQuestion['options']);
-    var correctOption = currentQuestion['answer'];
+    final correctOption = currentQuestion['answer'];
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -63,7 +98,7 @@ class _QuizScreenState extends State<QuizScreen> {
           children: [
             // Main Card
             Container(
-              height: 400,
+              height: 420,
               width: 550,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -76,6 +111,33 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 8,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Score: $score / ${questions.length}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        LinearProgressIndicator(
+                          value:
+                              questions.isEmpty ? 0 : score / questions.length,
+                          minHeight: 8,
+                          backgroundColor: Colors.grey.shade300,
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   // Question Box
                   Container(
                     padding: const EdgeInsets.all(12),
@@ -99,31 +161,33 @@ class _QuizScreenState extends State<QuizScreen> {
                     crossAxisSpacing: 10,
                     childAspectRatio: 2.5,
                     children:
-                        options
-                            .map(
-                              (option) => OptionButton(
-                                bgColor:
-                                    (option == _selectedAnswer &&
-                                            _selectedAnswer == correctOption)
-                                        ? Colors.green
-                                        : ((option == _selectedAnswer &&
-                                                _selectedAnswer !=
-                                                    correctOption)
-                                            ? Colors.red
-                                            : Colors.white),
-                                text: option,
-                                onTap: () {
-                                  _selectedAnswer = option;
-                                  setState(() {});
-                                  if (option.toString() == correctOption) {
-                                    print("correct");
-                                  } else {
-                                    print("incorrect");
-                                  }
-                                },
-                              ),
-                            )
-                            .toList(),
+                        options.map((option) {
+                          Color bgColor = Colors.white;
+                          if (_selectedAnswer != null) {
+                            if (option == correctOption &&
+                                option == _selectedAnswer) {
+                              bgColor = Colors.green;
+                            } else if (option == _selectedAnswer &&
+                                _selectedAnswer != correctOption) {
+                              bgColor = Colors.red;
+                            }
+                          }
+
+                          return OptionButton(
+                            bgColor: bgColor,
+                            text: option,
+                            onTap: () {
+                              if (!isAnswered) {
+                                if (option == correctOption) {
+                                  score++;
+                                }
+                                _selectedAnswer = option;
+                                isAnswered = true;
+                                setState(() {});
+                              }
+                            },
+                          );
+                        }).toList(),
                   ),
                 ],
               ),
@@ -150,12 +214,12 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
-class OptionButton extends StatefulWidget {
+class OptionButton extends StatelessWidget {
   final String text;
   final Function() onTap;
-  Color? bgColor;
+  final Color bgColor;
 
-  OptionButton({
+  const OptionButton({
     super.key,
     required this.text,
     required this.onTap,
@@ -163,20 +227,15 @@ class OptionButton extends StatefulWidget {
   });
 
   @override
-  State<OptionButton> createState() => _OptionButtonState();
-}
-
-class _OptionButtonState extends State<OptionButton> {
-  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: widget.onTap,
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
-        backgroundColor: widget.bgColor,
+        backgroundColor: bgColor,
         foregroundColor: Colors.black,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
-      child: Text(widget.text),
+      child: Text(text),
     );
   }
 }

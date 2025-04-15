@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubit(authRepo: authRepo)..checkAuth(),
         ),
-        BlocProvider(create: (context) => HomeCubit()),
+        BlocProvider(create: (context) => HomeCubit(authRepo)),
 
         BlocProvider(create: (context) => LanguageCubit(authRepo)),
       ],

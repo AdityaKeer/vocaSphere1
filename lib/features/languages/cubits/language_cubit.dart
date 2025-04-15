@@ -8,6 +8,7 @@ import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl6
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl7.dart';
+import 'package:major_project1/features/levels/presentation/japanese_levels/trial_api.dart';
 import 'package:major_project1/features/levels/presentation/marathi_levels/mr_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl6.dart';
 import '../../authentication/data/firebase_auth_repo.dart';
@@ -60,7 +61,7 @@ class LanguageCubit extends Cubit<LanguageState> {
         };
         break;
       case 'English':
-        _levelPages = {'EnLvl1': const QuizScreen(), 'EnLvl2': const EnLvl2()};
+        _levelPages = {'EnLvl1': const TrialApi(), 'EnLvl2': const EnLvl2()};
         break;
       case 'Japanese':
         _levelPages = {
@@ -69,7 +70,8 @@ class LanguageCubit extends Cubit<LanguageState> {
           'JpLvl3': const JpLvl3(),
           'JpLvl4': const JpLvl4(),
           'JpLvl5': const JpLvl5(),
-          'JpLvl6': const JpLvl7(),
+          'JpLvl6': const JpLvl6(),
+          'JpLvl7': const JpLvl7(),
         };
         break;
       case 'Sanskrit':
@@ -196,13 +198,5 @@ class LanguageCubit extends Cubit<LanguageState> {
     emit(
       LevelListUpdated(levelPages: Map.from(_levelPages)),
     ); // Reset levels list to show all levels
-  }
-
-  Future<double> completionPercentage(String language) async {
-    final lvlProgress = await authRepo.getUserProgress(language);
-    completedLevels = List<String>.from(lvlProgress["CompletedLevels"] ?? []);
-    double percentage = (completedLevels.length / 6);
-    print(percentage * 100);
-    return percentage;
   }
 }
