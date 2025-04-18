@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/en_lvl2.dart';
+import 'package:major_project1/features/levels/presentation/english_levels/onboarding.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/quiz_screen.dart';
+import 'package:major_project1/features/levels/presentation/english_levels/trial_splash.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl4.dart';
 import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl6.dart';
@@ -11,6 +13,7 @@ import 'package:major_project1/features/levels/presentation/japanese_levels/jp_l
 import 'package:major_project1/features/levels/presentation/japanese_levels/trial_api.dart';
 import 'package:major_project1/features/levels/presentation/marathi_levels/mr_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl6.dart';
+import '../../../splashscreen.dart';
 import '../../authentication/data/firebase_auth_repo.dart';
 import '../../levels/presentation/english_levels/en_lvl1.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl1.dart';
@@ -61,7 +64,10 @@ class LanguageCubit extends Cubit<LanguageState> {
         };
         break;
       case 'English':
-        _levelPages = {'EnLvl1': const TrialApi(), 'EnLvl2': const EnLvl2()};
+        _levelPages = {
+          'EnLvl1': const SplashScreen(),
+          'EnLvl2': const EnLvl2(),
+        };
         break;
       case 'Japanese':
         _levelPages = {
@@ -70,8 +76,8 @@ class LanguageCubit extends Cubit<LanguageState> {
           'JpLvl3': const JpLvl3(),
           'JpLvl4': const JpLvl4(),
           'JpLvl5': const JpLvl5(),
-          'JpLvl6': const JpLvl6(),
-          'JpLvl7': const JpLvl7(),
+          'JpLvl6': const JpLvl7(),
+          'JpLvl7': const JpLvl6(),
         };
         break;
       case 'Sanskrit':

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:major_project1/features/home/presentation/cubits/home_cubit.dart';
 import 'package:major_project1/features/home/presentation/cubits/home_state.dart';
 import 'package:major_project1/features/authentication/presentation/components/common_button.dart';
@@ -50,7 +51,15 @@ class _LanguageButtonsListState extends State<LanguageButtonsList> {
           );
         }
 
-        return const Center(child: CircularProgressIndicator());
+        return Center(
+          child: Hero(
+            tag: 'superman',
+            child: Lottie.asset(
+              'assets/jsonAnimations/loadingScene.json',
+              height: 200,
+            ),
+          ),
+        );
       },
     );
   }

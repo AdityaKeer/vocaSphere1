@@ -1,20 +1,17 @@
-import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:lottie/lottie.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_cubit.dart';
 import 'package:major_project1/features/home/presentation/cubits/home_cubit.dart';
-import 'package:major_project1/features/languages/cubits/language_cubit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../components/language_buttons.dart';
 import '../cubits/home_state.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,6 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   File? image;
+  bool isLoading = true;
 
   Future pickImage() async {
     try {
@@ -66,19 +64,16 @@ class _HomePageState extends State<HomePage> {
 
   List languageList = List.empty(growable: true);
   HomeCubit? cubit;
-
   String userName = '';
-  double percentage = 0;
-  double percentage2 = 0;
   List<LangProgress> percentageOfLangList = List.empty(growable: true);
 
   @override
   void initState() {
+    super.initState();
     cubit = BlocProvider.of<HomeCubit>(context);
     cubit?.initializeLanguages();
     cubit?.getUserName(['Marathi', 'Japanese', 'Hindi', 'Sanskrit', 'English']);
     _loadImage();
-    super.initState();
   }
 
   void _loadImage() async {
@@ -99,7 +94,7 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             userName = state.userName;
             percentageOfLangList = state.listOfLaves;
-            setState(() {});
+            isLoading = false; // Data fetched, stop loading
           });
         }
       },
@@ -240,6 +235,7 @@ class _HomePageState extends State<HomePage> {
         ),
 
         appBar: AppBar(centerTitle: true, title: const Text('Home')),
+
         body: SafeArea(
           child: Center(
             child: Padding(
@@ -248,23 +244,35 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Bootstrap.book,
-                      size: 100,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                    SizedBox(height: 30),
-                    Text(
-                      'Choose the language you would like to learn',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey.shade800,
-                      ),
-                    ),
-                    SizedBox(height: 40),
-                    LanguageButtonsList(),
+                    isLoading
+                        ? Hero(
+                          tag: 'superman',
+                          child: Lottie.asset(
+                            'assets/jsonAnimations/loadingScene.json',
+                            height: 200,
+                          ),
+                        ) // Show loading indicator
+                        : Column(
+                          children: [
+                            Icon(
+                              Bootstrap.book,
+                              size: 100,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            SizedBox(height: 30),
+                            Text(
+                              'Choose the language you would like to learn',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.grey.shade800,
+                              ),
+                            ),
+                            SizedBox(height: 40),
+                            LanguageButtonsList(),
+                          ],
+                        ),
                   ],
                 ),
               ),

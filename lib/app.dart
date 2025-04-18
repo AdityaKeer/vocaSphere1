@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:major_project1/features/authentication/data/firebase_auth_repo.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_cubit.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_states.dart';
@@ -30,19 +29,13 @@ class MyApp extends StatelessWidget {
         theme: lightMode,
         home: BlocConsumer<AuthCubit, AuthState>(
           builder: (context, authState) {
-            print("🔄 AuthState changed to: $authState");
-
             if (authState is UnAuthenticated) {
-              print("✅ Showing AuthPage()");
               return const AuthPage();
             }
 
             if (authState is Authenticated) {
-              print("✅ Showing HomePage()");
               return const HomePage();
             }
-
-            print("⏳ Still in loading state...");
 
             return const Scaffold(
               body: Center(child: CircularProgressIndicator()),
