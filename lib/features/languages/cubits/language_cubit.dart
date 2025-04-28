@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/en_lvl2.dart';
-import 'package:major_project1/features/levels/presentation/english_levels/onboarding.dart';
-import 'package:major_project1/features/levels/presentation/english_levels/quiz_screen.dart';
-import 'package:major_project1/features/levels/presentation/english_levels/trial_splash.dart';
-import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl3.dart';
-import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl4.dart';
-import 'package:major_project1/features/levels/presentation/hindi_levels/hn_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl7.dart';
-import 'package:major_project1/features/levels/presentation/japanese_levels/trial_api.dart';
 import 'package:major_project1/features/levels/presentation/marathi_levels/mr_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl6.dart';
+import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl7.dart';
 import '../../../splashscreen.dart';
 import '../../authentication/data/firebase_auth_repo.dart';
-import '../../levels/presentation/english_levels/en_lvl1.dart';
+import '../../levels/presentation/chinese_levels/zh_lvl1.dart';
+import '../../levels/presentation/chinese_levels/zh_lvl2.dart';
+import '../../levels/presentation/chinese_levels/zh_lvl3.dart';
+import '../../levels/presentation/chinese_levels/zh_lvl4.dart';
+import '../../levels/presentation/chinese_levels/zh_lvl5.dart';
+import '../../levels/presentation/chinese_levels/zh_lvl6.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl1.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl2.dart';
+import '../../levels/presentation/hindi_levels/hn_lvl3.dart';
+import '../../levels/presentation/hindi_levels/hn_lvl4.dart';
 import '../../levels/presentation/hindi_levels/hn_lvl5.dart';
+import '../../levels/presentation/hindi_levels/hn_lvl6.dart';
+import '../../levels/presentation/hindi_levels/hn_lvl7.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl1.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl2.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl4.dart';
@@ -28,6 +31,7 @@ import '../../levels/presentation/marathi_levels/mr_lvl2.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl3.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl4.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl5.dart';
+import '../../levels/presentation/marathi_levels/mr_lvl7.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl1.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl2.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl3.dart';
@@ -61,14 +65,26 @@ class LanguageCubit extends Cubit<LanguageState> {
           'HnLvl4': const HnLvl4(),
           'HnLvl5': const HnLvl5(),
           'HnLvl6': const HnLvl6(),
+          'HnLvl7': const HnLvl7(),
         };
         break;
+
       case 'English':
         _levelPages = {
           'EnLvl1': const SplashScreen(),
           'EnLvl2': const EnLvl2(),
         };
+      case 'Chinese':
+        _levelPages = {
+          'ZhLvl1': const ZhLvl1(),
+          'ZhLvl2': const ZhLvl2(),
+          'ZhLvl3': const ZhLvl3(),
+          'ZhLvl4': const ZhLvl4(),
+          'ZhLvl5': const ZhLvl5(),
+          'ZhLvl6': const ZhLvl6(),
+        };
         break;
+
       case 'Japanese':
         _levelPages = {
           'JpLvl1': const JpLvl1(),
@@ -88,6 +104,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           'SaLvl4': const SaLvl4(),
           'SaLvl5': const SaLvl5(),
           'SaLvl6': const SaLvl6(),
+          'SaLvl7': const SaLvl7(),
         };
         break;
       case 'Marathi':
@@ -98,6 +115,7 @@ class LanguageCubit extends Cubit<LanguageState> {
           'MrLvl4': const MrLvl4(),
           'MrLvl5': const MrLvl5(),
           'MrLvl6': const MrLvl6(),
+          'MrLvl7': const MrLvl7(),
         };
         break;
     }

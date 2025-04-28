@@ -1,18 +1,18 @@
-import 'dart:convert';
+import 'dart:math'; // For random number generation
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:major_project1/features/levels/components/pronunciation_checker.dart';
 
-class JpLvl6 extends StatefulWidget {
-  const JpLvl6({super.key});
+class SaLvl7 extends StatefulWidget {
+  const SaLvl7({super.key});
 
   @override
-  State<JpLvl6> createState() => _JpLvl6State();
+  State<SaLvl7> createState() => _SaLvl7State();
 }
 
-class _JpLvl6State extends State<JpLvl6> {
+class _SaLvl7State extends State<SaLvl7> {
   List<dynamic?>? data;
 
   @override
@@ -22,22 +22,45 @@ class _JpLvl6State extends State<JpLvl6> {
   }
 
   fetchData() async {
-    const url = 'https://random-words-api.vercel.app/word/japanese';
-    final uri = Uri.parse(url);
-    final response = await http.get(uri);
-    final body = response.body;
-    data = jsonDecode(body);
-    setState(() {});
+    // Access Firestore collection
+    CollectionReference wordsCollection = FirebaseFirestore.instance.collection(
+      'saWords',
+    );
+
+    // Get the total number of documents
+    QuerySnapshot snapshot = await wordsCollection.get();
+    int totalDocuments = snapshot.size;
+
+    if (totalDocuments > 0) {
+      Random random = Random();
+      int randomIndex = random.nextInt(totalDocuments);
+
+      QuerySnapshot randomSnapshot =
+          await wordsCollection
+              .where('id', isEqualTo: randomIndex)
+              .limit(1)
+              .get();
+
+      // If there is a document with the random index, update UI
+      if (randomSnapshot.docs.isNotEmpty) {
+        var randomDoc = randomSnapshot.docs[0];
+        setState(() {
+          data = [
+            {'word': randomDoc['word'], 'definition': randomDoc['definition']},
+          ];
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text('Level 6')),
+      appBar: AppBar(centerTitle: true, title: Text('Level 7')),
       floatingActionButton: FloatingActionButton(
         child: Icon(LineAwesome.random_solid),
         onPressed: () {
-          fetchData();
+          fetchData(); // Fetch a random document
         },
       ),
       body: Padding(
@@ -93,7 +116,7 @@ class _JpLvl6State extends State<JpLvl6> {
                 // Pronunciation Checker
                 PronunciationChecker(
                   correctWord: data?[0]?["word"] ?? " ",
-                  lang: "zh-CN",
+                  lang: "mr-IN",
                   pronunciation: data?[0]?["word"] ?? " ",
                 ),
               ],

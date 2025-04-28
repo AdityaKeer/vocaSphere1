@@ -1,18 +1,18 @@
-import 'dart:convert';
+import 'dart:math'; // For random number generation
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:major_project1/features/levels/components/pronunciation_checker.dart';
 
-class JpLvl6 extends StatefulWidget {
-  const JpLvl6({super.key});
+class HnLvl7 extends StatefulWidget {
+  const HnLvl7({super.key});
 
   @override
-  State<JpLvl6> createState() => _JpLvl6State();
+  State<HnLvl7> createState() => _HnLvl7State();
 }
 
-class _JpLvl6State extends State<JpLvl6> {
+class _HnLvl7State extends State<HnLvl7> {
   List<dynamic?>? data;
 
   @override
@@ -22,22 +22,48 @@ class _JpLvl6State extends State<JpLvl6> {
   }
 
   fetchData() async {
-    const url = 'https://random-words-api.vercel.app/word/japanese';
-    final uri = Uri.parse(url);
-    final response = await http.get(uri);
-    final body = response.body;
-    data = jsonDecode(body);
-    setState(() {});
+    // Access Firestore collection
+    CollectionReference wordsCollection = FirebaseFirestore.instance.collection(
+      'hnWords',
+    );
+
+    // Get the total number of documents
+    QuerySnapshot snapshot = await wordsCollection.get();
+    int totalDocuments = snapshot.size;
+    print(totalDocuments); // Total number of documents in the collection
+
+    if (totalDocuments > 0) {
+      // Generate a random index based on total number of documents
+      Random random = Random();
+      int randomIndex = random.nextInt(totalDocuments);
+
+      // Query document with a specific random index
+      QuerySnapshot randomSnapshot =
+          await wordsCollection
+              .where('id', isEqualTo: randomIndex)
+              .limit(1) // Ensure you only get one document
+              .get();
+
+      // If there is a document with the random index, update UI
+      if (randomSnapshot.docs.isNotEmpty) {
+        var randomDoc = randomSnapshot.docs[0];
+        setState(() {
+          data = [
+            {'word': randomDoc['word'], 'definition': randomDoc['definition']},
+          ];
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text('Level 6')),
+      appBar: AppBar(centerTitle: true, title: Text('Level 7')),
       floatingActionButton: FloatingActionButton(
         child: Icon(LineAwesome.random_solid),
         onPressed: () {
-          fetchData();
+          fetchData(); // Fetch a random document
         },
       ),
       body: Padding(
@@ -93,7 +119,7 @@ class _JpLvl6State extends State<JpLvl6> {
                 // Pronunciation Checker
                 PronunciationChecker(
                   correctWord: data?[0]?["word"] ?? " ",
-                  lang: "zh-CN",
+                  lang: "hi-IN",
                   pronunciation: data?[0]?["word"] ?? " ",
                 ),
               ],

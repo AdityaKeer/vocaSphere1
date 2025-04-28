@@ -20,18 +20,46 @@ class PronunciationChecker extends StatefulWidget {
   _PronunciationCheckerState createState() => _PronunciationCheckerState();
 }
 
-class _PronunciationCheckerState extends State<PronunciationChecker> {
+class _PronunciationCheckerState extends State<PronunciationChecker>
+    with SingleTickerProviderStateMixin {
   final FlutterTts flutterTts = FlutterTts();
   stt.SpeechToText speechToText = stt.SpeechToText();
   String userSpeech = "";
-  dynamic accuracy = 0.0;
+  double? accuracy;
+
+  bool isListening = false;
+  bool isSpeaking = false; // for speaker glow
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 1000),
+    )..repeat(reverse: true);
+
+    flutterTts.setCompletionHandler(() {
+      setState(() {
+        isSpeaking = false; // stop glow after TTS completes
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   void startListening() async {
-    bool available = await speechToText.initialize(
-      debugLogging: true, // Enable debug logs
-    );
+    bool available = await speechToText.initialize(debugLogging: true);
 
     if (available) {
+      setState(() {
+        isListening = true;
+      });
+
       speechToText.listen(
         onSoundLevelChange: (level) {},
         onResult: (result) {
@@ -39,23 +67,34 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
           setState(() {
             userSpeech = result.recognizedWords;
           });
+
+          // Automatically check after speaking
+          checkSimilarity(result.recognizedWords, widget.correctWord);
+
+          setState(() {
+            isListening = false;
+          });
         },
-        localeId: "ja-JP",
-        listenFor: Duration(seconds: 30),
-        pauseFor: Duration(seconds: 10),
+        localeId: widget.lang,
+        listenFor: Duration(seconds: 7),
+        pauseFor: Duration(seconds: 3),
         cancelOnError: false,
       );
-    } else {}
+    }
   }
 
-  // Stop Listening
   Future<void> stopListening() async {
     await speechToText.stop();
+    setState(() {
+      isListening = false;
+    });
   }
 
-  dynamic checkSimilarity(String userWord, String actualWord) {
-    accuracy = ratio(userWord, actualWord);
-    return accuracy;
+  void checkSimilarity(String userWord, String actualWord) {
+    double result = ratio(userWord, actualWord).toDouble();
+    setState(() {
+      accuracy = result;
+    });
   }
 
   @override
@@ -66,41 +105,96 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // 🔊 Speaker Button with Glow
             GestureDetector(
               onTap: () async {
+                setState(() {
+                  isSpeaking = true;
+                });
                 await flutterTts.setLanguage(widget.lang);
                 await flutterTts.setSpeechRate(0.20);
                 await flutterTts.speak(widget.pronunciation);
               },
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(90),
-                ),
-                child: Icon(
-                  MingCute.volume_fill,
-                  size: 40,
-                  color: Colors.white,
-                ),
+              child: AnimatedBuilder(
+                animation: _animationController,
+                builder: (context, child) {
+                  double glow = 1 + (_animationController.value * 0.1);
+                  return Transform.scale(
+                    scale: isSpeaking ? glow : 1,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 50,
+                      ),
+                      decoration: BoxDecoration(
+                        color:
+                            isSpeaking ? Colors.greenAccent : Colors.blueAccent,
+                        borderRadius: BorderRadius.circular(90),
+                        boxShadow:
+                            isSpeaking
+                                ? [
+                                  BoxShadow(
+                                    color: Colors.greenAccent.withOpacity(0.6),
+                                    spreadRadius: 10,
+                                    blurRadius: 20,
+                                  ),
+                                ]
+                                : [],
+                      ),
+                      child: Icon(
+                        MingCute.volume_fill,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             SizedBox(width: 20),
+
+            // 🎤 Mic Button with Glow
             GestureDetector(
               onLongPress: startListening,
               onLongPressEnd: (details) => stopListening(),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(90),
-                ),
-                child: Icon(ZondIcons.mic, size: 40, color: Colors.white),
+              child: AnimatedBuilder(
+                animation: _animationController,
+                builder: (context, child) {
+                  double glow = 1 + (_animationController.value * 0.1);
+                  return Transform.scale(
+                    scale: isListening ? glow : 1,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical: 50,
+                      ),
+                      decoration: BoxDecoration(
+                        color:
+                            isListening ? Colors.redAccent : Colors.blueAccent,
+                        borderRadius: BorderRadius.circular(90),
+                        boxShadow:
+                            isListening
+                                ? [
+                                  BoxShadow(
+                                    color: Colors.redAccent.withOpacity(0.6),
+                                    spreadRadius: 10,
+                                    blurRadius: 20,
+                                  ),
+                                ]
+                                : [],
+                      ),
+                      child: Icon(ZondIcons.mic, size: 40, color: Colors.white),
+                    ),
+                  );
+                },
               ),
             ),
           ],
         ),
+
         SizedBox(height: 20),
+
+        // 📣 Display spoken words
         FittedBox(
           fit: BoxFit.contain,
           child: Text(
@@ -109,14 +203,15 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
           ),
         ),
         SizedBox(height: 20),
+
+        // ✅ Accuracy display
         ElevatedButton(
           style: ButtonStyle(enableFeedback: false),
-          onPressed: () {
-            checkSimilarity(userSpeech, widget.correctWord);
-            setState(() {});
-          },
+          onPressed: null,
           child: Text(
-            "Accuracy: $accuracy %",
+            accuracy != null
+                ? "Accuracy: ${accuracy!.toStringAsFixed(2)} %"
+                : "Say something...",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
         ),

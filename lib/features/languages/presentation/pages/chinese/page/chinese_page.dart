@@ -1,17 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../authentication/presentation/cubits/auth_cubit.dart';
 import '../../../components/levels_list.dart';
 
-class HindiPage extends StatefulWidget {
-  const HindiPage({super.key});
+class ChinesePage extends StatefulWidget {
+  const ChinesePage({super.key});
 
   @override
-  State<HindiPage> createState() => _HindiPageState();
+  State<ChinesePage> createState() => _ChinesePageState();
 }
 
-class _HindiPageState extends State<HindiPage> {
+class _ChinesePageState extends State<ChinesePage> {
   @override
   void initState() {
     super.initState();

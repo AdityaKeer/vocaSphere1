@@ -230,6 +230,46 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              SizedBox(height: 20),
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              //   child: GestureDetector(
+              //     onTap: () {
+              //       context.read<HomeCubit>().uploadBulkData();
+              //     },
+              //     child: Card(
+              //       color: Colors.white,
+              //       elevation: 4,
+              //       shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(12),
+              //       ),
+              //       child: Padding(
+              //         padding: const EdgeInsets.symmetric(
+              //           vertical: 16,
+              //           horizontal: 20,
+              //         ),
+              //         child: Row(
+              //           children: [
+              //             Icon(
+              //               Iconsax.document_upload_bold,
+              //               color: Colors.black87,
+              //             ),
+              //             SizedBox(width: 12),
+              //             Text(
+              //               'Upload words',
+              //               style: TextStyle(
+              //                 fontSize: 18,
+              //                 fontWeight: FontWeight.w600,
+              //                 color: Colors.black87,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -250,13 +290,15 @@ class _HomePageState extends State<HomePage> {
                           child: Lottie.asset(
                             'assets/jsonAnimations/loadingScene.json',
                             height: 200,
+                            width: 200,
+                            fit: BoxFit.contain,
                           ),
                         ) // Show loading indicator
                         : Column(
                           children: [
                             Icon(
                               Bootstrap.book,
-                              size: 100,
+                              size: 120,
                               color: Theme.of(context).colorScheme.primary,
                             ),
                             SizedBox(height: 30),
@@ -264,13 +306,13 @@ class _HomePageState extends State<HomePage> {
                               'Choose the language you would like to learn',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.grey.shade800,
                               ),
                             ),
                             SizedBox(height: 40),
-                            LanguageButtonsList(),
+                            LanguageButtonsList(), // Your existing language button list
                           ],
                         ),
                   ],

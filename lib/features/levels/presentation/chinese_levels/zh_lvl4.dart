@@ -2,22 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:major_project1/features/levels/components/number_card.dart';
+
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/components/levels_list.dart';
-import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
-import '../../components/letter_card.dart';
+import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
+import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../components/lvl_endingWidget.dart';
-import '../../components/word_card.dart';
+import '../../components/number_card.dart';
 
-class JpLvl5 extends StatefulWidget {
-  const JpLvl5({super.key});
+class ZhLvl4 extends StatefulWidget {
+  const ZhLvl4({super.key});
+
   @override
-  State<JpLvl5> createState() => _JpLvl5State();
+  State<ZhLvl4> createState() => _ZhLvl4State();
 }
 
-class _JpLvl5State extends State<JpLvl5> {
+class _ZhLvl4State extends State<ZhLvl4> {
   final FlutterTts flutterTts = FlutterTts();
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -32,7 +32,7 @@ class _JpLvl5State extends State<JpLvl5> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text('Level 5'), centerTitle: true),
+      appBar: AppBar(title: Text('Level 4'), centerTitle: true),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,12 +44,13 @@ class _JpLvl5State extends State<JpLvl5> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Common Words(Hiragana)',
+                      ' Numbers in Chinese',
                       style: theme.textTheme.titleLarge,
                     ),
                   ),
+
                   Text(
-                    '${_currentPage + 1}/11',
+                    '${_currentPage + 1}/10',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.primary,
                     ),
@@ -71,94 +72,86 @@ class _JpLvl5State extends State<JpLvl5> {
                     });
                   },
                   children: [
-                    WordCard(
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Konnichiwa",
-                      engWord: '"Hello"',
-                      langWord: 'こんにちは',
+                      lang: "zh-CN",
+                      number: 1,
+                      langNumWord: "一",
+                      pronun: "yī",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Arigatou",
-                      engWord: '"Thank you"',
-                      langWord: 'ありがとう',
+                      lang: "zh-CN",
+                      number: 2,
+                      langNumWord: "二",
+                      pronun: "èr",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Sayounara",
-                      engWord: '"Goodbye"',
-                      langWord: 'さようなら',
+                      lang: "zh-CN",
+                      number: 3,
+                      langNumWord: "三",
+                      pronun: "sān",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Hai",
-                      engWord: '"Yes"',
-                      langWord: 'はい',
+                      lang: "zh-CN",
+                      number: 4,
+                      langNumWord: "四",
+                      pronun: "sì",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Iie",
-                      engWord: '"No"',
-                      langWord: 'いいえ',
+                      lang: "zh-CN",
+                      number: 5,
+                      langNumWord: "五",
+                      pronun: "wǔ",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Onegaishimasu",
-                      engWord: '"Please"',
-                      langWord: 'おねがいします',
+                      lang: "zh-CN",
+                      number: 6,
+                      langNumWord: "六",
+                      pronun: "liù",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Sumimasen",
-                      engWord: '"Excuse me / Sorry"',
-                      langWord: 'すみません',
+                      lang: "zh-CN",
+                      number: 7,
+                      langNumWord: "七",
+                      pronun: "qī",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Gomen nasai",
-                      engWord: '"I\'m sorry"',
-                      langWord: 'ごめんなさい',
+                      lang: "zh-CN",
+                      number: 8,
+                      langNumWord: "八",
+                      pronun: "bā",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Ohayou gozaimasu",
-                      engWord: '"Good morning"',
-                      langWord: 'おはようございます',
+                      lang: "zh-CN",
+                      number: 9,
+                      langNumWord: "九",
+                      pronun: "jiǔ",
                     ),
-                    WordCard(
+
+                    NumberCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Konbanwa",
-                      engWord: '"Good evening"',
-                      langWord: 'こんばんは',
+                      lang: "zh-CN",
+                      number: 10,
+                      langNumWord: "十",
+                      pronun: "shí",
                     ),
-                    WordCard(
-                      flutterTts: flutterTts,
-                      lang: "ja-JP",
 
-                      pronun: "Oyasuminasai",
-                      engWord: '"Good Night"',
-                      langWord: 'おやすみなさい',
-                    ),
                     Card(
                       elevation: 50,
                       shadowColor: Colors.black.withOpacity(0.2),
@@ -286,7 +279,7 @@ class _JpLvl5State extends State<JpLvl5> {
                                                   MaterialPageRoute(
                                                     builder:
                                                         (context) =>
-                                                            const JapanesePage(),
+                                                            const ChinesePage(),
                                                   ),
                                                   (route) =>
                                                       route
@@ -379,7 +372,7 @@ class _JpLvl5State extends State<JpLvl5> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
-                      11,
+                      10,
                       (index) => Container(
                         margin: EdgeInsets.symmetric(horizontal: 4),
                         height: 10,
@@ -431,7 +424,7 @@ class _JpLvl5State extends State<JpLvl5> {
                   ),
                   ElevatedButton(
                     onPressed:
-                        _currentPage < 12
+                        _currentPage < 11
                             ? () {
                               _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),

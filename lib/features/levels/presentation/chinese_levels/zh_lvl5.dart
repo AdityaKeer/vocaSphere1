@@ -2,22 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:major_project1/features/levels/components/number_card.dart';
+
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/components/levels_list.dart';
-import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
-import '../../components/letter_card.dart';
+import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
+import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../components/lvl_endingWidget.dart';
 import '../../components/word_card.dart';
 
-class JpLvl5 extends StatefulWidget {
-  const JpLvl5({super.key});
+class ZhLvl5 extends StatefulWidget {
+  const ZhLvl5({super.key});
+
   @override
-  State<JpLvl5> createState() => _JpLvl5State();
+  State<ZhLvl5> createState() => _ZhLvl5State();
 }
 
-class _JpLvl5State extends State<JpLvl5> {
+class _ZhLvl5State extends State<ZhLvl5> {
   final FlutterTts flutterTts = FlutterTts();
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -44,12 +44,12 @@ class _JpLvl5State extends State<JpLvl5> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Common Words(Hiragana)',
+                      'Common Chinese Words',
                       style: theme.textTheme.titleLarge,
                     ),
                   ),
                   Text(
-                    '${_currentPage + 1}/11',
+                    '${_currentPage + 1}/19',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.primary,
                     ),
@@ -73,92 +73,156 @@ class _JpLvl5State extends State<JpLvl5> {
                   children: [
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Konnichiwa",
+                      lang: "zh-CN",
+                      pronun: "nǐ hǎo",
                       engWord: '"Hello"',
-                      langWord: 'こんにちは',
+                      langWord: '你好',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Arigatou",
+                      lang: "zh-CN",
+                      pronun: "xièxiè",
                       engWord: '"Thank you"',
-                      langWord: 'ありがとう',
+                      langWord: '谢谢',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Sayounara",
+                      lang: "zh-CN",
+                      pronun: "zàijiàn",
                       engWord: '"Goodbye"',
-                      langWord: 'さようなら',
+                      langWord: '再见',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Hai",
+                      lang: "zh-CN",
+                      pronun: "shì",
                       engWord: '"Yes"',
-                      langWord: 'はい',
+                      langWord: '是',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Iie",
+                      lang: "zh-CN",
+                      pronun: "bù",
                       engWord: '"No"',
-                      langWord: 'いいえ',
+                      langWord: '不',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Onegaishimasu",
+                      lang: "zh-CN",
+                      pronun: "qǐng",
                       engWord: '"Please"',
-                      langWord: 'おねがいします',
+                      langWord: '请',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Sumimasen",
+                      lang: "zh-CN",
+                      pronun: "duìbuqǐ",
                       engWord: '"Excuse me / Sorry"',
-                      langWord: 'すみません',
+                      langWord: '对不起',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Gomen nasai",
+                      lang: "zh-CN",
+                      pronun: "bàoqiàn",
                       engWord: '"I\'m sorry"',
-                      langWord: 'ごめんなさい',
+                      langWord: '抱歉',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Ohayou gozaimasu",
+                      lang: "zh-CN",
+                      pronun: "zǎoshang hǎo",
                       engWord: '"Good morning"',
-                      langWord: 'おはようございます',
+                      langWord: '早上好',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Konbanwa",
+                      lang: "zh-CN",
+                      pronun: "wǎnshàng hǎo",
                       engWord: '"Good evening"',
-                      langWord: 'こんばんは',
+                      langWord: '晚上好',
                     ),
+
                     WordCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Oyasuminasai",
-                      engWord: '"Good Night"',
-                      langWord: 'おやすみなさい',
+                      lang: "zh-CN",
+                      pronun: "wǎn'ān",
+                      engWord: '"Good night"',
+                      langWord: '晚安',
                     ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "nǐ hǎo ma",
+                      engWord: '"How are you?"',
+                      langWord: '你好吗',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "wǒ hěn hǎo",
+                      engWord: '"I am fine"',
+                      langWord: '我很好',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "nǐ jiào shénme míngzi",
+                      engWord: '"What\'s your name?"',
+                      langWord: '你叫什么名字',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "wǒ jiào...",
+                      engWord: '"My name is..."',
+                      langWord: '我叫...',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "zài jiàn",
+                      engWord: '"See you again"',
+                      langWord: '再见',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "bú kèqì",
+                      engWord: '"You\'re welcome"',
+                      langWord: '不客气',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "wǒ ài nǐ",
+                      engWord: '"I love you"',
+                      langWord: '我爱你',
+                    ),
+
+                    WordCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      pronun: "duōshǎo qián",
+                      engWord: '"How much is it?"',
+                      langWord: '多少钱',
+                    ),
+
                     Card(
                       elevation: 50,
                       shadowColor: Colors.black.withOpacity(0.2),
@@ -286,7 +350,7 @@ class _JpLvl5State extends State<JpLvl5> {
                                                   MaterialPageRoute(
                                                     builder:
                                                         (context) =>
-                                                            const JapanesePage(),
+                                                            const ChinesePage(),
                                                   ),
                                                   (route) =>
                                                       route
@@ -379,7 +443,7 @@ class _JpLvl5State extends State<JpLvl5> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
-                      11,
+                      19,
                       (index) => Container(
                         margin: EdgeInsets.symmetric(horizontal: 4),
                         height: 10,
@@ -431,7 +495,7 @@ class _JpLvl5State extends State<JpLvl5> {
                   ),
                   ElevatedButton(
                     onPressed:
-                        _currentPage < 12
+                        _currentPage < 20
                             ? () {
                               _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),

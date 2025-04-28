@@ -1,9 +1,13 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
 import '../../../authentication/data/firebase_auth_repo.dart';
+import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
 import '../../../languages/presentation/pages/english/page/english_page.dart';
 import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
@@ -24,6 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
   Map<String, Widget> _languagePages = {};
   void initializeLanguages() {
     _languagePages = {
+      'Chinese': const ChinesePage(),
       'English': const EnglishPage(),
       'Hindi': const HindiPage(),
       'Marathi': const MarathiPage(),
@@ -59,45 +64,17 @@ class HomeCubit extends Cubit<HomeState> {
             await FirebaseFirestore.instance.collection('users').doc(uid).get();
         final name = doc["name"];
 
-        List<dynamic> langDataList = [];
-        // List<double> percentList = [];
-        // var percentArray = [];
-
         List<LangProgress> listOfLevels = List.empty(growable: true);
 
         for (int i = 0; i < langList.length; i++) {
           var usersLvlProgress = await authRepo.getUserProgress(langList[i]);
-          // for (int j = 0; j <= i; j++) {
-          //   var levelsCompleted = List<String>.from(
-          //     usersLvlProgress["CompletedLevels"] ?? [],
-          //   );
-          //   double percent = levelsCompleted.length / 6;
-          //   listOfLevels.add(LangProgress(langList[i], percent));
-          // }
 
           var levelsCompleted = List<String>.from(
             usersLvlProgress["CompletedLevels"] ?? [],
           );
           double percent = levelsCompleted.length / 6;
           listOfLevels.add(LangProgress(langList[i], percent));
-
-          // double percent = levelsCompleted.length / 6;
-          // listOfLevels.add(LangProgress(langList[i], percent));
         }
-
-        // for (int j = 0; j < langDataList.length; j++) {
-        //   percentArray.add(
-        //     List<String>.from(langDataList[j]["CompletedLevels"] ?? []).length,
-        //   );
-        //   print(percentArray[j]);
-        // }
-        // print(percentArray);
-        //
-        //
-        // for (int k = 0; k < percentArray.length; k++) {
-        //   percentList.add(percentArray[k] / 6);
-        // }
-        // print(percentList);
 
         emit(UserNameFetched(userName: name, listOfLaves: listOfLevels));
         await Future.delayed(const Duration(milliseconds: 200));
@@ -107,6 +84,40 @@ class HomeCubit extends Cubit<HomeState> {
       }
     } catch (e) {
       emit(HomeError("Failed to fetch username: $e"));
+    }
+  }
+
+  Future<void> uploadBulkData() async {
+    try {
+      // Step 1: Load the JSON data from the assets
+      String jsonString = await rootBundle.loadString(
+        'assets/jsonWords/saWords.json',
+      );
+
+      // Step 2: Decode the JSON string into a Dart object (List of Maps)
+      List<dynamic> wordsData = jsonDecode(jsonString);
+
+      // Step 3: Get a reference to the Firestore collection
+      CollectionReference wordsCollection = FirebaseFirestore.instance
+          .collection('saWords');
+
+      // Step 4: Loop through the data and add each word to Firestore
+      for (var wordData in wordsData) {
+        await wordsCollection.add({
+          'id': wordData['id'],
+          'word': wordData['word'],
+          'definition': wordData['definition'],
+        });
+
+        // Optional: Add a small delay to prevent overwhelming Firestore
+        await Future.delayed(Duration(milliseconds: 100));
+      }
+
+      print(
+        'Bulk upload completed! ${wordsData.length} marathi words uploaded to Firestore.',
+      );
+    } catch (e) {
+      print('Error during bulk upload: $e');
     }
   }
 }

@@ -1,0 +1,1002 @@
+[
+  {
+    "id": 1,
+    "word": "नमस्ते",
+    "definition": "hello"
+  },
+  {
+    "id": 2,
+    "word": "धन्यवाद",
+    "definition": "thank you"
+  },
+  {
+    "id": 3,
+    "word": "अलविदा",
+    "definition": "goodbye"
+  },
+  {
+    "id": 4,
+    "word": "हाँ",
+    "definition": "yes"
+  },
+  {
+    "id": 5,
+    "word": "नहीं",
+    "definition": "no"
+  },
+  {
+    "id": 6,
+    "word": "कृपया",
+    "definition": "please"
+  },
+  {
+    "id": 7,
+    "word": "क्षमा करें",
+    "definition": "excuse me / sorry"
+  },
+  {
+    "id": 8,
+    "word": "मुझे माफ़ करें",
+    "definition": "I'm sorry"
+  },
+  {
+    "id": 9,
+    "word": "शुभ प्रभात",
+    "definition": "good morning"
+  },
+  {
+    "id": 10,
+    "word": "शुभ संध्या",
+    "definition": "good evening"
+  },
+  {
+    "id": 11,
+    "word": "शुभ रात्री",
+    "definition": "good night"
+  },
+  {
+    "id": 12,
+    "word": "दोस्त",
+    "definition": "friend"
+  },
+  {
+    "id": 13,
+    "word": "परिवार",
+    "definition": "family"
+  },
+  {
+    "id": 14,
+    "word": "प्यार",
+    "definition": "love"
+  },
+  {
+    "id": 15,
+    "word": "आत्मा",
+    "definition": "soul"
+  },
+  {
+    "id": 16,
+    "word": "खुशी",
+    "definition": "happiness"
+  },
+  {
+    "id": 17,
+    "word": "दुख",
+    "definition": "sorrow"
+  },
+  {
+    "id": 18,
+    "word": "आशा",
+    "definition": "hope"
+  },
+  {
+    "id": 19,
+    "word": "सपना",
+    "definition": "dream"
+  },
+  {
+    "id": 20,
+    "word": "सपने",
+    "definition": "dreams"
+  },
+  {
+    "id": 21,
+    "word": "समय",
+    "definition": "time"
+  },
+  {
+    "id": 22,
+    "word": "जीवन",
+    "definition": "life"
+  },
+  {
+    "id": 23,
+    "word": "मृत्यु",
+    "definition": "death"
+  },
+  {
+    "id": 24,
+    "word": "स्वास्थ्य",
+    "definition": "health"
+  },
+  {
+    "id": 25,
+    "word": "शक्ति",
+    "definition": "strength"
+  },
+  {
+    "id": 26,
+    "word": "धैर्य",
+    "definition": "patience"
+  },
+  {
+    "id": 27,
+    "word": "साहस",
+    "definition": "courage"
+  },
+  {
+    "id": 28,
+    "word": "ईमानदारी",
+    "definition": "honesty"
+  },
+  {
+    "id": 29,
+    "word": "सच्चाई",
+    "definition": "truth"
+  },
+  {
+    "id": 30,
+    "word": "जिम्मेदारी",
+    "definition": "responsibility"
+  },
+  {
+    "id": 31,
+    "word": "शांति",
+    "definition": "peace"
+  },
+  {
+    "id": 32,
+    "word": "विज्ञान",
+    "definition": "science"
+  },
+  {
+    "id": 33,
+    "word": "इतिहास",
+    "definition": "history"
+  },
+  {
+    "id": 34,
+    "word": "भूतकाल",
+    "definition": "past"
+  },
+  {
+    "id": 35,
+    "word": "वर्तमान",
+    "definition": "present"
+  },
+  {
+    "id": 36,
+    "word": "भविष्य",
+    "definition": "future"
+  },
+  {
+    "id": 37,
+    "word": "विभाग",
+    "definition": "department"
+  },
+  {
+    "id": 38,
+    "word": "पाठशाला",
+    "definition": "school"
+  },
+  {
+    "id": 39,
+    "word": "स्नातक",
+    "definition": "graduate"
+  },
+  {
+    "id": 40,
+    "word": "विशेषज्ञ",
+    "definition": "expert"
+  },
+  {
+    "id": 41,
+    "word": "शिक्षक",
+    "definition": "teacher"
+  },
+  {
+    "id": 42,
+    "word": "विद्यार्थी",
+    "definition": "student"
+  },
+  {
+    "id": 43,
+    "word": "विद्यालय",
+    "definition": "school"
+  },
+  {
+    "id": 44,
+    "word": "पढ़ाई",
+    "definition": "study"
+  },
+  {
+    "id": 45,
+    "word": "कक्षा",
+    "definition": "class"
+  },
+  {
+    "id": 46,
+    "word": "कार्यक्रम",
+    "definition": "program"
+  },
+  {
+    "id": 47,
+    "word": "परीक्षा",
+    "definition": "exam"
+  },
+  {
+    "id": 48,
+    "word": "चुनाव",
+    "definition": "election"
+  },
+  {
+    "id": 49,
+    "word": "जाँच",
+    "definition": "test"
+  },
+  {
+    "id": 50,
+    "word": "पल",
+    "definition": "moment"
+  },
+  {
+    "id": 51,
+    "word": "मांस",
+    "definition": "meat"
+  },
+  {
+    "id": 52,
+    "word": "फल",
+    "definition": "fruit"
+  },
+  {
+    "id": 53,
+    "word": "सब्ज़ी",
+    "definition": "vegetable"
+  },
+  {
+    "id": 54,
+    "word": "रोटी",
+    "definition": "bread"
+  },
+  {
+    "id": 55,
+    "word": "चावल",
+    "definition": "rice"
+  },
+  {
+    "id": 56,
+    "word": "दूध",
+    "definition": "milk"
+  },
+  {
+    "id": 57,
+    "word": "पानी",
+    "definition": "water"
+  },
+  {
+    "id": 58,
+    "word": "चाय",
+    "definition": "tea"
+  },
+  {
+    "id": 59,
+    "word": "कॉफ़ी",
+    "definition": "coffee"
+  },
+  {
+    "id": 60,
+    "word": "रस",
+    "definition": "juice"
+  },
+  {
+    "id": 61,
+    "word": "शर्बत",
+    "definition": "syrup"
+  },
+  {
+    "id": 62,
+    "word": "नमक",
+    "definition": "salt"
+  },
+  {
+    "id": 63,
+    "word": "चीनी",
+    "definition": "sugar"
+  },
+  {
+    "id": 64,
+    "word": "मसाला",
+    "definition": "spice"
+  },
+  {
+    "id": 65,
+    "word": "तेल",
+    "definition": "oil"
+  },
+  {
+    "id": 66,
+    "word": "पेट",
+    "definition": "stomach"
+  },
+  {
+    "id": 67,
+    "word": "हाथ",
+    "definition": "hand"
+  },
+  {
+    "id": 68,
+    "word": "पैर",
+    "definition": "foot"
+  },
+  {
+    "id": 69,
+    "word": "आँख",
+    "definition": "eye"
+  },
+  {
+    "id": 70,
+    "word": "नाक",
+    "definition": "nose"
+  },
+  {
+    "id": 71,
+    "word": "कान",
+    "definition": "ear"
+  },
+  {
+    "id": 72,
+    "word": "मुंह",
+    "definition": "mouth"
+  },
+  {
+    "id": 73,
+    "word": "चेहरा",
+    "definition": "face"
+  },
+  {
+    "id": 74,
+    "word": "कभी",
+    "definition": "sometimes"
+  },
+  {
+    "id": 75,
+    "word": "अभी",
+    "definition": "now"
+  },
+  {
+    "id": 76,
+    "word": "कल",
+    "definition": "yesterday"
+  },
+  {
+    "id": 77,
+    "word": "आने वाला",
+    "definition": "coming"
+  },
+  {
+    "id": 78,
+    "word": "सप्ताह",
+    "definition": "week"
+  },
+  {
+    "id": 79,
+    "word": "महीना",
+    "definition": "month"
+  },
+  {
+    "id": 80,
+    "word": "वर्ष",
+    "definition": "year"
+  },
+  {
+    "id": 81,
+    "word": "कल",
+    "definition": "tomorrow"
+  },
+  {
+    "id": 82,
+    "word": "रात",
+    "definition": "night"
+  },
+  {
+    "id": 83,
+    "word": "दिन",
+    "definition": "day"
+  },
+  {
+    "id": 84,
+    "word": "समाप्त",
+    "definition": "finished"
+  },
+  {
+    "id": 85,
+    "word": "आत्मा",
+    "definition": "soul"
+  },
+  {
+    "id": 86,
+    "word": "शक्ति",
+    "definition": "strength"
+  },
+  {
+    "id": 87,
+    "word": "समझ",
+    "definition": "understanding"
+  },
+  {
+    "id": 88,
+    "word": "रचनात्मक",
+    "definition": "creative"
+  },
+  {
+    "id": 89,
+    "word": "आशा",
+    "definition": "hope"
+  },
+  {
+    "id": 90,
+    "word": "स्वाद",
+    "definition": "taste"
+  },
+  {
+    "id": 91,
+    "word": "ग़म",
+    "definition": "grief"
+  },
+  {
+    "id": 92,
+    "word": "कला",
+    "definition": "art"
+  },
+  {
+    "id": 93,
+    "word": "विज्ञान",
+    "definition": "science"
+  },
+  {
+    "id": 94,
+    "word": "तकनीकी",
+    "definition": "technology"
+  },
+  {
+    "id": 95,
+    "word": "कंप्यूटर",
+    "definition": "computer"
+  },
+  {
+    "id": 96,
+    "word": "इंटरनेट",
+    "definition": "internet"
+  },
+  {
+    "id": 97,
+    "word": "समाचार",
+    "definition": "news"
+  },
+  {
+    "id": 98,
+    "word": "दुनिया",
+    "definition": "world"
+  },
+  {
+    "id": 99,
+    "word": "सड़क",
+    "definition": "road"
+  },
+  {
+    "id": 100,
+    "word": "वह",
+    "definition": "he/she"
+  },
+  {
+    "id": 101,
+    "word": "आत्मविश्वास",
+    "definition": "confidence"
+  },
+  {
+    "id": 102,
+    "word": "समझौता",
+    "definition": "compromise"
+  },
+  {
+    "id": 103,
+    "word": "कला",
+    "definition": "art"
+  },
+  {
+    "id": 104,
+    "word": "संगीत",
+    "definition": "music"
+  },
+  {
+    "id": 105,
+    "word": "चित्रकला",
+    "definition": "painting"
+  },
+  {
+    "id": 106,
+    "word": "फिल्म",
+    "definition": "film"
+  },
+  {
+    "id": 107,
+    "word": "नृत्य",
+    "definition": "dance"
+  },
+  {
+    "id": 108,
+    "word": "कविता",
+    "definition": "poetry"
+  },
+  {
+    "id": 109,
+    "word": "साहित्य",
+    "definition": "literature"
+  },
+  {
+    "id": 110,
+    "word": "आध्यात्मिकता",
+    "definition": "spirituality"
+  },
+  {
+    "id": 111,
+    "word": "धर्म",
+    "definition": "religion"
+  },
+  {
+    "id": 112,
+    "word": "प्रकृति",
+    "definition": "nature"
+  },
+  {
+    "id": 113,
+    "word": "पक्षी",
+    "definition": "bird"
+  },
+  {
+    "id": 114,
+    "word": "पशु",
+    "definition": "animal"
+  },
+  {
+    "id": 115,
+    "word": "पेड़",
+    "definition": "tree"
+  },
+  {
+    "id": 116,
+    "word": "फूल",
+    "definition": "flower"
+  },
+  {
+    "id": 117,
+    "word": "हवा",
+    "definition": "air"
+  },
+  {
+    "id": 118,
+    "word": "जल",
+    "definition": "water"
+  },
+  {
+    "id": 119,
+    "word": "अग्नि",
+    "definition": "fire"
+  },
+  {
+    "id": 120,
+    "word": "पृथ्वी",
+    "definition": "earth"
+  },
+  {
+    "id": 121,
+    "word": "सूर्य",
+    "definition": "sun"
+  },
+  {
+    "id": 122,
+    "word": "चंद्रमा",
+    "definition": "moon"
+  },
+  {
+    "id": 123,
+    "word": "सितारा",
+    "definition": "star"
+  },
+  {
+    "id": 124,
+    "word": "आकाश",
+    "definition": "sky"
+  },
+  {
+    "id": 125,
+    "word": "पानी",
+    "definition": "water"
+  },
+  {
+    "id": 126,
+    "word": "वर्षा",
+    "definition": "rain"
+  },
+  {
+    "id": 127,
+    "word": "सर्दी",
+    "definition": "cold"
+  },
+  {
+    "id": 128,
+    "word": "गर्मी",
+    "definition": "heat"
+  },
+  {
+    "id": 129,
+    "word": "हिम",
+    "definition": "snow"
+  },
+  {
+    "id": 130,
+    "word": "आंधी",
+    "definition": "storm"
+  },
+  {
+    "id": 131,
+    "word": "धूप",
+    "definition": "sunshine"
+  },
+  {
+    "id": 132,
+    "word": "सर्दी",
+    "definition": "cold"
+  },
+  {
+    "id": 133,
+    "word": "स्वच्छ",
+    "definition": "clean"
+  },
+  {
+    "id": 134,
+    "word": "गंदा",
+    "definition": "dirty"
+  },
+  {
+    "id": 135,
+    "word": "सौंदर्य",
+    "definition": "beauty"
+  },
+  {
+    "id": 136,
+    "word": "दुर्गंध",
+    "definition": "odor"
+  },
+  {
+    "id": 137,
+    "word": "ध्वनि",
+    "definition": "sound"
+  },
+  {
+    "id": 138,
+    "word": "नृत्य",
+    "definition": "dance"
+  },
+  {
+    "id": 139,
+    "word": "स्वादिष्ट",
+    "definition": "delicious"
+  },
+  {
+    "id": 140,
+    "word": "कड़वा",
+    "definition": "bitter"
+  },
+  {
+    "id": 141,
+    "word": "मीठा",
+    "definition": "sweet"
+  },
+  {
+    "id": 142,
+    "word": "खट्टा",
+    "definition": "sour"
+  },
+  {
+    "id": 143,
+    "word": "चिकना",
+    "definition": "smooth"
+  },
+  {
+    "id": 144,
+    "word": "खुरदरा",
+    "definition": "rough"
+  },
+  {
+    "id": 145,
+    "word": "सजाना",
+    "definition": "decorate"
+  },
+  {
+    "id": 146,
+    "word": "सजावट",
+    "definition": "decoration"
+  },
+  {
+    "id": 147,
+    "word": "स्वास्थ्य",
+    "definition": "health"
+  },
+  {
+    "id": 148,
+    "word": "व्यायाम",
+    "definition": "exercise"
+  },
+  {
+    "id": 149,
+    "word": "ध्यान",
+    "definition": "meditation"
+  },
+  {
+    "id": 150,
+    "word": "योग",
+    "definition": "yoga"
+  },
+  {
+    "id": 151,
+    "word": "विटामिन",
+    "definition": "vitamin"
+  },
+  {
+    "id": 152,
+    "word": "खानपान",
+    "definition": "diet"
+  },
+  {
+    "id": 153,
+    "word": "दवाख़ाना",
+    "definition": "hospital"
+  },
+  {
+    "id": 154,
+    "word": "चिकित्सा",
+    "definition": "treatment"
+  },
+  {
+    "id": 155,
+    "word": "दवाई",
+    "definition": "medicine"
+  },
+  {
+    "id": 156,
+    "word": "रोग",
+    "definition": "disease"
+  },
+  {
+    "id": 157,
+    "word": "संक्रमण",
+    "definition": "infection"
+  },
+  {
+    "id": 158,
+    "word": "बुखार",
+    "definition": "fever"
+  },
+  {
+    "id": 159,
+    "word": "दर्द",
+    "definition": "pain"
+  },
+  {
+    "id": 160,
+    "word": "ठंड",
+    "definition": "cold"
+  },
+  {
+    "id": 161,
+    "word": "पेट",
+    "definition": "stomach"
+  },
+  {
+    "id": 162,
+    "word": "दांत",
+    "definition": "tooth"
+  },
+  {
+    "id": 163,
+    "word": "मास",
+    "definition": "muscle"
+  },
+  {
+    "id": 164,
+    "word": "हड्डी",
+    "definition": "bone"
+  },
+  {
+    "id": 165,
+    "word": "चोट",
+    "definition": "injury"
+  },
+  {
+    "id": 166,
+    "word": "सिर",
+    "definition": "head"
+  },
+  {
+    "id": 167,
+    "word": "घाव",
+    "definition": "wound"
+  },
+  {
+    "id": 168,
+    "word": "गर्म",
+    "definition": "hot"
+  },
+  {
+    "id": 169,
+    "word": "ठंडा",
+    "definition": "cold"
+  },
+  {
+    "id": 170,
+    "word": "प्रकृति",
+    "definition": "nature"
+  },
+  {
+    "id": 171,
+    "word": "पानी",
+    "definition": "water"
+  },
+  {
+    "id": 172,
+    "word": "ध्यान",
+    "definition": "meditation"
+  },
+  {
+    "id": 173,
+    "word": "खगोलशास्त्र",
+    "definition": "astronomy"
+  },
+  {
+    "id": 174,
+    "word": "भूतपूर्व",
+    "definition": "former"
+  },
+  {
+    "id": 175,
+    "word": "विश्वास",
+    "definition": "belief"
+  },
+  {
+    "id": 176,
+    "word": "हिम्मत",
+    "definition": "bravery"
+  },
+  {
+    "id": 177,
+    "word": "हंसना",
+    "definition": "laugh"
+  },
+  {
+    "id": 178,
+    "word": "आशा",
+    "definition": "hope"
+  },
+  {
+    "id": 179,
+    "word": "कपड़े",
+    "definition": "clothes"
+  },
+  {
+    "id": 180,
+    "word": "शरीर",
+    "definition": "body"
+  },
+  {
+    "id": 181,
+    "word": "मस्तिष्क",
+    "definition": "brain"
+  },
+  {
+    "id": 182,
+    "word": "ह्रदय",
+    "definition": "heart"
+  },
+  {
+    "id": 183,
+    "word": "आवाज़",
+    "definition": "voice"
+  },
+  {
+    "id": 184,
+    "word": "ध्वनि",
+    "definition": "sound"
+  },
+  {
+    "id": 185,
+    "word": "अर्थ",
+    "definition": "meaning"
+  },
+  {
+    "id": 186,
+    "word": "संदेश",
+    "definition": "message"
+  },
+  {
+    "id": 187,
+    "word": "समान",
+    "definition": "equal"
+  },
+  {
+    "id": 188,
+    "word": "प्रेरणा",
+    "definition": "inspiration"
+  },
+  {
+    "id": 189,
+    "word": "सहायता",
+    "definition": "help"
+  },
+  {
+    "id": 190,
+    "word": "सत्य",
+    "definition": "truth"
+  },
+  {
+    "id": 191,
+    "word": "दोष",
+    "definition": "fault"
+  },
+  {
+    "id": 192,
+    "word": "जिम्मेदारी",
+    "definition": "responsibility"
+  },
+  {
+    "id": 193,
+    "word": "समाज",
+    "definition": "society"
+  },
+  {
+    "id": 194,
+    "word": "राजनीति",
+    "definition": "politics"
+  },
+  {
+    "id": 195,
+    "word": "अधिकार",
+    "definition": "right"
+  },
+  {
+    "id": 196,
+    "word": "स्वतंत्रता",
+    "definition": "freedom"
+  },
+  {
+    "id": 197,
+    "word": "संविधान",
+    "definition": "constitution"
+  },
+  {
+    "id": 198,
+    "word": "न्याय",
+    "definition": "justice"
+  },
+  {
+    "id": 199,
+    "word": "संघर्ष",
+    "definition": "struggle"
+  },
+  {
+    "id": 200,
+    "word": "संगणक",
+    "definition": "computer"
+  }
+]

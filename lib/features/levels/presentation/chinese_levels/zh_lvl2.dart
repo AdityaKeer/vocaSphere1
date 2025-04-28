@@ -2,22 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:major_project1/features/levels/components/number_card.dart';
+
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/components/levels_list.dart';
-import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
+import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
+import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../components/letter_card.dart';
 import '../../components/lvl_endingWidget.dart';
-import '../../components/word_card.dart';
 
-class JpLvl5 extends StatefulWidget {
-  const JpLvl5({super.key});
+class ZhLvl2 extends StatefulWidget {
+  const ZhLvl2({super.key});
+
   @override
-  State<JpLvl5> createState() => _JpLvl5State();
+  State<ZhLvl2> createState() => _ZhLvl2State();
 }
 
-class _JpLvl5State extends State<JpLvl5> {
+class _ZhLvl2State extends State<ZhLvl2> {
   final FlutterTts flutterTts = FlutterTts();
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -32,24 +32,19 @@ class _JpLvl5State extends State<JpLvl5> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text('Level 5'), centerTitle: true),
+      appBar: AppBar(title: Text('Level 1'), centerTitle: true),
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Progress indicator
             Container(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Row(
                 children: [
-                  Expanded(
-                    child: Text(
-                      'Common Words(Hiragana)',
-                      style: theme.textTheme.titleLarge,
-                    ),
-                  ),
+                  Text('Chinese Finals', style: theme.textTheme.titleLarge),
+                  Spacer(),
                   Text(
-                    '${_currentPage + 1}/11',
+                    '${_currentPage + 1}/24',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.primary,
                     ),
@@ -71,94 +66,174 @@ class _JpLvl5State extends State<JpLvl5> {
                     });
                   },
                   children: [
-                    WordCard(
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Konnichiwa",
-                      engWord: '"Hello"',
-                      langWord: 'こんにちは',
+                      lang: "zh-CN",
+                      letter: '阿', // ā
+                      pronun: 'ā',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Arigatou",
-                      engWord: '"Thank you"',
-                      langWord: 'ありがとう',
+                      lang: "zh-CN",
+                      letter: '哦', // ō
+                      pronun: 'ō',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Sayounara",
-                      engWord: '"Goodbye"',
-                      langWord: 'さようなら',
+                      lang: "zh-CN",
+                      letter: '鹅', // ē
+                      pronun: 'ē',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Hai",
-                      engWord: '"Yes"',
-                      langWord: 'はい',
+                      lang: "zh-CN",
+                      letter: '衣', // ī
+                      pronun: 'ī',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Iie",
-                      engWord: '"No"',
-                      langWord: 'いいえ',
+                      lang: "zh-CN",
+                      letter: '乌', // ū
+                      pronun: 'ū',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Onegaishimasu",
-                      engWord: '"Please"',
-                      langWord: 'おねがいします',
+                      lang: "zh-CN",
+                      letter: '玉', // ǖ (closest for ü sound)
+                      pronun: 'ǖ',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Sumimasen",
-                      engWord: '"Excuse me / Sorry"',
-                      langWord: 'すみません',
+                      lang: "zh-CN",
+                      letter: '爱', // āi
+                      pronun: 'āi',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Gomen nasai",
-                      engWord: '"I\'m sorry"',
-                      langWord: 'ごめんなさい',
+                      lang: "zh-CN",
+                      letter: '诶', // ēi
+                      pronun: 'ēi',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Ohayou gozaimasu",
-                      engWord: '"Good morning"',
-                      langWord: 'おはようございます',
+                      lang: "zh-CN",
+                      letter: '威', // uī
+                      pronun: 'uī',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Konbanwa",
-                      engWord: '"Good evening"',
-                      langWord: 'こんばんは',
+                      lang: "zh-CN",
+                      letter: '熬', // āo
+                      pronun: 'āo',
                     ),
-                    WordCard(
+
+                    LetterCard(
                       flutterTts: flutterTts,
-                      lang: "ja-JP",
-
-                      pronun: "Oyasuminasai",
-                      engWord: '"Good Night"',
-                      langWord: 'おやすみなさい',
+                      lang: "zh-CN",
+                      letter: '欧', // ōu
+                      pronun: 'ōu',
                     ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '优', // iū
+                      pronun: 'iū',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '耶', // iē
+                      pronun: 'iē',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '约', // üē
+                      pronun: 'üē',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '儿', // ēr
+                      pronun: 'ēr',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '安', // ān
+                      pronun: 'ān',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '恩', // ēn
+                      pronun: 'ēn',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '因', // īn
+                      pronun: 'īn',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '温', // ūn
+                      pronun: 'ūn',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '云', // ǖn
+                      pronun: 'ǖn',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '昂', // āng
+                      pronun: 'āng',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '鞥', // ēng (rare character, but fits)
+                      pronun: 'ēng',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '英', // īng
+                      pronun: 'īng',
+                    ),
+
+                    LetterCard(
+                      flutterTts: flutterTts,
+                      lang: "zh-CN",
+                      letter: '翁', // ōng
+                      pronun: 'ōng',
+                    ),
+
                     Card(
                       elevation: 50,
                       shadowColor: Colors.black.withOpacity(0.2),
@@ -286,7 +361,7 @@ class _JpLvl5State extends State<JpLvl5> {
                                                   MaterialPageRoute(
                                                     builder:
                                                         (context) =>
-                                                            const JapanesePage(),
+                                                            const ChinesePage(),
                                                   ),
                                                   (route) =>
                                                       route
@@ -371,26 +446,24 @@ class _JpLvl5State extends State<JpLvl5> {
             ),
 
             // Navigation dots
-            Center(
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 24),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      11,
-                      (index) => Container(
-                        margin: EdgeInsets.symmetric(horizontal: 4),
-                        height: 10,
-                        width: _currentPage == index ? 20 : 10,
-                        decoration: BoxDecoration(
-                          color:
-                              _currentPage == index
-                                  ? theme.colorScheme.primary
-                                  : theme.colorScheme.primaryContainer,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 24),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    25,
+                    (index) => Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      height: 10,
+                      width: _currentPage == index ? 24 : 10,
+                      decoration: BoxDecoration(
+                        color:
+                            _currentPage == index
+                                ? theme.colorScheme.primary
+                                : theme.colorScheme.primaryContainer,
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
                   ),
@@ -431,7 +504,7 @@ class _JpLvl5State extends State<JpLvl5> {
                   ),
                   ElevatedButton(
                     onPressed:
-                        _currentPage < 12
+                        _currentPage < 26
                             ? () {
                               _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),

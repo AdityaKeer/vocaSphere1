@@ -128,3 +128,36 @@ List<ItemModel> kJpAlphabets = [
   ItemModel(pnoun: 'pe', value: '75', letter: 'ぺ'),
   ItemModel(pnoun: 'po', value: '76', letter: 'ぽ'),
 ];
+
+List<ItemModel> kZhAlphabets = [
+  ItemModel(pnoun: 'wǒ', value: '1', letter: '我'), // I, me
+  ItemModel(pnoun: 'nǐ', value: '2', letter: '你'), // you
+  ItemModel(pnoun: 'tā', value: '3', letter: '他'), // he
+  ItemModel(pnoun: 'tā', value: '4', letter: '她'), // she
+  ItemModel(pnoun: 'tā', value: '5', letter: '它'), // it
+  ItemModel(pnoun: 'shì', value: '6', letter: '是'), // is / are / am
+  ItemModel(pnoun: 'bù', value: '7', letter: '不'), // not
+  ItemModel(pnoun: 'zài', value: '8', letter: '在'), // at / in
+  ItemModel(pnoun: 'yǒu', value: '9', letter: '有'), // have
+  ItemModel(pnoun: 'hǎo', value: '10', letter: '好'), // good
+  ItemModel(pnoun: 'xiè', value: '11', letter: '谢'), // thank
+  ItemModel(pnoun: 'zěnme', value: '12', letter: '怎么'), // how
+  ItemModel(pnoun: 'shénme', value: '13', letter: '什么'), // what
+  ItemModel(pnoun: 'nǎ', value: '14', letter: '哪'), // which
+  ItemModel(pnoun: 'lái', value: '15', letter: '来'), // come
+  ItemModel(pnoun: 'qù', value: '16', letter: '去'), // go
+  ItemModel(pnoun: 'huí', value: '17', letter: '回'), // return
+  ItemModel(pnoun: 'kàn', value: '18', letter: '看'), // look
+  ItemModel(pnoun: 'tīng', value: '19', letter: '听'), // listen
+  ItemModel(pnoun: 'shuō', value: '20', letter: '说'), // speak
+  ItemModel(pnoun: 'chī', value: '21', letter: '吃'), // eat
+  ItemModel(pnoun: 'hē', value: '22', letter: '喝'), // drink
+  ItemModel(pnoun: 'mǎi', value: '23', letter: '买'), // buy
+  ItemModel(pnoun: 'mài', value: '24', letter: '卖'), // sell
+  ItemModel(pnoun: 'xǐhuān', value: '25', letter: '喜欢'), // like
+  ItemModel(pnoun: 'ài', value: '26', letter: '爱'), // love
+  ItemModel(pnoun: 'rén', value: '27', letter: '人'), // person
+  ItemModel(pnoun: 'shū', value: '28', letter: '书'), // book
+  ItemModel(pnoun: 'shuǐ', value: '29', letter: '水'), // water
+  ItemModel(pnoun: 'mǐfàn', value: '30', letter: '米饭'), // rice
+];

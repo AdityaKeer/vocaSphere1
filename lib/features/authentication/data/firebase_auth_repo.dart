@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:major_project1/features/authentication/domain/entities/app_user.dart';
 import 'package:major_project1/features/authentication/domain/repos/auth_repo.dart';
 
@@ -65,6 +68,7 @@ class FirebaseAuthRepo implements AuthRepo {
         "Marathi": {"LastVisitedLevel": "", "CompletedLevels": []},
         "English": {"LastVisitedLevel": "", "CompletedLevels": []},
         "Sanskrit": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Chinese": {"LastVisitedLevel": "", "CompletedLevels": []},
       };
 
       await firebaseFirestore.collection("users").doc(user.uid).set({
