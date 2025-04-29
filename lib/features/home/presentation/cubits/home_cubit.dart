@@ -11,8 +11,11 @@ import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
 import '../../../languages/presentation/pages/english/page/english_page.dart';
 import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
+import '../../../languages/presentation/pages/kannada/kannada_page.dart';
 import '../../../languages/presentation/pages/marathi/page/marathi_page.dart';
 import '../../../languages/presentation/pages/sanskrit/page/sanskrit_page.dart';
+import '../../../languages/presentation/pages/tamil/page/tamil_page.dart';
+import '../../../languages/presentation/pages/telugu/page/telugu_page.dart';
 import 'home_state.dart';
 
 class LangProgress {
@@ -28,12 +31,15 @@ class HomeCubit extends Cubit<HomeState> {
   Map<String, Widget> _languagePages = {};
   void initializeLanguages() {
     _languagePages = {
+      'Japanese': const JapanesePage(),
       'Chinese': const ChinesePage(),
+      'Kannada': const KannadaPage(),
       'English': const EnglishPage(),
+      'Tamil': const TamilPage(),
       'Hindi': const HindiPage(),
+      'Telugu': const TeluguPage(),
       'Marathi': const MarathiPage(),
       'Sanskrit': const SanskritPage(),
-      'Japanese': const JapanesePage(),
     };
     print(" Languages Initialized: ${_languagePages.keys.toList()}");
 
@@ -91,7 +97,7 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       // Step 1: Load the JSON data from the assets
       String jsonString = await rootBundle.loadString(
-        'assets/jsonWords/saWords.json',
+        'assets/jsonWords/teWords.json',
       );
 
       // Step 2: Decode the JSON string into a Dart object (List of Maps)
@@ -99,7 +105,7 @@ class HomeCubit extends Cubit<HomeState> {
 
       // Step 3: Get a reference to the Firestore collection
       CollectionReference wordsCollection = FirebaseFirestore.instance
-          .collection('saWords');
+          .collection('teWords');
 
       // Step 4: Loop through the data and add each word to Firestore
       for (var wordData in wordsData) {
@@ -114,7 +120,7 @@ class HomeCubit extends Cubit<HomeState> {
       }
 
       print(
-        'Bulk upload completed! ${wordsData.length} marathi words uploaded to Firestore.',
+        'Bulk upload completed! ${wordsData.length} words uploaded to Firestore.',
       );
     } catch (e) {
       print('Error during bulk upload: $e');

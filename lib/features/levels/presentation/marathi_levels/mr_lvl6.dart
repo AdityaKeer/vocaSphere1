@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
 import '../../../languages/presentation/pages/marathi/page/marathi_page.dart';
 import '../../components/lvl_endingWidget.dart';
-import '../../components/quizNavBtn.dart';
-import '../../components/quizOptionBtn.dart';
 
 class MrLvl6 extends StatefulWidget {
   const MrLvl6({super.key});

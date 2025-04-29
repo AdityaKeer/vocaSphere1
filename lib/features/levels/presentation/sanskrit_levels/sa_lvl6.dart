@@ -7,8 +7,6 @@ import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
 import '../../../languages/presentation/pages/sanskrit/page/sanskrit_page.dart';
 import '../../components/lvl_endingWidget.dart';
-import '../../components/quizNavBtn.dart';
-import '../../components/quizOptionBtn.dart';
 
 class SaLvl6 extends StatefulWidget {
   const SaLvl6({super.key});

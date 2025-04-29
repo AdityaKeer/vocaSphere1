@@ -567,10 +567,6 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                 child: Text(
                                                   'Final Score: $score',
                                                   style: TextStyle(
-                                                    // color:
-                                                    //     Theme.of(
-                                                    //       context,
-                                                    //     ).colorScheme.secondary,
                                                     fontWeight: FontWeight.w800,
                                                     fontSize: 30,
                                                     letterSpacing: 1.2,
@@ -619,7 +615,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                         (
                                                           context,
                                                         ) => LevelEndingWidget(
-                                                          initialPercent: 0.25,
+                                                          initialPercent: 0.45,
                                                           onLevelsList: () {
                                                             final languageCubit =
                                                                 context

@@ -26,6 +26,12 @@ import '../../levels/presentation/japanese_levels/jp_lvl1.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl2.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl4.dart';
 import '../../levels/presentation/japanese_levels/jp_lvl5.dart';
+import '../../levels/presentation/kannada_levels/kn_lvl1.dart';
+import '../../levels/presentation/kannada_levels/kn_lvl2.dart';
+import '../../levels/presentation/kannada_levels/kn_lvl3.dart';
+import '../../levels/presentation/kannada_levels/kn_lvl4.dart';
+import '../../levels/presentation/kannada_levels/kn_lvl5.dart';
+import '../../levels/presentation/kannada_levels/kn_lvl6.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl1.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl2.dart';
 import '../../levels/presentation/marathi_levels/mr_lvl3.dart';
@@ -37,6 +43,18 @@ import '../../levels/presentation/sanskrit_levels/sa_lvl2.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl3.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl4.dart';
 import '../../levels/presentation/sanskrit_levels/sa_lvl5.dart';
+import '../../levels/presentation/tamil_levels/ta_lvl1.dart';
+import '../../levels/presentation/tamil_levels/ta_lvl2.dart';
+import '../../levels/presentation/tamil_levels/ta_lvl3.dart';
+import '../../levels/presentation/tamil_levels/ta_lvl4.dart';
+import '../../levels/presentation/tamil_levels/ta_lvl5.dart';
+import '../../levels/presentation/tamil_levels/ta_lvl6.dart';
+import '../../levels/presentation/telugu_levels/te_lvl1.dart';
+import '../../levels/presentation/telugu_levels/te_lvl2.dart';
+import '../../levels/presentation/telugu_levels/te_lvl3.dart';
+import '../../levels/presentation/telugu_levels/te_lvl4.dart';
+import '../../levels/presentation/telugu_levels/te_lvl5.dart';
+import '../../levels/presentation/telugu_levels/te_lvl6.dart';
 import 'language_state.dart';
 
 class LanguageCubit extends Cubit<LanguageState> {
@@ -68,12 +86,6 @@ class LanguageCubit extends Cubit<LanguageState> {
           'HnLvl7': const HnLvl7(),
         };
         break;
-
-      case 'English':
-        _levelPages = {
-          'EnLvl1': const SplashScreen(),
-          'EnLvl2': const EnLvl2(),
-        };
       case 'Chinese':
         _levelPages = {
           'ZhLvl1': const ZhLvl1(),
@@ -82,6 +94,44 @@ class LanguageCubit extends Cubit<LanguageState> {
           'ZhLvl4': const ZhLvl4(),
           'ZhLvl5': const ZhLvl5(),
           'ZhLvl6': const ZhLvl6(),
+        };
+
+      case 'English':
+        _levelPages = {
+          'EnLvl1': const SplashScreen(),
+          'EnLvl2': const EnLvl2(),
+        };
+
+        break;
+      case 'Kannada':
+        _levelPages = {
+          'KnLvl1': const KnLvl1(),
+          'KnLvl2': const KnLvl2(),
+          'KnLvl3': const KnLvl3(),
+          'KnLvl4': const KnLvl4(),
+          'KnLvl5': const KnLvl5(),
+          'KnLvl6': const KnLvl6(),
+        };
+        break;
+      case 'Tamil':
+        _levelPages = {
+          'TaLvl1': const TaLvl1(),
+          'TaLvl2': const TaLvl2(),
+          'TaLvl3': const TaLvl3(),
+          'TaLvl4': const TaLvl4(),
+          'TaLvl5': const TaLvl5(),
+          'TaLvl6': const TaLvl6(),
+        };
+        break;
+
+      case 'Telugu':
+        _levelPages = {
+          'TeLvl1': const TeLvl1(),
+          'TeLvl2': const TeLvl2(),
+          'TeLvl3': const TeLvl3(),
+          'TeLvl4': const TeLvl4(),
+          'TeLvl5': const TeLvl5(),
+          'TeLvl6': const TeLvl6(),
         };
         break;
 

@@ -115,7 +115,7 @@ class _MrLvl7State extends State<MrLvl7> {
                 // Pronunciation Checker
                 PronunciationChecker(
                   correctWord: data?[0]?["word"] ?? " ",
-                  lang: "hi-IN",
+                  lang: "ta-IN",
                   pronunciation: data?[0]?["word"] ?? " ",
                 ),
               ],

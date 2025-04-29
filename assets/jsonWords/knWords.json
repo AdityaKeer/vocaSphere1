@@ -1,0 +1,1003 @@
+[
+  {
+    "id": 1,
+    "word": "ನಮಸ್ಕಾರ",
+    "definition": "Hello"
+  },
+  {
+    "id": 2,
+    "word": "ಧನ್ಯವಾದ",
+    "definition": "Thank you"
+  },
+  {
+    "id": 3,
+    "word": "ಹೌದು",
+    "definition": "Yes"
+  },
+  {
+    "id": 4,
+    "word": "ಇಲ್ಲ",
+    "definition": "No"
+  },
+  {
+    "id": 5,
+    "word": "ದಯವಿಟ್ಟು",
+    "definition": "Please"
+  },
+  {
+    "id": 6,
+    "word": "ಕ್ಷಮಿಸಿ",
+    "definition": "Sorry / Excuse me"
+  },
+  {
+    "id": 7,
+    "word": "ನೀವು",
+    "definition": "You"
+  },
+  {
+    "id": 8,
+    "word": "ನಾನು",
+    "definition": "I"
+  },
+  {
+    "id": 9,
+    "word": "ಮನೆ",
+    "definition": "House"
+  },
+  {
+    "id": 10,
+    "word": "ಪರೀಕ್ಷೆ",
+    "definition": "Exam"
+  },
+  {
+    "id": 11,
+    "word": "ಶಾಲೆ",
+    "definition": "School"
+  },
+  {
+    "id": 12,
+    "word": "ವಿದ್ಯಾರ್ಥಿ",
+    "definition": "Student"
+  },
+  {
+    "id": 13,
+    "word": "ಗುರು",
+    "definition": "Teacher"
+  },
+  {
+    "id": 14,
+    "word": "ಮಳೆ",
+    "definition": "Rain"
+  },
+  {
+    "id": 15,
+    "word": "ಹೂವು",
+    "definition": "Flower"
+  },
+  {
+    "id": 16,
+    "word": "ಹಣ್ಣು",
+    "definition": "Fruit"
+  },
+  {
+    "id": 17,
+    "word": "ಮಣ್ಣು",
+    "definition": "Soil"
+  },
+  {
+    "id": 18,
+    "word": "ಅಡಿಗೆ",
+    "definition": "Cooking"
+  },
+  {
+    "id": 19,
+    "word": "ಊಟ",
+    "definition": "Meal"
+  },
+  {
+    "id": 20,
+    "word": "ನದಿ",
+    "definition": "River"
+  },
+  {
+    "id": 21,
+    "word": "ಕಡಲ",
+    "definition": "Sea"
+  },
+  {
+    "id": 22,
+    "word": "ಪರ್ವತ",
+    "definition": "Mountain"
+  },
+  {
+    "id": 23,
+    "word": "ಮಗು",
+    "definition": "Child"
+  },
+  {
+    "id": 24,
+    "word": "ಮಕ್ಕಳು",
+    "definition": "Children"
+  },
+  {
+    "id": 25,
+    "word": "ಸತ್ಯ",
+    "definition": "Truth"
+  },
+  {
+    "id": 26,
+    "word": "ಅಬaddon",
+    "definition": "Abandon"
+  },
+  {
+    "id": 27,
+    "word": "ಭಯ",
+    "definition": "Fear"
+  },
+  {
+    "id": 28,
+    "word": "ಆನಂದ",
+    "definition": "Happiness"
+  },
+  {
+    "id": 29,
+    "word": "ದುಃಖ",
+    "definition": "Sorrow"
+  },
+  {
+    "id": 30,
+    "word": "ಪ್ರೀತಿ",
+    "definition": "Love"
+  },
+  {
+    "id": 31,
+    "word": "ಮಿತ್ರ",
+    "definition": "Friend"
+  },
+  {
+    "id": 32,
+    "word": "ಶತ್ರು",
+    "definition": "Enemy"
+  },
+  {
+    "id": 33,
+    "word": "ಸಾಯಂಕಾಲ",
+    "definition": "Evening"
+  },
+  {
+    "id": 34,
+    "word": "ಬೆಳಗ್ಗೆ",
+    "definition": "Morning"
+  },
+  {
+    "id": 35,
+    "word": "ರಾತ್ರಿ",
+    "definition": "Night"
+  },
+  {
+    "id": 36,
+    "word": "ಮಧ್ಯಾಹ್ನ",
+    "definition": "Afternoon"
+  },
+  {
+    "id": 37,
+    "word": "ಚಂದ್ರ",
+    "definition": "Moon"
+  },
+  {
+    "id": 38,
+    "word": "ಸೂರ್ಯ",
+    "definition": "Sun"
+  },
+  {
+    "id": 39,
+    "word": "ತಾರಾ",
+    "definition": "Star"
+  },
+  {
+    "id": 40,
+    "word": "ಮಳೆಹನಿಗಳು",
+    "definition": "Raindrops"
+  },
+  {
+    "id": 41,
+    "word": "ಮಿತ್ತಿ",
+    "definition": "Sand"
+  },
+  {
+    "id": 42,
+    "word": "ಮರ",
+    "definition": "Tree"
+  },
+  {
+    "id": 43,
+    "word": "ಗಿಡ",
+    "definition": "Plant"
+  },
+  {
+    "id": 44,
+    "word": "ಹಣ್ಣುಗಳು",
+    "definition": "Fruits"
+  },
+  {
+    "id": 45,
+    "word": "ಜಲ",
+    "definition": "Water"
+  },
+  {
+    "id": 46,
+    "word": "ಹಳ್ಳಿ",
+    "definition": "Village"
+  },
+  {
+    "id": 47,
+    "word": "ನಗರ",
+    "definition": "City"
+  },
+  {
+    "id": 48,
+    "word": "ದಾರಿಯಲ್ಲಿ",
+    "definition": "On the road"
+  },
+  {
+    "id": 49,
+    "word": "ಪರ್ವತಶ್ರೇಣಿ",
+    "definition": "Mountain range"
+  },
+  {
+    "id": 50,
+    "word": "ಮೀನನ್ನು",
+    "definition": "Fish"
+  },
+  {
+    "id": 51,
+    "word": "ಪಶು",
+    "definition": "Animal"
+  },
+  {
+    "id": 52,
+    "word": "ಹಸು",
+    "definition": "Cow"
+  },
+  {
+    "id": 53,
+    "word": "ಗೋವು",
+    "definition": "Ox"
+  },
+  {
+    "id": 54,
+    "word": "ಮನೆಮಂದಿ",
+    "definition": "Family"
+  },
+  {
+    "id": 55,
+    "word": "ದ್ವಾರ",
+    "definition": "Door"
+  },
+  {
+    "id": 56,
+    "word": "ಬಾಗಿಲು",
+    "definition": "Gate"
+  },
+  {
+    "id": 57,
+    "word": "ಕಿಟಕಿ",
+    "definition": "Window"
+  },
+  {
+    "id": 58,
+    "word": "ಮೇಜು",
+    "definition": "Table"
+  },
+  {
+    "id": 59,
+    "word": "ಕುರ್ಚಿ",
+    "definition": "Chair"
+  },
+  {
+    "id": 60,
+    "word": "ಪುಸ್ತಕ",
+    "definition": "Book"
+  },
+  {
+    "id": 61,
+    "word": "ಕಾಗದ",
+    "definition": "Paper"
+  },
+  {
+    "id": 62,
+    "word": "ಲೇಖನ",
+    "definition": "Writing"
+  },
+  {
+    "id": 63,
+    "word": "ಚಿತ್ರ",
+    "definition": "Picture"
+  },
+  {
+    "id": 64,
+    "word": "ಚಿತ್ರಕಲೆ",
+    "definition": "Painting"
+  },
+  {
+    "id": 65,
+    "word": "ಗೀತೆ",
+    "definition": "Song"
+  },
+  {
+    "id": 66,
+    "word": "ನೃತ್ಯ",
+    "definition": "Dance"
+  },
+  {
+    "id": 67,
+    "word": "ಶಬ್ದ",
+    "definition": "Sound"
+  },
+  {
+    "id": 68,
+    "word": "ಮೌನ",
+    "definition": "Silence"
+  },
+  {
+    "id": 69,
+    "word": "ಪಠ್ಯಪುಸ್ತಕ",
+    "definition": "Textbook"
+  },
+  {
+    "id": 70,
+    "word": "ಮೂಲಭೂತ",
+    "definition": "Basic"
+  },
+  {
+    "id": 71,
+    "word": "ಅತ್ಯಂತ",
+    "definition": "Extreme"
+  },
+  {
+    "id": 72,
+    "word": "ಗುಪ್ತ",
+    "definition": "Secret"
+  },
+  {
+    "id": 73,
+    "word": "ಆಶೆ",
+    "definition": "Hope"
+  },
+  {
+    "id": 74,
+    "word": "ಭರವಸೆ",
+    "definition": "Trust"
+  },
+  {
+    "id": 75,
+    "word": "ವಿಜಯ",
+    "definition": "Victory"
+  },
+  {
+    "id": 76,
+    "word": "ಪರಾಭವ",
+    "definition": "Defeat"
+  },
+  {
+    "id": 77,
+    "word": "ಆಗ್ನೇಯ",
+    "definition": "Southeast"
+  },
+  {
+    "id": 78,
+    "word": "ವಾಯುವ್ಯ",
+    "definition": "Northwest"
+  },
+  {
+    "id": 79,
+    "word": "ದಕ್ಷಿಣ",
+    "definition": "South"
+  },
+  {
+    "id": 80,
+    "word": "ಉತ್ತರ",
+    "definition": "North"
+  },
+  {
+    "id": 81,
+    "word": "ಕಿಚನ್",
+    "definition": "Kitchen"
+  },
+  {
+    "id": 82,
+    "word": "ಬೆದರುವುದು",
+    "definition": "Fearful"
+  },
+  {
+    "id": 83,
+    "word": "ಶಕ್ತಿಶಾಲಿ",
+    "definition": "Powerful"
+  },
+  {
+    "id": 84,
+    "word": "ಮಂದಿರ",
+    "definition": "Temple"
+  },
+  {
+    "id": 85,
+    "word": "ಮಸೀದಿ",
+    "definition": "Mosque"
+  },
+  {
+    "id": 86,
+    "word": "ಗಿರಿಜಾಲಯ",
+    "definition": "Church"
+  },
+  {
+    "id": 87,
+    "word": "ಅಕ್ಷರ",
+    "definition": "Letter"
+  },
+  {
+    "id": 88,
+    "word": "ಪದ್ಯ",
+    "definition": "Poem"
+  },
+  {
+    "id": 89,
+    "word": "ಕಥೆ",
+    "definition": "Story"
+  },
+  {
+    "id": 90,
+    "word": "ಅಧ್ಯಾಯ",
+    "definition": "Chapter"
+  },
+  {
+    "id": 91,
+    "word": "ಪಾಠ",
+    "definition": "Lesson"
+  },
+  {
+    "id": 92,
+    "word": "ಪದ",
+    "definition": "Word"
+  },
+  {
+    "id": 93,
+    "word": "ಅರ್ಥ",
+    "definition": "Meaning"
+  },
+  {
+    "id": 94,
+    "word": "ಪ್ರಶ್ನೆ",
+    "definition": "Question"
+  },
+  {
+    "id": 95,
+    "word": "ಉತ್ತರ",
+    "definition": "Answer"
+  },
+  {
+    "id": 96,
+    "word": "ಚಟುವಟಿಕೆ",
+    "definition": "Activity"
+  },
+  {
+    "id": 97,
+    "word": "ಆಲೋಚನೆ",
+    "definition": "Thought"
+  },
+  {
+    "id": 98,
+    "word": "ಸ್ಮರಣೆ",
+    "definition": "Memory"
+  },
+  {
+    "id": 99,
+    "word": "ಅನುಭವ",
+    "definition": "Experience"
+  },
+  {
+    "id": 100,
+    "word": "ಪ್ರಯತ್ನ",
+    "definition": "Effort"
+  },
+  {
+    "id": 101,
+    "word": "ಪ್ರಕೃತಿ",
+    "definition": "Nature"
+  },
+  {
+    "id": 102,
+    "word": "ವಾತಾವರಣ",
+    "definition": "Environment"
+  },
+  {
+    "id": 103,
+    "word": "ಮಾರುಕಟ್ಟೆ",
+    "definition": "Market"
+  },
+  {
+    "id": 104,
+    "word": "ಹೋಟೆಲ್",
+    "definition": "Hotel"
+  },
+  {
+    "id": 105,
+    "word": "ಪಟಣೆ",
+    "definition": "City"
+  },
+  {
+    "id": 106,
+    "word": "ಮನೆ",
+    "definition": "Home"
+  },
+  {
+    "id": 107,
+    "word": "ಆರೋಗ್ಯ",
+    "definition": "Health"
+  },
+  {
+    "id": 108,
+    "word": "ರೋಗ",
+    "definition": "Disease"
+  },
+  {
+    "id": 109,
+    "word": "ಔಷಧಿ",
+    "definition": "Medicine"
+  },
+  {
+    "id": 110,
+    "word": "ವೈದ್ಯ",
+    "definition": "Doctor"
+  },
+  {
+    "id": 111,
+    "word": "ಸ್ನಾನ",
+    "definition": "Bath"
+  },
+  {
+    "id": 112,
+    "word": "ಉಡುಪು",
+    "definition": "Clothes"
+  },
+  {
+    "id": 113,
+    "word": "ಬೂಟಿ",
+    "definition": "Shoes"
+  },
+  {
+    "id": 114,
+    "word": "ಟೋಪಿ",
+    "definition": "Hat"
+  },
+  {
+    "id": 115,
+    "word": "ಪೆನ್ನು",
+    "definition": "Pen"
+  },
+  {
+    "id": 116,
+    "word": "ಪೆನ್ಸಿಲ್",
+    "definition": "Pencil"
+  },
+  {
+    "id": 117,
+    "word": "ಬೋರ್ಡ್",
+    "definition": "Board"
+  },
+  {
+    "id": 118,
+    "word": "ಗಡಿ",
+    "definition": "Border"
+  },
+  {
+    "id": 119,
+    "word": "ನಕ್ಷೆ",
+    "definition": "Map"
+  },
+  {
+    "id": 120,
+    "word": "ದೀಪ",
+    "definition": "Lamp"
+  },
+  {
+    "id": 121,
+    "word": "ಹಸುರು",
+    "definition": "Green"
+  },
+  {
+    "id": 122,
+    "word": "ಕೆಂಪು",
+    "definition": "Red"
+  },
+  {
+    "id": 123,
+    "word": "ನೀಲಿ",
+    "definition": "Blue"
+  },
+  {
+    "id": 124,
+    "word": "ಹಳದಿ",
+    "definition": "Yellow"
+  },
+  {
+    "id": 125,
+    "word": "ಬಿಳಿ",
+    "definition": "White"
+  },
+  {
+    "id": 126,
+    "word": "ಕಪ್ಪು",
+    "definition": "Black"
+  },
+  {
+    "id": 127,
+    "word": "ನಮ್ಮ",
+    "definition": "Our"
+  },
+  {
+    "id": 128,
+    "word": "ನಿಮ್ಮ",
+    "definition": "Your"
+  },
+  {
+    "id": 129,
+    "word": "ಅವನ",
+    "definition": "His"
+  },
+  {
+    "id": 130,
+    "word": "ಅವಳ",
+    "definition": "Her"
+  },
+  {
+    "id": 131,
+    "word": "ಅವರ",
+    "definition": "Their"
+  },
+  {
+    "id": 132,
+    "word": "ಇದು",
+    "definition": "This"
+  },
+  {
+    "id": 133,
+    "word": "ಅದು",
+    "definition": "That"
+  },
+  {
+    "id": 134,
+    "word": "ಇಲ್ಲಿ",
+    "definition": "Here"
+  },
+  {
+    "id": 135,
+    "word": "ಅಲ್ಲಿ",
+    "definition": "There"
+  },
+  {
+    "id": 136,
+    "word": "ಹೋಗು",
+    "definition": "Go"
+  },
+  {
+    "id": 137,
+    "word": "ಬಂದು",
+    "definition": "Come"
+  },
+  {
+    "id": 138,
+    "word": "ಇಡು",
+    "definition": "Put"
+  },
+  {
+    "id": 139,
+    "word": "ತೆಗೆ",
+    "definition": "Take"
+  },
+  {
+    "id": 140,
+    "word": "ಪ್ರೀತಿಸು",
+    "definition": "Love"
+  },
+  {
+    "id": 141,
+    "word": "ಅನಿಸಿಕೆ",
+    "definition": "Feeling"
+  },
+  {
+    "id": 142,
+    "word": "ಭಾವನೆ",
+    "definition": "Emotion"
+  },
+  {
+    "id": 143,
+    "word": "ಕೋಪ",
+    "definition": "Anger"
+  },
+  {
+    "id": 144,
+    "word": "ಹಾಸ್ಯ",
+    "definition": "Humor"
+  },
+  {
+    "id": 145,
+    "word": "ಭಿಕ್ಷು",
+    "definition": "Beggar"
+  },
+  {
+    "id": 146,
+    "word": "ರಾಣಿ",
+    "definition": "Queen"
+  },
+  {
+    "id": 147,
+    "word": "ರಾಜಾ",
+    "definition": "King"
+  },
+  {
+    "id": 148,
+    "word": "ಸೈನ್ಯ",
+    "definition": "Army"
+  },
+  {
+    "id": 149,
+    "word": "ಯೋಧ",
+    "definition": "Soldier"
+  },
+  {
+    "id": 150,
+    "word": "ಮೃತ್ಯು",
+    "definition": "Death"
+  },
+  {
+    "id": 151,
+    "word": "ಜೀವನ",
+    "definition": "Life"
+  },
+  {
+    "id": 152,
+    "word": "ಜನ್ಮ",
+    "definition": "Birth"
+  },
+  {
+    "id": 153,
+    "word": "ಆರಂಭ",
+    "definition": "Beginning"
+  },
+  {
+    "id": 154,
+    "word": "ಅಂತ್ಯ",
+    "definition": "End"
+  },
+  {
+    "id": 155,
+    "word": "ಹೊಸದು",
+    "definition": "New"
+  },
+  {
+    "id": 156,
+    "word": "ಹಳೆಯದು",
+    "definition": "Old"
+  },
+  {
+    "id": 157,
+    "word": "ಆಕಾಶ",
+    "definition": "Sky"
+  },
+  {
+    "id": 158,
+    "word": "ಭೂಮಿ",
+    "definition": "Earth"
+  },
+  {
+    "id": 159,
+    "word": "ಅಗ್ನಿ",
+    "definition": "Fire"
+  },
+  {
+    "id": 160,
+    "word": "ಗಾಳಿ",
+    "definition": "Wind"
+  },
+  {
+    "id": 161,
+    "word": "ಜಲ",
+    "definition": "Water"
+  },
+  {
+    "id": 162,
+    "word": "ಕಲ್ಲು",
+    "definition": "Stone"
+  },
+  {
+    "id": 163,
+    "word": "ಉದ್ದ",
+    "definition": "Tall"
+  },
+  {
+    "id": 164,
+    "word": "ಚಿಕ್ಕದು",
+    "definition": "Small"
+  },
+  {
+    "id": 165,
+    "word": "ದೊಡ್ಡದು",
+    "definition": "Big"
+  },
+  {
+    "id": 166,
+    "word": "ಸಣ್ಣದು",
+    "definition": "Tiny"
+  },
+  {
+    "id": 167,
+    "word": "ವೇಗ",
+    "definition": "Speed"
+  },
+  {
+    "id": 168,
+    "word": "ನಿಧಾನ",
+    "definition": "Slow"
+  },
+  {
+    "id": 169,
+    "word": "ಹಳ್ಳಿ",
+    "definition": "Village"
+  },
+  {
+    "id": 170,
+    "word": "ನಗರ",
+    "definition": "Town"
+  },
+  {
+    "id": 171,
+    "word": "ದೂರ",
+    "definition": "Far"
+  },
+  {
+    "id": 172,
+    "word": "ಹತ್ತಿರ",
+    "definition": "Near"
+  },
+  {
+    "id": 173,
+    "word": "ಮದುವೆ",
+    "definition": "Marriage"
+  },
+  {
+    "id": 174,
+    "word": "ಪತ್ನಿ",
+    "definition": "Wife"
+  },
+  {
+    "id": 175,
+    "word": "ಗಂಡ",
+    "definition": "Husband"
+  },
+  {
+    "id": 176,
+    "word": "ತಾಯಿ",
+    "definition": "Mother"
+  },
+  {
+    "id": 177,
+    "word": "ತಂದೆ",
+    "definition": "Father"
+  },
+  {
+    "id": 178,
+    "word": "ಅಕ್ಕ",
+    "definition": "Sister"
+  },
+  {
+    "id": 179,
+    "word": "ಅಣ್ಣ",
+    "definition": "Brother"
+  },
+  {
+    "id": 180,
+    "word": "ಅಜ್ಜಿ",
+    "definition": "Grandmother"
+  },
+  {
+    "id": 181,
+    "word": "ಅಜ್ಜ",
+    "definition": "Grandfather"
+  },
+  {
+    "id": 182,
+    "word": "ಮಾತು",
+    "definition": "Speech"
+  },
+  {
+    "id": 183,
+    "word": "ಉಚ್ಚಾರಣೆ",
+    "definition": "Pronunciation"
+  },
+  {
+    "id": 184,
+    "word": "ಆರಂಭಿಸು",
+    "definition": "Start"
+  },
+  {
+    "id": 185,
+    "word": "ನಿಲ್ಲಿಸು",
+    "definition": "Stop"
+  },
+  {
+    "id": 186,
+    "word": "ಪ್ರಯಾಣ",
+    "definition": "Travel"
+  },
+  {
+    "id": 187,
+    "word": "ಸಮುದ್ರ",
+    "definition": "Ocean"
+  },
+  {
+    "id": 188,
+    "word": "ಸಂಭಾಷಣೆ",
+    "definition": "Conversation"
+  },
+  {
+    "id": 189,
+    "word": "ಪ್ರಶಂಸೆ",
+    "definition": "Praise"
+  },
+  {
+    "id": 190,
+    "word": "ತಪ್ಪು",
+    "definition": "Mistake"
+  },
+  {
+    "id": 191,
+    "word": "ಪೂರ್ಣತೆ",
+    "definition": "Perfection"
+  },
+  {
+    "id": 192,
+    "word": "ಅಪೂರ್ಣತೆ",
+    "definition": "Imperfection"
+  },
+  {
+    "id": 193,
+    "word": "ಅಂತರ",
+    "definition": "Difference"
+  },
+  {
+    "id": 194,
+    "word": "ಸಮಾನತೆ",
+    "definition": "Equality"
+  },
+  {
+    "id": 195,
+    "word": "ವಿವೇಕ",
+    "definition": "Wisdom"
+  },
+  {
+    "id": 196,
+    "word": "ಅಜ್ಞಾನ",
+    "definition": "Ignorance"
+  },
+  {
+    "id": 197,
+    "word": "ದಯೆ",
+    "definition": "Kindness"
+  },
+  {
+    "id": 198,
+    "word": "ಕ್ರೂರತೆ",
+    "definition": "Cruelty"
+  },
+  {
+    "id": 199,
+    "word": "ಧೈರ್ಯ",
+    "definition": "Courage"
+  },
+  {
+    "id": 200,
+    "word": "ಭಯಭೀತಿ",
+    "definition": "Fearfulness"
+  }
+]
+ 

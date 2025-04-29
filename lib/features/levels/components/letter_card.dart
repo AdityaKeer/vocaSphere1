@@ -84,7 +84,7 @@ class LetterCard extends StatelessWidget {
                 child: Center(
                   child: Text(
                     letter,
-                    style: TextStyle(color: Colors.black, fontSize: 198),
+                    style: TextStyle(color: Colors.black, fontSize: 190),
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -232,44 +232,45 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 20),
 
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              //   child: GestureDetector(
-              //     onTap: () {
-              //       context.read<HomeCubit>().uploadBulkData();
-              //     },
-              //     child: Card(
-              //       color: Colors.white,
-              //       elevation: 4,
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(12),
-              //       ),
-              //       child: Padding(
-              //         padding: const EdgeInsets.symmetric(
-              //           vertical: 16,
-              //           horizontal: 20,
-              //         ),
-              //         child: Row(
-              //           children: [
-              //             Icon(
-              //               Iconsax.document_upload_bold,
-              //               color: Colors.black87,
-              //             ),
-              //             SizedBox(width: 12),
-              //             Text(
-              //               'Upload words',
-              //               style: TextStyle(
-              //                 fontSize: 18,
-              //                 fontWeight: FontWeight.w600,
-              //                 color: Colors.black87,
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: GestureDetector(
+                  onTap: () {
+                    // print("Uploading Started");
+                    // context.read<HomeCubit>().uploadBulkData();
+                  },
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 20,
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Iconsax.document_upload_bold,
+                            color: Colors.black87,
+                          ),
+                          SizedBox(width: 12),
+                          Text(
+                            'Upload words',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

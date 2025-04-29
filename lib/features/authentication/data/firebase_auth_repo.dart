@@ -69,6 +69,9 @@ class FirebaseAuthRepo implements AuthRepo {
         "English": {"LastVisitedLevel": "", "CompletedLevels": []},
         "Sanskrit": {"LastVisitedLevel": "", "CompletedLevels": []},
         "Chinese": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Kannada": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Tamil": {"LastVisitedLevel": "", "CompletedLevels": []},
+        "Telugu": {"LastVisitedLevel": "", "CompletedLevels": []},
       };
 
       await firebaseFirestore.collection("users").doc(user.uid).set({
