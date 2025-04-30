@@ -266,7 +266,7 @@ class _MrLvl5State extends State<MrLvl5> {
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
-                                              initialPercent: 0.25,
+                                              initialPercent: 0.75,
                                               onLevelsList: () {
                                                 final languageCubit =
                                                     context

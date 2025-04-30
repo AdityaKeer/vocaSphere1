@@ -261,7 +261,7 @@ class _ZhLvl4State extends State<ZhLvl4> {
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
-                                              initialPercent: 0.25,
+                                              initialPercent: 0.60,
                                               onLevelsList: () {
                                                 final languageCubit =
                                                     context

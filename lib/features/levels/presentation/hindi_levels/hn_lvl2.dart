@@ -405,7 +405,7 @@ class _HnLvl2State extends State<HnLvl2> {
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
-                                              initialPercent: 0.25,
+                                              initialPercent: 0.30,
                                               onLevelsList: () {
                                                 final languageCubit =
                                                     context

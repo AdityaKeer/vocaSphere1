@@ -638,7 +638,7 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                         (
                                                           context,
                                                         ) => LevelEndingWidget(
-                                                          initialPercent: 0.25,
+                                                          initialPercent: 0.45,
                                                           onLevelsList: () {
                                                             final languageCubit =
                                                                 context

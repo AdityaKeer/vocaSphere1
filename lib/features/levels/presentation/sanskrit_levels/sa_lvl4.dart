@@ -249,7 +249,7 @@ class _SaLvl4State extends State<SaLvl4> {
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
-                                              initialPercent: 0.25,
+                                              initialPercent: 0.60,
                                               onLevelsList: () {
                                                 final languageCubit =
                                                     context
