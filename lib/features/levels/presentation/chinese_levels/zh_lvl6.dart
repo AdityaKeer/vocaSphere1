@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:icons_plus/icons_plus.dart';
@@ -13,7 +12,7 @@ class ZhLvl6 extends StatefulWidget {
 }
 
 class _ZhLvl6State extends State<ZhLvl6> {
-  List<dynamic?>? data;
+  List<dynamic>? data;
 
   @override
   void initState() {

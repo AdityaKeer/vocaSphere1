@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class JapaneseCard extends StatelessWidget {
   const JapaneseCard({
@@ -63,7 +61,9 @@ class JapaneseCard extends StatelessWidget {
                                   horizontal: 10,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.blueAccent.withOpacity(0.2),
+                                  color: Colors.blueAccent.withAlpha(
+                                    (0.2 * 255).toInt(),
+                                  ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 child: Text(
@@ -82,7 +82,9 @@ class JapaneseCard extends StatelessWidget {
                                   horizontal: 10,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.blueAccent.withOpacity(0.2),
+                                  color: Colors.blueAccent.withAlpha(
+                                    (0.2 * 255).toInt(),
+                                  ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 child: Icon(

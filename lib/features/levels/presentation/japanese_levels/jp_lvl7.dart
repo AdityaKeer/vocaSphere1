@@ -166,7 +166,7 @@ class _JpLvl7State extends State<JpLvl7> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withAlpha((0.3 * 255).toInt()),
                         blurRadius: 8,
                         offset: const Offset(2, 4),
                       ),
@@ -221,7 +221,7 @@ class _JpLvl7State extends State<JpLvl7> {
                         elevation: 10,
                         shadowColor: Theme.of(
                           context,
-                        ).colorScheme.primary.withOpacity(0.3),
+                        ).colorScheme.primary.withAlpha((0.3 * 255).toInt()),
                       ),
                       onPressed: () {
                         Navigator.of(context).pushReplacement(

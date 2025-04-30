@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:major_project1/features/levels/presentation/english_levels/en_lvl2.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl3.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/japanese_levels/jp_lvl7.dart';
 import 'package:major_project1/features/levels/presentation/marathi_levels/mr_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl6.dart';
 import 'package:major_project1/features/levels/presentation/sanskrit_levels/sa_lvl7.dart';
-import '../../../splashscreen.dart';
 import '../../authentication/data/firebase_auth_repo.dart';
 import '../../levels/presentation/chinese_levels/zh_lvl1.dart';
 import '../../levels/presentation/chinese_levels/zh_lvl2.dart';
@@ -96,11 +94,11 @@ class LanguageCubit extends Cubit<LanguageState> {
           'ZhLvl6': const ZhLvl6(),
         };
 
-      case 'English':
-        _levelPages = {
-          'EnLvl1': const SplashScreen(),
-          'EnLvl2': const EnLvl2(),
-        };
+        // case 'English':
+        //   _levelPages = {
+        //     'EnLvl1': const SplashScreen(),
+        //     'EnLvl2': const EnLvl2(),
+        //   };
 
         break;
       case 'Kannada':
@@ -218,14 +216,13 @@ class LanguageCubit extends Cubit<LanguageState> {
       currentLevel = name;
       authRepo.saveUserProgress(language, currentLevel!, completedLevels);
       return _levelPages[name]!;
-      emit(LevelSelected(selectedLevel: name, lvlPage: _levelPages[name]!));
+      // emit(LevelSelected(selectedLevel: name, lvlPage: _levelPages[name]!));
     }
     return null;
   }
 
   // Set language and load progress (combines both functionalities safely)
   Future<void> setLanguageAndLoadProgress(String newLanguage) async {
-    print("Switching to language: $newLanguage");
     if (language == newLanguage) {
       return;
     }
@@ -249,9 +246,6 @@ class LanguageCubit extends Cubit<LanguageState> {
 
     //  Save progress again to ensure correct data
     authRepo.saveUserProgress(language, currentLevel ?? "", completedLevels);
-    print(
-      "Loaded Progress - Language: $language, Last Level: $currentLevel, Completed: $completedLevels",
-    );
 
     emit(
       LevelListUpdated(

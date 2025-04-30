@@ -82,7 +82,7 @@ class NumberCard extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Colors.blueAccent.withOpacity(0.2),
+                    color: Colors.blueAccent.withAlpha((0.2 * 255).toInt()),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: FittedBox(

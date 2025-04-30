@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
-import '../../../../../authentication/presentation/components/common_button.dart';
 import '../../../../../authentication/presentation/cubits/auth_cubit.dart';
-import '../../../../cubits/language_cubit.dart';
 import '../../../components/levels_list.dart';
 
 class EnglishPage extends StatefulWidget {

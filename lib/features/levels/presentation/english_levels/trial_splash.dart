@@ -47,12 +47,12 @@ class _TrialSplashState extends State<TrialSplash> {
                     margin: const EdgeInsets.symmetric(horizontal: 30),
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
-                      color: Colors.blue.withOpacity(0.5),
+                      color: Colors.blue.withAlpha((0.5 * 255).toInt()),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(color: Colors.white30, width: 1),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withAlpha((0.2 * 255).toInt()),
                           blurRadius: 15,
                           offset: const Offset(0, 8),
                         ),

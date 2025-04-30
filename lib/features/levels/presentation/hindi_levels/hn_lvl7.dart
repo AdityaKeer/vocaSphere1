@@ -1,5 +1,4 @@
 import 'dart:math'; // For random number generation
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -13,7 +12,7 @@ class HnLvl7 extends StatefulWidget {
 }
 
 class _HnLvl7State extends State<HnLvl7> {
-  List<dynamic?>? data;
+  List<dynamic>? data;
 
   @override
   void initState() {
@@ -29,8 +28,8 @@ class _HnLvl7State extends State<HnLvl7> {
 
     // Get the total number of documents
     QuerySnapshot snapshot = await wordsCollection.get();
-    int totalDocuments = snapshot.size;
-    print(totalDocuments); // Total number of documents in the collection
+    int totalDocuments =
+        snapshot.size; // Total number of documents in the collection
 
     if (totalDocuments > 0) {
       // Generate a random index based on total number of documents

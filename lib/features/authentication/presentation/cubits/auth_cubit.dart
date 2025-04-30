@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/authentication/domain/entities/app_user.dart';
 import 'package:major_project1/features/authentication/presentation/cubits/auth_states.dart';
@@ -19,7 +17,6 @@ class AuthCubit extends Cubit<AuthState> {
       _currentUser = user;
       emit(Authenticated(user));
     } else {
-      print(" No user found, emitting UnAuthenticated");
       emit(UnAuthenticated());
     }
   }
@@ -37,7 +34,6 @@ class AuthCubit extends Cubit<AuthState> {
         _currentUser = user;
         emit(Authenticated(user));
       } else {
-        print("Login failed, emitting UnAuthenticated");
         emit(UnAuthenticated());
       }
     } catch (e) {

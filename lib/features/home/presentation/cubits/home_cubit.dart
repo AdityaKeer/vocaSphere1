@@ -4,11 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:flutter/material.dart';
 import '../../../authentication/data/firebase_auth_repo.dart';
 import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
-import '../../../languages/presentation/pages/english/page/english_page.dart';
 import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../../languages/presentation/pages/japanese/page/japanese_page.dart';
 import '../../../languages/presentation/pages/kannada/kannada_page.dart';
@@ -34,14 +32,13 @@ class HomeCubit extends Cubit<HomeState> {
       'Japanese': const JapanesePage(),
       'Chinese': const ChinesePage(),
       'Kannada': const KannadaPage(),
-      'English': const EnglishPage(),
+      // 'English': const EnglishPage(),
       'Tamil': const TamilPage(),
       'Hindi': const HindiPage(),
       'Telugu': const TeluguPage(),
       'Marathi': const MarathiPage(),
       'Sanskrit': const SanskritPage(),
     };
-    print(" Languages Initialized: ${_languagePages.keys.toList()}");
 
     emit(LanguageListUpdated(languagePages: Map.from(_languagePages)));
   }
@@ -118,10 +115,6 @@ class HomeCubit extends Cubit<HomeState> {
         // Optional: Add a small delay to prevent overwhelming Firestore
         await Future.delayed(Duration(milliseconds: 100));
       }
-
-      print(
-        'Bulk upload completed! ${wordsData.length} words uploaded to Firestore.',
-      );
     } catch (e) {
       print('Error during bulk upload: $e');
     }

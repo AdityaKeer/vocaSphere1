@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -6,7 +5,6 @@ import 'package:major_project1/features/languages/presentation/pages/telugu/page
 import 'package:major_project1/features/levels/components/number_card.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/pages/kannada/kannada_page.dart';
 import '../../components/lvl_endingWidget.dart';
 
 class TeLvl4 extends StatefulWidget {
@@ -143,7 +141,7 @@ class _TeLvl4State extends State<TeLvl4> {
 
                     Card(
                       elevation: 50,
-                      shadowColor: Colors.black.withOpacity(0.2),
+                      shadowColor: Colors.black.withAlpha((0.2 * 255).toInt()),
                       color: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -165,7 +163,9 @@ class _TeLvl4State extends State<TeLvl4> {
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.1),
+                                color: Colors.grey.withAlpha(
+                                  (0.1 * 255).toInt(),
+                                ),
                                 spreadRadius: 5,
                                 blurRadius: 20,
                               ),
@@ -181,9 +181,8 @@ class _TeLvl4State extends State<TeLvl4> {
                                   shape: BoxShape.circle,
                                   gradient: RadialGradient(
                                     colors: [
-                                      Theme.of(
-                                        context,
-                                      ).colorScheme.primary.withOpacity(0.3),
+                                      Theme.of(context).colorScheme.primary
+                                          .withAlpha((0.3 * 255).toInt()),
                                       Colors.transparent,
                                     ],
                                   ),
@@ -192,9 +191,8 @@ class _TeLvl4State extends State<TeLvl4> {
                                   child: Icon(
                                     Icons.star_rounded,
                                     size: 80,
-                                    color: Theme.of(
-                                      context,
-                                    ).colorScheme.primary.withOpacity(0.8),
+                                    color: Theme.of(context).colorScheme.primary
+                                        .withAlpha((0.8 * 255).toInt()),
                                   ),
                                 ),
                               ),
@@ -208,7 +206,9 @@ class _TeLvl4State extends State<TeLvl4> {
                                   letterSpacing: 1.5,
                                   shadows: [
                                     Shadow(
-                                      color: Colors.grey.withOpacity(0.3),
+                                      color: Colors.grey.withAlpha(
+                                        (0.3 * 255).toInt(),
+                                      ),
                                       offset: Offset(2, 2),
                                       blurRadius: 4,
                                     ),
@@ -240,14 +240,13 @@ class _TeLvl4State extends State<TeLvl4> {
                                       borderRadius: BorderRadius.circular(16),
                                     ),
                                     elevation: 10,
-                                    shadowColor: Theme.of(
-                                      context,
-                                    ).colorScheme.primary.withOpacity(0.3),
+                                    shadowColor: Theme.of(context)
+                                        .colorScheme
+                                        .primary
+                                        .withAlpha((0.3 * 255).toInt()),
                                   ),
                                   onPressed: () async {
-                                    final result = await Navigator.of(
-                                      context,
-                                    ).push(
+                                    await Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
@@ -398,7 +397,7 @@ class _TeLvl4State extends State<TeLvl4> {
                       backgroundColor: theme.colorScheme.secondaryContainer,
                       foregroundColor: theme.colorScheme.onSecondaryContainer,
                       disabledBackgroundColor: theme.colorScheme.secondary
-                          .withOpacity(0.1),
+                          .withAlpha((0.1 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -423,7 +422,7 @@ class _TeLvl4State extends State<TeLvl4> {
                       backgroundColor: theme.colorScheme.primary,
                       foregroundColor: theme.colorScheme.onPrimary,
                       disabledBackgroundColor: theme.colorScheme.primary
-                          .withOpacity(0.1),
+                          .withAlpha((0.1 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

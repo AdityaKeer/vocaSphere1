@@ -1,12 +1,10 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:major_project1/features/languages/presentation/pages/marathi/page/marathi_page.dart';
 import 'package:major_project1/features/levels/components/lvl_endingWidget.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
 import '../../../languages/presentation/pages/chinese/page/chinese_page.dart';
-import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
 import '../../Models/item_model.dart';
 import '../../utilities/constants.dart';
 
@@ -78,7 +76,7 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Theme.of(context).colorScheme.background,
+              Theme.of(context).colorScheme.surface,
               Theme.of(context).colorScheme.surface,
             ],
           ),
@@ -158,7 +156,9 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                   color: Theme.of(context)
                                                       .colorScheme
                                                       .primaryContainer
-                                                      .withOpacity(0.5),
+                                                      .withAlpha(
+                                                        (0.5 * 255).toInt(),
+                                                      ),
                                                   elevation: 0,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
@@ -180,7 +180,10 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                               )
                                                               .colorScheme
                                                               .onPrimaryContainer
-                                                              .withOpacity(0.5),
+                                                              .withAlpha(
+                                                                (0.5 * 255)
+                                                                    .toInt(),
+                                                              ),
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           fontSize: 28.0,
@@ -272,12 +275,14 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                       children:
                                           pronunciation.map((item) {
                                             return DragTarget<ItemModel>(
-                                              onAccept: (receivedItem) {
+                                              onAcceptWithDetails: (
+                                                receivedItem,
+                                              ) {
                                                 if (item.value ==
-                                                    receivedItem.value) {
+                                                    receivedItem.data.value) {
                                                   setState(() {
                                                     letters.remove(
-                                                      receivedItem,
+                                                      receivedItem.data,
                                                     );
                                                     pronunciation.remove(item);
                                                     score += 10;
@@ -345,7 +350,9 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                   () => item.accepting = false,
                                                 );
                                               },
-                                              onWillAccept: (receivedItem) {
+                                              onWillAcceptWithDetails: (
+                                                receivedItem,
+                                              ) {
                                                 setState(
                                                   () => item.accepting = true,
                                                 );
@@ -430,7 +437,9 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                             child: Center(
                               child: Card(
                                 elevation: 16,
-                                shadowColor: Colors.black.withOpacity(0.25),
+                                shadowColor: Colors.black.withAlpha(
+                                  (0.25 * 255).toInt(),
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
@@ -454,7 +463,7 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                           color: Theme.of(context)
                                               .colorScheme
                                               .primary
-                                              .withOpacity(0.15),
+                                              .withAlpha((0.15 * 255).toInt()),
                                           blurRadius: 25,
                                           spreadRadius: 5,
                                           offset: Offset(0, 5),
@@ -482,7 +491,9 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                       color: Theme.of(context)
                                                           .colorScheme
                                                           .tertiary
-                                                          .withOpacity(0.2),
+                                                          .withAlpha(
+                                                            (0.2 * 255).toInt(),
+                                                          ),
                                                       blurRadius: 15,
                                                       spreadRadius: 2,
                                                     ),
@@ -499,7 +510,10 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                     shadows: [
                                                       Shadow(
                                                         color: Colors.black
-                                                            .withOpacity(0.2),
+                                                            .withAlpha(
+                                                              (0.2 * 255)
+                                                                  .toInt(),
+                                                            ),
                                                         blurRadius: 12,
                                                         offset: Offset(0, 7),
                                                       ),
@@ -527,7 +541,9 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                       color: Theme.of(context)
                                                           .colorScheme
                                                           .primary
-                                                          .withOpacity(0.4),
+                                                          .withAlpha(
+                                                            (0.4 * 255).toInt(),
+                                                          ),
                                                       blurRadius: 10,
                                                       offset: Offset(0, 3),
                                                     ),
@@ -548,11 +564,15 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .secondary
-                                                          .withOpacity(0.2),
+                                                          .withAlpha(
+                                                            (0.2 * 255).toInt(),
+                                                          ),
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .secondary
-                                                          .withOpacity(0.1),
+                                                          .withAlpha(
+                                                            (0.1 * 255).toInt(),
+                                                          ),
                                                     ],
                                                   ),
                                                   borderRadius:
@@ -561,7 +581,9 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                     color: Theme.of(context)
                                                         .colorScheme
                                                         .secondary
-                                                        .withOpacity(0.6),
+                                                        .withAlpha(
+                                                          (0.6 * 255).toInt(),
+                                                        ),
                                                     width: 2,
                                                   ),
                                                 ),
@@ -602,10 +624,11 @@ class _ZhLvl3State extends State<ZhLvl3> with SingleTickerProviderStateMixin {
                                                       BorderRadius.circular(20),
                                                 ),
                                                 elevation: 12,
-                                                shadowColor: Theme.of(context)
-                                                    .colorScheme
-                                                    .primary
-                                                    .withOpacity(0.5),
+                                                shadowColor: Theme.of(
+                                                  context,
+                                                ).colorScheme.primary.withAlpha(
+                                                  (0.5 * 255).toInt(),
+                                                ),
                                               ),
                                               onPressed: () {
                                                 Navigator.of(context).push(

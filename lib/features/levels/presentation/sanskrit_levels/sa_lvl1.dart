@@ -151,7 +151,7 @@ class _SaLvl1State extends State<SaLvl1> {
                     // Final card with "Well Done"
                     Card(
                       elevation: 50,
-                      shadowColor: Colors.black.withOpacity(0.2),
+                      shadowColor: Colors.black.withAlpha((0.2 * 255).toInt()),
                       color: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -173,7 +173,9 @@ class _SaLvl1State extends State<SaLvl1> {
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.1),
+                                color: Colors.grey.withAlpha(
+                                  (0.1 * 255).toInt(),
+                                ),
                                 spreadRadius: 5,
                                 blurRadius: 20,
                               ),
@@ -189,8 +191,8 @@ class _SaLvl1State extends State<SaLvl1> {
                                   shape: BoxShape.circle,
                                   gradient: RadialGradient(
                                     colors: [
-                                      theme.colorScheme.primary.withOpacity(
-                                        0.3,
+                                      theme.colorScheme.primary.withAlpha(
+                                        (0.3 * 255).toInt(),
                                       ),
                                       Colors.transparent,
                                     ],
@@ -200,8 +202,9 @@ class _SaLvl1State extends State<SaLvl1> {
                                   child: Icon(
                                     Icons.star_rounded,
                                     size: 80,
-                                    color: theme.colorScheme.primary
-                                        .withOpacity(0.8),
+                                    color: theme.colorScheme.primary.withAlpha(
+                                      (0.8 * 255).toInt(),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -239,12 +242,10 @@ class _SaLvl1State extends State<SaLvl1> {
                                     ),
                                     elevation: 10,
                                     shadowColor: theme.colorScheme.primary
-                                        .withOpacity(0.3),
+                                        .withAlpha((0.3 * 255).toInt()),
                                   ),
                                   onPressed: () async {
-                                    final result = await Navigator.of(
-                                      context,
-                                    ).push(
+                                    await Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
@@ -390,7 +391,7 @@ class _SaLvl1State extends State<SaLvl1> {
                       backgroundColor: theme.colorScheme.secondaryContainer,
                       foregroundColor: theme.colorScheme.onSecondaryContainer,
                       disabledBackgroundColor: theme.colorScheme.secondary
-                          .withOpacity(0.1),
+                          .withAlpha((0.1 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -415,7 +416,7 @@ class _SaLvl1State extends State<SaLvl1> {
                       backgroundColor: theme.colorScheme.primary,
                       foregroundColor: theme.colorScheme.onPrimary,
                       disabledBackgroundColor: theme.colorScheme.primary
-                          .withOpacity(0.1),
+                          .withAlpha((0.1 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

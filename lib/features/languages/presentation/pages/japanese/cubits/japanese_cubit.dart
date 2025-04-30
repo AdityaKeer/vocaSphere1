@@ -3,11 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:major_project1/features/languages/presentation/pages/japanese/cubits/japanese_state.dart';
 
 import '../../../../../levels/presentation/hindi_levels/hn_lvl1.dart';
-import '../../../../../levels/presentation/hindi_levels/hn_lvl2.dart';
 import '../../../../../levels/presentation/japanese_levels/jp_lvl1.dart';
 import '../../../../../levels/presentation/japanese_levels/jp_lvl2.dart';
 import '../../../../../levels/presentation/marathi_levels/mr_lvl1.dart';
-import '../../../../../levels/presentation/marathi_levels/mr_lvl2.dart';
 
 class JapaneseCubit extends Cubit<JapaneseState> {
   JapaneseCubit() : super(JapaneseInitial()) {

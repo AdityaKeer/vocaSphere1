@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LetterCard extends StatelessWidget {
   const LetterCard({
@@ -48,7 +47,9 @@ class LetterCard extends StatelessWidget {
                           horizontal: 10,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent.withOpacity(0.2),
+                          color: Colors.blueAccent.withAlpha(
+                            (0.2 * 255).toInt(),
+                          ),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Text(
@@ -67,7 +68,9 @@ class LetterCard extends StatelessWidget {
                           horizontal: 10,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent.withOpacity(0.2),
+                          color: Colors.blueAccent.withAlpha(
+                            (0.2 * 255).toInt(),
+                          ),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Icon(

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/trial_splash.dart';
 import 'package:major_project1/features/levels/presentation/english_levels/trial_splashLand.dart';
 
@@ -13,7 +11,7 @@ class Onboarding extends StatefulWidget {
 
 class _OnboardingState extends State<Onboarding> {
   final PageController _pageController = PageController();
-  int _currentPage = 0;
+  final int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -23,8 +21,8 @@ class _OnboardingState extends State<Onboarding> {
           children: [
             Expanded(
               child: PageView(
-                children: [TrialSplash(), TrialSplashLand()],
                 controller: _pageController,
+                children: [TrialSplash(), TrialSplashLand()],
               ),
             ),
             Container(

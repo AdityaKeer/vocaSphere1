@@ -6,7 +6,6 @@ import 'package:flutter_tts/flutter_tts.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
 import '../../../languages/presentation/pages/marathi/page/marathi_page.dart';
-import '../../../languages/presentation/pages/sanskrit/page/sanskrit_page.dart';
 import '../../components/lvl_endingWidget.dart';
 
 class MrLvl6 extends StatefulWidget {
@@ -18,7 +17,6 @@ class MrLvl6 extends StatefulWidget {
 
 class _MrLvl6State extends State<MrLvl6> {
   final FlutterTts flutterTts = FlutterTts();
-  final PageController _pageController = PageController();
 
   int currentIndex = 0;
   int score = 0;
@@ -169,7 +167,7 @@ class _MrLvl6State extends State<MrLvl6> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withAlpha((0.3 * 255).toInt()),
                         blurRadius: 8,
                         offset: const Offset(2, 4),
                       ),
@@ -224,7 +222,7 @@ class _MrLvl6State extends State<MrLvl6> {
                         elevation: 10,
                         shadowColor: Theme.of(
                           context,
-                        ).colorScheme.primary.withOpacity(0.3),
+                        ).colorScheme.primary.withAlpha((0.3 * 255).toInt()),
                       ),
                       onPressed: () {
                         Navigator.of(context).push(

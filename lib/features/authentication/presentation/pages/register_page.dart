@@ -79,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Theme.of(context).colorScheme.background,
+                Theme.of(context).colorScheme.surface,
                 Theme.of(context).colorScheme.surface,
               ],
             ),

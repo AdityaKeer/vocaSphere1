@@ -63,7 +63,6 @@ class _PronunciationCheckerState extends State<PronunciationChecker>
       speechToText.listen(
         onSoundLevelChange: (level) {},
         onResult: (result) {
-          print("Recognized: ${result.recognizedWords}");
           setState(() {
             userSpeech = result.recognizedWords;
           });
@@ -134,7 +133,9 @@ class _PronunciationCheckerState extends State<PronunciationChecker>
                             isSpeaking
                                 ? [
                                   BoxShadow(
-                                    color: Colors.greenAccent.withOpacity(0.6),
+                                    color: Colors.greenAccent.withAlpha(
+                                      (0.6 * 255).toInt(),
+                                    ),
                                     spreadRadius: 10,
                                     blurRadius: 20,
                                   ),
@@ -176,7 +177,9 @@ class _PronunciationCheckerState extends State<PronunciationChecker>
                             isListening
                                 ? [
                                   BoxShadow(
-                                    color: Colors.redAccent.withOpacity(0.6),
+                                    color: Colors.redAccent.withAlpha(
+                                      (0.6 * 255).toInt(),
+                                    ),
                                     spreadRadius: 10,
                                     blurRadius: 20,
                                   ),

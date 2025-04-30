@@ -1,5 +1,4 @@
 import 'dart:math'; // For random number generation
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -13,7 +12,7 @@ class SaLvl7 extends StatefulWidget {
 }
 
 class _SaLvl7State extends State<SaLvl7> {
-  List<dynamic?>? data;
+  List<dynamic>? data;
 
   @override
   void initState() {

@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:major_project1/features/authentication/domain/entities/app_user.dart';
 import 'package:major_project1/features/authentication/domain/repos/auth_repo.dart';
 
@@ -15,10 +12,9 @@ class FirebaseAuthRepo implements AuthRepo {
     final firebaseUser = firebaseAuth.currentUser;
 
     if (firebaseUser == null) {
-      print("No user found in FirebaseAuth.");
       return null;
     }
-    print("User found: ${firebaseUser.email}");
+
     return AppUser(name: '', email: firebaseUser.email!, uid: firebaseUser.uid);
   }
 
@@ -32,7 +28,6 @@ class FirebaseAuthRepo implements AuthRepo {
     } on FirebaseAuthException catch (e) {
       throw Exception('Login failed: ${e.message}');
     } catch (e) {
-      print("Unexpected error: $e"); // Debugging
       throw Exception('Unexpected error: $e');
     }
   }
@@ -79,7 +74,6 @@ class FirebaseAuthRepo implements AuthRepo {
         "progress": initialProgress,
       });
 
-      print(" User registered and progress initialized!");
       return user;
     } catch (e) {
       throw Exception('Registration failed: $e');

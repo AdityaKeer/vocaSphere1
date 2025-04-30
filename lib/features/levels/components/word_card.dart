@@ -91,7 +91,7 @@ class WordCard extends StatelessWidget {
                         horizontal: 20,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.blueAccent.withOpacity(0.2),
+                        color: Colors.blueAccent.withAlpha((0.2 * 255).toInt()),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Text(

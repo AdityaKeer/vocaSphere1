@@ -4,7 +4,6 @@ ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   useMaterial3: true,
   colorScheme: ColorScheme.light(
-    background: Color(0xFFF8F9FA),
     surface: Color(0xFFFFFFFF),
     onSurface: Color(0xFF505458),
     primary: Color(0xFF5C6BC0), // Indigo shade
@@ -21,7 +20,7 @@ ThemeData lightMode = ThemeData(
     onTertiaryContainer: Color(0xFFE65100),
     inversePrimary: Color(0xFF3949AB), // Darker indigo
     error: Colors.redAccent,
-    shadow: Colors.black.withOpacity(0.1),
+    shadow: Colors.black.withAlpha((0.1 * 255).toInt()),
   ),
 
   // Button theme

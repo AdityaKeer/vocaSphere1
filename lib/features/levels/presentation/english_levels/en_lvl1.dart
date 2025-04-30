@@ -285,7 +285,7 @@ class _EnLvl1State extends State<EnLvl1> {
                       backgroundColor: theme.colorScheme.secondaryContainer,
                       foregroundColor: theme.colorScheme.onSecondaryContainer,
                       disabledBackgroundColor: theme.colorScheme.secondary
-                          .withOpacity(0.1),
+                          .withAlpha((0.1 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -310,7 +310,7 @@ class _EnLvl1State extends State<EnLvl1> {
                       backgroundColor: theme.colorScheme.primary,
                       foregroundColor: theme.colorScheme.onPrimary,
                       disabledBackgroundColor: theme.colorScheme.primary
-                          .withOpacity(0.1),
+                          .withAlpha((0.1 * 255).toInt()),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

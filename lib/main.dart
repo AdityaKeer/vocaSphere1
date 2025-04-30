@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:major_project1/firebase_options.dart';
 import 'package:major_project1/splashscreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'app.dart';
-import 'features/levels/presentation/english_levels/trial_splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
