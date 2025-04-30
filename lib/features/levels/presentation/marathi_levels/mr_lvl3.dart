@@ -566,10 +566,6 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                                 child: Text(
                                                   'Final Score: $score',
                                                   style: TextStyle(
-                                                    // color:
-                                                    //     Theme.of(
-                                                    //       context,
-                                                    //     ).colorScheme.secondary,
                                                     fontWeight: FontWeight.w800,
                                                     fontSize: 30,
                                                     letterSpacing: 1.2,
@@ -610,15 +606,13 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                                     .withOpacity(0.5),
                                               ),
                                               onPressed: () {
-                                                Navigator.of(
-                                                  context,
-                                                ).pushReplacement(
+                                                Navigator.of(context).push(
                                                   MaterialPageRoute(
                                                     builder:
                                                         (
                                                           context,
                                                         ) => LevelEndingWidget(
-                                                          initialPercent: 0.45,
+                                                          initialPercent: 0.25,
                                                           onLevelsList: () {
                                                             final languageCubit =
                                                                 context
@@ -669,6 +663,9 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                                                     )) {
                                                               Navigator.of(
                                                                 context,
+                                                              ).pop();
+                                                              Navigator.of(
+                                                                context,
                                                               ).pushReplacement(
                                                                 MaterialPageRoute(
                                                                   builder:
@@ -686,11 +683,11 @@ class _MrLvl3State extends State<MrLvl3> with SingleTickerProviderStateMixin {
                                                             }
                                                           },
                                                           onRetry: () {
-                                                            initGame();
-                                                            setState(() {});
                                                             Navigator.of(
                                                               context,
                                                             ).pop();
+                                                            initGame();
+                                                            setState(() {});
                                                           },
                                                         ),
                                                   ),

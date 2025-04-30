@@ -398,17 +398,18 @@ class _HnLvl2State extends State<HnLvl2> {
                                       context,
                                     ).colorScheme.primary.withOpacity(0.3),
                                   ),
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(
+                                  onPressed: () async {
+                                    final result = await Navigator.of(
+                                      context,
+                                    ).push(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
-                                              initialPercent: 0.30,
+                                              initialPercent: 0.25,
                                               onLevelsList: () {
                                                 final languageCubit =
                                                     context
                                                         .read<LanguageCubit>();
-
                                                 languageCubit.emit(
                                                   LevelListUpdated(
                                                     levelPages:
@@ -416,7 +417,6 @@ class _HnLvl2State extends State<HnLvl2> {
                                                             .levelPages,
                                                   ),
                                                 );
-
                                                 Navigator.of(
                                                   context,
                                                 ).pushAndRemoveUntil(
@@ -425,28 +425,22 @@ class _HnLvl2State extends State<HnLvl2> {
                                                         (context) =>
                                                             const HindiPage(),
                                                   ),
-                                                  (route) =>
-                                                      route
-                                                          .isFirst, // Keep only the home page in the stack
+                                                  (route) => route.isFirst,
                                                 );
                                               },
                                               onNextLevel: () {
-                                                Navigator.of(context).pop();
                                                 final languageCubit =
                                                     context
                                                         .read<LanguageCubit>();
-
-                                                languageCubit
-                                                    .nextlvl(); // Save progress & move to next level
-
+                                                languageCubit.nextlvl();
                                                 String? nextLevel =
                                                     languageCubit.currentLevel;
-
                                                 if (nextLevel != null &&
                                                     languageCubit.levelPages
                                                         .containsKey(
                                                           nextLevel,
                                                         )) {
+                                                  Navigator.of(context).pop();
                                                   Navigator.of(
                                                     context,
                                                   ).pushReplacement(
@@ -462,16 +456,18 @@ class _HnLvl2State extends State<HnLvl2> {
                                                 }
                                               },
                                               onRetry: () {
-                                                Navigator.of(context).pop();
-                                                _currentPage = 0;
-                                                _pageController.animateToPage(
-                                                  _currentPage,
-                                                  duration: Duration(
-                                                    milliseconds: 500,
-                                                  ),
-                                                  curve: Curves.linear,
-                                                );
-                                                setState(() {});
+                                                Navigator.of(
+                                                  context,
+                                                ).pop(); // Close the LevelEndingWidget
+                                                setState(
+                                                  () => _currentPage = 0,
+                                                ); // Reset the current page to 0
+                                                WidgetsBinding.instance
+                                                    .addPostFrameCallback((_) {
+                                                      _pageController.jumpToPage(
+                                                        0,
+                                                      ); // Jump to the first page
+                                                    });
                                               },
                                             ),
                                       ),

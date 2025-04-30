@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:major_project1/features/languages/presentation/pages/marathi/page/marathi_page.dart';
 import 'package:major_project1/features/levels/components/lvl_endingWidget.dart';
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
@@ -607,15 +606,13 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                     .withOpacity(0.5),
                                               ),
                                               onPressed: () {
-                                                Navigator.of(
-                                                  context,
-                                                ).pushReplacement(
+                                                Navigator.of(context).push(
                                                   MaterialPageRoute(
                                                     builder:
                                                         (
                                                           context,
                                                         ) => LevelEndingWidget(
-                                                          initialPercent: 0.45,
+                                                          initialPercent: 0.25,
                                                           onLevelsList: () {
                                                             final languageCubit =
                                                                 context
@@ -666,6 +663,9 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                                     )) {
                                                               Navigator.of(
                                                                 context,
+                                                              ).pop();
+                                                              Navigator.of(
+                                                                context,
                                                               ).pushReplacement(
                                                                 MaterialPageRoute(
                                                                   builder:
@@ -683,11 +683,11 @@ class _HnLvl3State extends State<HnLvl3> with SingleTickerProviderStateMixin {
                                                             }
                                                           },
                                                           onRetry: () {
-                                                            initGame();
-                                                            setState(() {});
                                                             Navigator.of(
                                                               context,
                                                             ).pop();
+                                                            initGame();
+                                                            setState(() {});
                                                           },
                                                         ),
                                                   ),

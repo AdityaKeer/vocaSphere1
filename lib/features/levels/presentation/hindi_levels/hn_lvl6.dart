@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+
 import '../../../languages/cubits/language_cubit.dart';
 import '../../../languages/cubits/language_state.dart';
-import '../../../languages/presentation/pages/hindi/page/hindi_page.dart';
+import '../../../languages/presentation/pages/marathi/page/marathi_page.dart';
+import '../../../languages/presentation/pages/sanskrit/page/sanskrit_page.dart';
 import '../../components/lvl_endingWidget.dart';
 
 class HnLvl6 extends StatefulWidget {
@@ -16,42 +18,40 @@ class HnLvl6 extends StatefulWidget {
 
 class _HnLvl6State extends State<HnLvl6> {
   final FlutterTts flutterTts = FlutterTts();
+  final PageController _pageController = PageController();
+
   int currentIndex = 0;
   int score = 0;
   List<DocumentSnapshot> questions = [];
-
   Map<int, String> selectedAnswers = {};
-
-  final PageController _pageController = PageController();
-  int _currentPage = 0;
 
   @override
   void initState() {
     super.initState();
-    fetchQuestions();
+    resetQuiz(); // Call reset on init
   }
 
-  Future<void> fetchQuestions() async {
+  Future<void> resetQuiz() async {
     final snapshot =
         await FirebaseFirestore.instance.collection('hindiQuiz').get();
+
     setState(() {
-      questions = snapshot.docs;
+      questions = snapshot.docs..shuffle(); // Shuffle for randomness
+      currentIndex = 0;
+      score = 0;
+      selectedAnswers.clear();
     });
   }
 
   void nextQuestion() {
     if (currentIndex < questions.length - 1) {
-      setState(() {
-        currentIndex++;
-      });
+      setState(() => currentIndex++);
     }
   }
 
   void previousQuestion() {
     if (currentIndex > 0) {
-      setState(() {
-        currentIndex--;
-      });
+      setState(() => currentIndex--);
     }
   }
 
@@ -102,7 +102,7 @@ class _HnLvl6State extends State<HnLvl6> {
         title: const Text('Level 6'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(25),
         child: Column(
           children: [
             Row(
@@ -118,7 +118,7 @@ class _HnLvl6State extends State<HnLvl6> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             LinearProgressIndicator(
               value: progress,
               color: Colors.deepPurple,
@@ -126,10 +126,10 @@ class _HnLvl6State extends State<HnLvl6> {
               minHeight: 10,
               borderRadius: BorderRadius.circular(8),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.yellow.shade100,
                 borderRadius: BorderRadius.circular(16),
@@ -143,7 +143,7 @@ class _HnLvl6State extends State<HnLvl6> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
             ...options.map((option) {
               bool isSelected = selectedAnswer == option;
               bool isCorrect = option == correctAnswer;
@@ -161,7 +161,7 @@ class _HnLvl6State extends State<HnLvl6> {
                   duration: const Duration(milliseconds: 300),
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   padding: const EdgeInsets.symmetric(
-                    vertical: 16,
+                    vertical: 15,
                     horizontal: 16,
                   ),
                   decoration: BoxDecoration(
@@ -216,7 +216,7 @@ class _HnLvl6State extends State<HnLvl6> {
                             Theme.of(context).colorScheme.onPrimary,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 10,
-                          vertical: 16,
+                          vertical: 12,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -227,7 +227,7 @@ class _HnLvl6State extends State<HnLvl6> {
                         ).colorScheme.primary.withOpacity(0.3),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(
+                        Navigator.of(context).push(
                           MaterialPageRoute(
                             builder:
                                 (context) => LevelEndingWidget(
@@ -242,7 +242,8 @@ class _HnLvl6State extends State<HnLvl6> {
                                     );
                                     Navigator.of(context).pushAndRemoveUntil(
                                       MaterialPageRoute(
-                                        builder: (context) => const HindiPage(),
+                                        builder:
+                                            (context) => const MarathiPage(),
                                       ),
                                       (route) => route.isFirst,
                                     );
@@ -270,17 +271,9 @@ class _HnLvl6State extends State<HnLvl6> {
                                       Navigator.of(context).pop();
                                     }
                                   },
-                                  onRetry: () {
+                                  onRetry: () async {
                                     Navigator.of(context).pop();
-                                    _currentPage = 0;
-                                    _pageController.animateToPage(
-                                      _currentPage,
-                                      duration: const Duration(
-                                        milliseconds: 500,
-                                      ),
-                                      curve: Curves.linear,
-                                    );
-                                    setState(() {});
+                                    await resetQuiz(); // 🧠 RESET
                                   },
                                 ),
                           ),

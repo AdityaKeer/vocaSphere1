@@ -616,15 +616,13 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                                   .withOpacity(0.5),
                                             ),
                                             onPressed: () {
-                                              Navigator.of(
-                                                context,
-                                              ).pushReplacement(
+                                              Navigator.of(context).push(
                                                 MaterialPageRoute(
                                                   builder:
                                                       (
                                                         context,
                                                       ) => LevelEndingWidget(
-                                                        initialPercent: 0.45,
+                                                        initialPercent: 0.25,
                                                         onLevelsList: () {
                                                           final languageCubit =
                                                               context
@@ -675,6 +673,9 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                                                   )) {
                                                             Navigator.of(
                                                               context,
+                                                            ).pop();
+                                                            Navigator.of(
+                                                              context,
                                                             ).pushReplacement(
                                                               MaterialPageRoute(
                                                                 builder:
@@ -690,11 +691,11 @@ class _JpLvl3State extends State<JpLvl3> with SingleTickerProviderStateMixin {
                                                           }
                                                         },
                                                         onRetry: () {
-                                                          initGame();
-                                                          setState(() {});
                                                           Navigator.of(
                                                             context,
                                                           ).pop();
+                                                          initGame();
+                                                          setState(() {});
                                                         },
                                                       ),
                                                 ),

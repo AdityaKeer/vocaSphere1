@@ -38,10 +38,7 @@ class _SaLvl2State extends State<SaLvl2> {
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Row(
                 children: [
-                  Text(
-                    'Marathi Consonants(व्यंजन)',
-                    style: theme.textTheme.titleLarge,
-                  ),
+                  Text('Marathi Consonants', style: theme.textTheme.titleLarge),
                   Spacer(),
                   Text(
                     '${_currentPage + 1}/36',
@@ -385,8 +382,10 @@ class _SaLvl2State extends State<SaLvl2> {
                                       context,
                                     ).colorScheme.primary.withOpacity(0.3),
                                   ),
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(
+                                  onPressed: () async {
+                                    final result = await Navigator.of(
+                                      context,
+                                    ).push(
                                       MaterialPageRoute(
                                         builder:
                                             (context) => LevelEndingWidget(
@@ -432,6 +431,7 @@ class _SaLvl2State extends State<SaLvl2> {
                                                         .containsKey(
                                                           nextLevel,
                                                         )) {
+                                                  Navigator.of(context).pop();
                                                   Navigator.of(
                                                     context,
                                                   ).pushReplacement(
@@ -447,16 +447,18 @@ class _SaLvl2State extends State<SaLvl2> {
                                                 }
                                               },
                                               onRetry: () {
-                                                Navigator.of(context).pop();
-                                                _currentPage = 0;
-                                                _pageController.animateToPage(
-                                                  _currentPage,
-                                                  duration: Duration(
-                                                    milliseconds: 500,
-                                                  ),
-                                                  curve: Curves.linear,
-                                                );
-                                                setState(() {});
+                                                Navigator.of(
+                                                  context,
+                                                ).pop(); // Close the LevelEndingWidget
+                                                setState(
+                                                  () => _currentPage = 0,
+                                                ); // Reset the current page to 0
+                                                WidgetsBinding.instance
+                                                    .addPostFrameCallback((_) {
+                                                      _pageController.jumpToPage(
+                                                        0,
+                                                      ); // Jump to the first page
+                                                    });
                                               },
                                             ),
                                       ),

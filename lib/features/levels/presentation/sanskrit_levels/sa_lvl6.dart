@@ -17,26 +17,28 @@ class SaLvl6 extends StatefulWidget {
 
 class _SaLvl6State extends State<SaLvl6> {
   final FlutterTts flutterTts = FlutterTts();
+  final PageController _pageController = PageController();
+
   int currentIndex = 0;
   int score = 0;
   List<DocumentSnapshot> questions = [];
-
   Map<int, String> selectedAnswers = {};
-
-  final PageController _pageController = PageController();
-  int _currentPage = 0;
 
   @override
   void initState() {
     super.initState();
-    fetchQuestions();
+    resetQuiz(); // Call reset on init
   }
 
-  Future<void> fetchQuestions() async {
+  Future<void> resetQuiz() async {
     final snapshot =
-        await FirebaseFirestore.instance.collection('hindiQuiz').get();
+        await FirebaseFirestore.instance.collection('sanskritQuiz').get();
+
     setState(() {
-      questions = snapshot.docs;
+      questions = snapshot.docs..shuffle(); // Shuffle for randomness
+      currentIndex = 0;
+      score = 0;
+      selectedAnswers.clear();
     });
   }
 
@@ -99,7 +101,7 @@ class _SaLvl6State extends State<SaLvl6> {
         title: const Text('Level 6'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(25),
         child: Column(
           children: [
             Row(
@@ -115,7 +117,7 @@ class _SaLvl6State extends State<SaLvl6> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             LinearProgressIndicator(
               value: progress,
               color: Colors.deepPurple,
@@ -123,10 +125,10 @@ class _SaLvl6State extends State<SaLvl6> {
               minHeight: 10,
               borderRadius: BorderRadius.circular(8),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.yellow.shade100,
                 borderRadius: BorderRadius.circular(16),
@@ -140,7 +142,7 @@ class _SaLvl6State extends State<SaLvl6> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
             ...options.map((option) {
               bool isSelected = selectedAnswer == option;
               bool isCorrect = option == correctAnswer;
@@ -158,7 +160,7 @@ class _SaLvl6State extends State<SaLvl6> {
                   duration: const Duration(milliseconds: 300),
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   padding: const EdgeInsets.symmetric(
-                    vertical: 16,
+                    vertical: 15,
                     horizontal: 16,
                   ),
                   decoration: BoxDecoration(
@@ -213,7 +215,7 @@ class _SaLvl6State extends State<SaLvl6> {
                             Theme.of(context).colorScheme.onPrimary,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 10,
-                          vertical: 16,
+                          vertical: 12,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -224,7 +226,7 @@ class _SaLvl6State extends State<SaLvl6> {
                         ).colorScheme.primary.withOpacity(0.3),
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(
+                        Navigator.of(context).push(
                           MaterialPageRoute(
                             builder:
                                 (context) => LevelEndingWidget(
@@ -268,17 +270,9 @@ class _SaLvl6State extends State<SaLvl6> {
                                       Navigator.of(context).pop();
                                     }
                                   },
-                                  onRetry: () {
+                                  onRetry: () async {
                                     Navigator.of(context).pop();
-                                    _currentPage = 0;
-                                    _pageController.animateToPage(
-                                      _currentPage,
-                                      duration: const Duration(
-                                        milliseconds: 500,
-                                      ),
-                                      curve: Curves.linear,
-                                    );
-                                    setState(() {});
+                                    await resetQuiz(); // 🧠 RESET
                                   },
                                 ),
                           ),
